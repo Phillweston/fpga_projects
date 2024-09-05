@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Oct 15 14:11:51 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : LCD1602_Update
+Top-level Entity Name : LCD1602_Update
+Family : Cyclone II
+Total logic elements : 166
+    Total combinational functions : 153
+    Dedicated logic registers : 67
+Total registers : 67
+Total pins : 66
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

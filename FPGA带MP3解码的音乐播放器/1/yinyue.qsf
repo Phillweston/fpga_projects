@@ -1,0 +1,85 @@
+# Copyright (C) 1991-2007 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		yinyue_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name DEVICE EP4CE6F17C8
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name TOP_LEVEL_ENTITY yinyue
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "7.1 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:05:36  DECEMBER 06, 2014"
+set_global_assignment -name LAST_QUARTUS_VERSION "11.0 SP1"
+set_global_assignment -name VECTOR_WAVEFORM_FILE song.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE yinyue.vwf
+set_global_assignment -name VERILOG_FILE div_clk12mhz.v
+set_global_assignment -name VERILOG_FILE div_clk6mhz.v
+set_global_assignment -name VERILOG_FILE div_clk4hz.v
+set_global_assignment -name VERILOG_FILE div_clk1mhz.v
+set_global_assignment -name VERILOG_FILE div_clk1khz.v
+set_global_assignment -name VERILOG_FILE song.v
+set_global_assignment -name VERILOG_FILE quma.v
+set_global_assignment -name VERILOG_FILE disp.v
+set_global_assignment -name BDF_FILE yinyue.bdf
+set_global_assignment -name VECTOR_WAVEFORM_FILE div_clk12mhz.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE div_clk6mhz.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE disp.vwf
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_global_assignment -name VECTOR_WAVEFORM_FILE div_clk4hz.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE div_clk1mhz.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE div_clk1khz.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE quma.vwf
+set_location_assignment PIN_B8 -to seg[6]
+set_location_assignment PIN_A7 -to seg[5]
+set_location_assignment PIN_B5 -to seg[3]
+set_location_assignment PIN_A6 -to seg[2]
+set_location_assignment PIN_A8 -to seg[1]
+set_location_assignment PIN_G11 -to speaker
+set_location_assignment PIN_B6 -to seg[4]
+set_location_assignment PIN_B7 -to seg[0]
+set_location_assignment PIN_A5 -to seg[7]
+set_location_assignment PIN_B4 -to dig[1]
+set_location_assignment PIN_A3 -to dig[2]
+set_location_assignment PIN_B3 -to dig[3]
+set_location_assignment PIN_A2 -to dig[4]
+set_location_assignment PIN_B1 -to dig[5]
+set_location_assignment PIN_E1 -to clk_48mhz
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE song.vwf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_location_assignment PIN_E15 -to k
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_A4 -to dig[0]
+set_global_assignment -name MISC_FILE "C:/Users/dzx/Desktop/yinyue/yinyue.dpf"
+set_global_assignment -name MISC_FILE "D:/yinyue/yinyue.dpf"
+set_global_assignment -name VERILOG_FILE led.v
+set_global_assignment -name MISC_FILE "C:/Users/Administrator/Desktop/yinyue/yinyue.dpf"
+set_location_assignment PIN_G15 -to pin_name
+set_location_assignment PIN_F15 -to pin_name4
+set_global_assignment -name BDF_FILE Block1.bdf
+set_location_assignment PIN_F16 -to pin_name5
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name BDF_FILE "E:/yinyuebofangqi.bdf"
+set_global_assignment -name BDF_FILE "E:/¡§¡ã?¡§¡è?2¡ê¡è?¡è????.bdf"

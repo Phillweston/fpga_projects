@@ -1,0 +1,198 @@
+Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition
+41
+2939
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+xulie_top
+# storage
+db|xulie.(0).cnf
+db|xulie.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+xulie_top.vhd
+9ae11165778154dd1e452b1a78670
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+|
+}
+# lmf
+f:|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+xulie
+# storage
+db|xulie.(1).cnf
+db|xulie.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+xulie.vhd
+7121d21b5812c5a639e1ede734637b
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(xulie_data)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(counter1)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(counter2)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(counter3)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(ab)
+3 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+xulie:u1
+}
+# lmf
+f:|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+m_seq
+# storage
+db|xulie.(2).cnf
+db|xulie.(2).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+m_seq.vhd
+8d199f791d77ab973563e1253a6cfbad
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+m_seq:u2
+}
+# lmf
+f:|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# entity
+seg
+# storage
+db|xulie.(3).cnf
+db|xulie.(3).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+seg.vhd
+2c19b2336c452fcf2b48fdfff4471db
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# user_parameter {
+ constraint(counter1)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(counter2)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(counter3)
+3 downto 0
+PARAMETER_STRING
+USR
+ constraint(seg_duan)
+7 downto 0
+PARAMETER_STRING
+USR
+ constraint(seg_wei)
+4 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+seg:u3
+}
+# lmf
+f:|altera|90sp2|quartus|lmf|maxplus2.lmf
+9a59d39b0706640b4b2718e8a1ff1f
+# macro_sequence
+
+# end
+# complete
+

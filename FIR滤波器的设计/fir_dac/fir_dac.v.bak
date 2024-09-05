@@ -1,0 +1,55 @@
+/********************************版权声明**************************************
+**                              大西瓜团队
+**                            
+**----------------------------文件信息--------------------------
+** 文件名称：
+** 创建日期：
+** 功能描述：
+             
+** 操作过程：
+** 硬件平台：大西瓜第一代开发板 http://daxiguafpga.taobao.com
+** 版权声明：本代码属个人知识产权,本代码仅供交流学习.
+**---------------------------修改文件的相关信息----------------
+** 修改人：wjr
+** 修改日期：		
+** 修改内容：
+*******************************************************************************/
+module fir_dac(
+              clk,
+              reset_n,
+              key_in,
+              sclk,                  //TLC5615 sclk时钟脚
+              din,                   //TLC5615 din数据脚
+              cs                    //TLC5615 cs片选
+              );
+input  clk;
+input  reset_n;
+input  key_in;
+output sclk;
+output din;
+output cs;
+
+wire [9:0]data_line;
+wire [9:0]fir_data;
+wire [9:0]data_in;
+wire [9:0]fir_data_20;
+fir fir_top(
+           .clk(clk),
+           .reset_n(reset_n),
+           .data_in(data_in),  //谐波信号
+           .fir_data(fir_data), //8滤波之后的信号
+           .fir_data_20(fir_data_20)//21滤波之后的信号
+           );
+TLC5615 tlc5615_top(
+           .clk(clk),//内部时钟
+           .sclk(sclk),//TLC5615 sclk时钟脚
+           .din(din),//TLC5615 din数据脚
+           .cs(cs),//TLC5615 cs片选
+           .din_in(data_line));//十位数据输入 
+key key_top(
+          .key_in(key_in),
+          .data_out(data_line),
+          .data1(fir_data),
+          .data2(data_in)
+          );
+endmodule

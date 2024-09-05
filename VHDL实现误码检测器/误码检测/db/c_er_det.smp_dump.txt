@@ -1,0 +1,7 @@
+
+State Machine - |c_er_det|syn:syn_m|present
+Name present.st3 present.st2 present.st1 present.st0 
+present.st0 0 0 0 0 
+present.st1 0 0 1 1 
+present.st2 0 1 0 1 
+present.st3 1 0 0 1 

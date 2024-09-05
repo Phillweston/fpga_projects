@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Mar 22 21:04:29 2015
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : trafficlight
+Top-level Entity Name : trafficlight
+Family : Cyclone II
+Total logic elements : 184
+    Total combinational functions : 173
+    Dedicated logic registers : 87
+Total registers : 87
+Total pins : 22
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

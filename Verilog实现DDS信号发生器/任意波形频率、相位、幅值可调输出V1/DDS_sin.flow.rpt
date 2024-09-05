@@ -1,0 +1,144 @@
+Flow report for DDS_sin
+Mon May 05 17:06:18 2014
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Flow Summary                                                                  ;
++------------------------------------+------------------------------------------+
+; Flow Status                        ; Successful - Mon May 05 17:06:18 2014    ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name                      ; DDS_sin                                  ;
+; Top-level Entity Name              ; DDS_top                                  ;
+; Family                             ; Cyclone II                               ;
+; Device                             ; EP2C5T144C8                              ;
+; Timing Models                      ; Final                                    ;
+; Met timing requirements            ; Yes                                      ;
+; Total logic elements               ; 519 / 4,608 ( 11 % )                     ;
+;     Total combinational functions  ; 505 / 4,608 ( 11 % )                     ;
+;     Dedicated logic registers      ; 228 / 4,608 ( 5 % )                      ;
+; Total registers                    ; 228                                      ;
+; Total pins                         ; 19 / 89 ( 21 % )                         ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 15,360 / 119,808 ( 13 % )                ;
+; Embedded Multiplier 9-bit elements ; 0 / 26 ( 0 % )                           ;
+; Total PLLs                         ; 0 / 2 ( 0 % )                            ;
++------------------------------------+------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 05/05/2014 17:05:30 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; DDS_sin             ;
++-------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                                     ;
++------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
+; Assignment Name                    ; Value                                                                                                                                            ; Default Value ; Entity Name ; Section Id     ;
++------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID              ; 220152335733488.139928073005608                                                                                                                  ; --            ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT             ; Verilog Hdl                                                                                                                                      ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                ; ModelSim (Verilog)                                                                                                                               ; <None>        ; --          ; --             ;
+; EDA_TIME_SCALE                     ; 1 ps                                                                                                                                             ; --            ; --          ; eda_simulation ;
+; IP_TOOL_NAME                       ; ROM: 1-PORT                                                                                                                                      ; --            ; --          ; --             ;
+; IP_TOOL_NAME                       ; ROM: 1-PORT                                                                                                                                      ; --            ; --          ; --             ;
+; IP_TOOL_NAME                       ; ROM: 1-PORT                                                                                                                                      ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                    ; 9.0                                                                                                                                              ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                    ; 9.0                                                                                                                                              ; --            ; --          ; --             ;
+; IP_TOOL_VERSION                    ; 9.0                                                                                                                                              ; --            ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP             ; 85                                                                                                                                               ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP             ; 0                                                                                                                                                ; --            ; --          ; --             ;
+; MISC_FILE                          ; G:/大西瓜FPGA开发板资料（待发布）/大西瓜第一代FPGA开发板Verilog例程和教程/开发板进阶实验/基于DDS的DA正弦波输出/基于DDS的DA正弦波输出/DDS_sin.dpf ; --            ; --          ; --             ;
+; MISC_FILE                          ; G:/大西瓜FPGA开发板资料（待发布）/大西瓜第一代FPGA开发板Verilog例程和教程/开发板进阶实验/任意波形频率、相位、幅值可调输出/DDS_sin.dpf            ; --            ; --          ; --             ;
+; MISC_FILE                          ; F:/wjr/接毕设/任意波形频率、相位、幅值可调输出V1/DDS_sin.dpf                                                                                     ; --            ; --          ; --             ;
+; MISC_FILE                          ; sin_rom_bb.v                                                                                                                                     ; --            ; --          ; --             ;
+; MISC_FILE                          ; sin_rom.inc                                                                                                                                      ; --            ; --          ; --             ;
+; MISC_FILE                          ; sin_rom.cmp                                                                                                                                      ; --            ; --          ; --             ;
+; MISC_FILE                          ; tri_rom_bb.v                                                                                                                                     ; --            ; --          ; --             ;
+; MISC_FILE                          ; tri_rom.inc                                                                                                                                      ; --            ; --          ; --             ;
+; MISC_FILE                          ; squ_rom_bb.v                                                                                                                                     ; --            ; --          ; --             ;
+; MISC_FILE                          ; squ_rom.inc                                                                                                                                      ; --            ; --          ; --             ;
+; MISC_FILE                          ; G:/project/基于FPGA的信号发生器/任意波形频率、相位、幅值可调输出V1/DDS_sin.dpf                                                                   ; --            ; --          ; --             ;
+; PARTITION_COLOR                    ; 16764057                                                                                                                                         ; --            ; DDS_top     ; Top            ;
+; PARTITION_NETLIST_TYPE             ; SOURCE                                                                                                                                           ; --            ; DDS_top     ; Top            ;
+; TOP_LEVEL_ENTITY                   ; DDS_top                                                                                                                                          ; DDS_sin       ; --          ; --             ;
+; USE_GENERATED_PHYSICAL_CONSTRAINTS ; Off                                                                                                                                              ; --            ; --          ; eda_blast_fpga ;
++------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                           ;
++-------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++-------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis    ; 00:00:14     ; 1.0                     ; 200 MB              ; 00:00:13                           ;
+; Fitter                  ; 00:00:10     ; 1.0                     ; 192 MB              ; 00:00:10                           ;
+; Assembler               ; 00:00:06     ; 1.0                     ; 156 MB              ; 00:00:06                           ;
+; Classic Timing Analyzer ; 00:00:01     ; 1.0                     ; 124 MB              ; 00:00:01                           ;
+; EDA Netlist Writer      ; 00:00:02     ; 1.0                     ; 128 MB              ; 00:00:02                           ;
+; Total                   ; 00:00:33     ; --                      ; --                  ; 00:00:32                           ;
++-------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                       ;
++-------------------------+------------------+------------+------------+----------------+
+; Module Name             ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++-------------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis    ; PCPE             ; Windows XP ; 5.1        ; i686           ;
+; Fitter                  ; PCPE             ; Windows XP ; 5.1        ; i686           ;
+; Assembler               ; PCPE             ; Windows XP ; 5.1        ; i686           ;
+; Classic Timing Analyzer ; PCPE             ; Windows XP ; 5.1        ; i686           ;
+; EDA Netlist Writer      ; PCPE             ; Windows XP ; 5.1        ; i686           ;
++-------------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off DDS_sin -c DDS_sin
+quartus_fit --read_settings_files=off --write_settings_files=off DDS_sin -c DDS_sin
+quartus_asm --read_settings_files=off --write_settings_files=off DDS_sin -c DDS_sin
+quartus_tan --read_settings_files=off --write_settings_files=off DDS_sin -c DDS_sin --timing_analysis_only
+quartus_eda --read_settings_files=off --write_settings_files=off DDS_sin -c DDS_sin
+
+
+

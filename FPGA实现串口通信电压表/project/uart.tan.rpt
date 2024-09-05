@@ -1,0 +1,587 @@
+Classic Timing Analyzer report for uart
+Fri Jun 06 10:57:58 2014
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------+----------------------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                           ; To                               ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------+----------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 6.627 ns                         ; reset_n                        ; uart:inst|div_reg[3]             ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 13.842 ns                        ; ADC_TLC549:inst2|segdata[4]~en ; segdata[4]                       ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -0.749 ns                        ; data                           ; ADC_TLC549:inst2|dataout[0]      ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 10.33 MHz ( period = 96.848 ns ) ; ADC_TLC549:inst2|tenvalue[15]  ; ADC_TLC549:inst2|segdata[1]~reg0 ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                                ;                                  ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+--------------------------------+----------------------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C5T144C8        ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                                            ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------+-----------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                          ; To                                ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------+-----------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 10.33 MHz ( period = 96.848 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 48.163 ns               ;
+; N/A                                     ; 10.40 MHz ( period = 96.138 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.799 ns               ;
+; N/A                                     ; 10.43 MHz ( period = 95.906 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.686 ns               ;
+; N/A                                     ; 10.43 MHz ( period = 95.852 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.665 ns               ;
+; N/A                                     ; 10.44 MHz ( period = 95.814 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.640 ns               ;
+; N/A                                     ; 10.45 MHz ( period = 95.692 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.585 ns               ;
+; N/A                                     ; 10.47 MHz ( period = 95.480 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.473 ns               ;
+; N/A                                     ; 10.50 MHz ( period = 95.250 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.355 ns               ;
+; N/A                                     ; 10.51 MHz ( period = 95.142 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.301 ns               ;
+; N/A                                     ; 10.53 MHz ( period = 94.982 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.221 ns               ;
+; N/A                                     ; 10.54 MHz ( period = 94.910 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.188 ns               ;
+; N/A                                     ; 10.55 MHz ( period = 94.818 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.142 ns               ;
+; N/A                                     ; 10.55 MHz ( period = 94.750 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.108 ns               ;
+; N/A                                     ; 10.56 MHz ( period = 94.658 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 47.062 ns               ;
+; N/A                                     ; 10.58 MHz ( period = 94.484 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.975 ns               ;
+; N/A                                     ; 10.59 MHz ( period = 94.420 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.943 ns               ;
+; N/A                                     ; 10.59 MHz ( period = 94.408 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.934 ns               ;
+; N/A                                     ; 10.60 MHz ( period = 94.324 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.895 ns               ;
+; N/A                                     ; 10.61 MHz ( period = 94.254 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.857 ns               ;
+; N/A                                     ; 10.63 MHz ( period = 94.094 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.777 ns               ;
+; N/A                                     ; 10.67 MHz ( period = 93.712 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.595 ns               ;
+; N/A                                     ; 10.70 MHz ( period = 93.424 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.445 ns               ;
+; N/A                                     ; 10.71 MHz ( period = 93.412 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.436 ns               ;
+; N/A                                     ; 10.72 MHz ( period = 93.264 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.365 ns               ;
+; N/A                                     ; 10.72 MHz ( period = 93.252 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.356 ns               ;
+; N/A                                     ; 10.73 MHz ( period = 93.238 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 46.358 ns               ;
+; N/A                                     ; 10.73 MHz ( period = 93.236 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 46.357 ns               ;
+; N/A                                     ; 10.73 MHz ( period = 93.234 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 46.356 ns               ;
+; N/A                                     ; 10.73 MHz ( period = 93.234 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 46.356 ns               ;
+; N/A                                     ; 10.73 MHz ( period = 93.234 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 46.356 ns               ;
+; N/A                                     ; 10.73 MHz ( period = 93.234 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 46.356 ns               ;
+; N/A                                     ; 10.73 MHz ( period = 93.230 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 46.354 ns               ;
+; N/A                                     ; 10.75 MHz ( period = 93.002 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.231 ns               ;
+; N/A                                     ; 10.78 MHz ( period = 92.770 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.118 ns               ;
+; N/A                                     ; 10.79 MHz ( period = 92.678 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 46.072 ns               ;
+; N/A                                     ; 10.83 MHz ( period = 92.344 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 45.905 ns               ;
+; N/A                                     ; 10.84 MHz ( period = 92.242 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 45.860 ns               ;
+; N/A                                     ; 10.84 MHz ( period = 92.240 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 45.859 ns               ;
+; N/A                                     ; 10.84 MHz ( period = 92.238 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 45.858 ns               ;
+; N/A                                     ; 10.84 MHz ( period = 92.238 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 45.858 ns               ;
+; N/A                                     ; 10.84 MHz ( period = 92.238 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 45.858 ns               ;
+; N/A                                     ; 10.84 MHz ( period = 92.238 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 45.858 ns               ;
+; N/A                                     ; 10.84 MHz ( period = 92.234 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 45.856 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.114 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 45.787 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.082 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 45.780 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.080 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 45.779 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.078 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 45.778 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.078 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 45.778 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.078 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 45.778 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.078 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 45.778 ns               ;
+; N/A                                     ; 10.86 MHz ( period = 92.074 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 45.776 ns               ;
+; N/A                                     ; 10.87 MHz ( period = 92.008 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 45.743 ns               ;
+; N/A                                     ; 10.95 MHz ( period = 91.284 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 45.375 ns               ;
+; N/A                                     ; 10.96 MHz ( period = 91.272 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 45.366 ns               ;
+; N/A                                     ; 10.99 MHz ( period = 91.012 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 45.245 ns               ;
+; N/A                                     ; 11.01 MHz ( period = 90.852 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 45.165 ns               ;
+; N/A                                     ; 11.10 MHz ( period = 90.102 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 44.790 ns               ;
+; N/A                                     ; 11.10 MHz ( period = 90.100 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 44.789 ns               ;
+; N/A                                     ; 11.10 MHz ( period = 90.098 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 44.788 ns               ;
+; N/A                                     ; 11.10 MHz ( period = 90.098 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 44.788 ns               ;
+; N/A                                     ; 11.10 MHz ( period = 90.098 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 44.788 ns               ;
+; N/A                                     ; 11.10 MHz ( period = 90.098 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 44.788 ns               ;
+; N/A                                     ; 11.10 MHz ( period = 90.094 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 44.786 ns               ;
+; N/A                                     ; 11.21 MHz ( period = 89.182 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 44.328 ns               ;
+; N/A                                     ; 11.25 MHz ( period = 88.872 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 44.175 ns               ;
+; N/A                                     ; 11.31 MHz ( period = 88.456 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 43.959 ns               ;
+; N/A                                     ; 11.36 MHz ( period = 88.062 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 43.759 ns               ;
+; N/A                                     ; 11.36 MHz ( period = 88.056 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 43.759 ns               ;
+; N/A                                     ; 11.39 MHz ( period = 87.780 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 43.621 ns               ;
+; N/A                                     ; 11.41 MHz ( period = 87.648 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 43.555 ns               ;
+; N/A                                     ; 11.43 MHz ( period = 87.482 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 43.469 ns               ;
+; N/A                                     ; 11.46 MHz ( period = 87.294 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 43.375 ns               ;
+; N/A                                     ; 11.48 MHz ( period = 87.116 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 43.295 ns               ;
+; N/A                                     ; 11.48 MHz ( period = 87.114 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 43.294 ns               ;
+; N/A                                     ; 11.48 MHz ( period = 87.112 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 43.293 ns               ;
+; N/A                                     ; 11.48 MHz ( period = 87.112 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 43.293 ns               ;
+; N/A                                     ; 11.48 MHz ( period = 87.112 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 43.293 ns               ;
+; N/A                                     ; 11.48 MHz ( period = 87.112 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 43.293 ns               ;
+; N/A                                     ; 11.48 MHz ( period = 87.108 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 43.291 ns               ;
+; N/A                                     ; 11.64 MHz ( period = 85.886 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 42.680 ns               ;
+; N/A                                     ; 12.00 MHz ( period = 83.300 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 41.419 ns               ;
+; N/A                                     ; 12.11 MHz ( period = 82.574 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 41.050 ns               ;
+; N/A                                     ; 12.17 MHz ( period = 82.180 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 40.850 ns               ;
+; N/A                                     ; 12.17 MHz ( period = 82.174 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 40.850 ns               ;
+; N/A                                     ; 12.21 MHz ( period = 81.898 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 40.712 ns               ;
+; N/A                                     ; 12.23 MHz ( period = 81.766 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 40.646 ns               ;
+; N/A                                     ; 12.25 MHz ( period = 81.600 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 40.560 ns               ;
+; N/A                                     ; 12.28 MHz ( period = 81.412 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 40.466 ns               ;
+; N/A                                     ; 12.31 MHz ( period = 81.234 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 40.386 ns               ;
+; N/A                                     ; 12.31 MHz ( period = 81.232 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 40.385 ns               ;
+; N/A                                     ; 12.31 MHz ( period = 81.230 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 40.384 ns               ;
+; N/A                                     ; 12.31 MHz ( period = 81.230 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 40.384 ns               ;
+; N/A                                     ; 12.31 MHz ( period = 81.230 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 40.384 ns               ;
+; N/A                                     ; 12.31 MHz ( period = 81.230 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 40.384 ns               ;
+; N/A                                     ; 12.31 MHz ( period = 81.226 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 40.382 ns               ;
+; N/A                                     ; 12.48 MHz ( period = 80.120 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 39.829 ns               ;
+; N/A                                     ; 12.50 MHz ( period = 80.004 ns )                    ; ADC_TLC549:inst2|tenvalue[10] ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 39.771 ns               ;
+; N/A                                     ; 12.60 MHz ( period = 79.394 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 39.460 ns               ;
+; N/A                                     ; 12.66 MHz ( period = 79.000 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 39.260 ns               ;
+; N/A                                     ; 12.66 MHz ( period = 78.994 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 39.260 ns               ;
+; N/A                                     ; 12.70 MHz ( period = 78.718 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 39.122 ns               ;
+; N/A                                     ; 12.72 MHz ( period = 78.586 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 39.056 ns               ;
+; N/A                                     ; 12.75 MHz ( period = 78.420 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 38.970 ns               ;
+; N/A                                     ; 12.78 MHz ( period = 78.232 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 38.876 ns               ;
+; N/A                                     ; 12.81 MHz ( period = 78.054 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 38.796 ns               ;
+; N/A                                     ; 12.81 MHz ( period = 78.052 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 38.795 ns               ;
+; N/A                                     ; 12.81 MHz ( period = 78.050 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 38.794 ns               ;
+; N/A                                     ; 12.81 MHz ( period = 78.050 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 38.794 ns               ;
+; N/A                                     ; 12.81 MHz ( period = 78.050 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 38.794 ns               ;
+; N/A                                     ; 12.81 MHz ( period = 78.050 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 38.794 ns               ;
+; N/A                                     ; 12.81 MHz ( period = 78.046 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 38.792 ns               ;
+; N/A                                     ; 13.02 MHz ( period = 76.824 ns )                    ; ADC_TLC549:inst2|tenvalue[9]  ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 38.181 ns               ;
+; N/A                                     ; 13.62 MHz ( period = 73.440 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 36.489 ns               ;
+; N/A                                     ; 13.75 MHz ( period = 72.714 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 36.120 ns               ;
+; N/A                                     ; 13.83 MHz ( period = 72.320 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 35.920 ns               ;
+; N/A                                     ; 13.83 MHz ( period = 72.314 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 35.920 ns               ;
+; N/A                                     ; 13.88 MHz ( period = 72.038 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 35.782 ns               ;
+; N/A                                     ; 13.91 MHz ( period = 71.906 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 35.716 ns               ;
+; N/A                                     ; 13.94 MHz ( period = 71.740 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 35.630 ns               ;
+; N/A                                     ; 13.98 MHz ( period = 71.552 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 35.536 ns               ;
+; N/A                                     ; 14.01 MHz ( period = 71.374 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 35.456 ns               ;
+; N/A                                     ; 14.01 MHz ( period = 71.372 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 35.455 ns               ;
+; N/A                                     ; 14.01 MHz ( period = 71.370 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 35.454 ns               ;
+; N/A                                     ; 14.01 MHz ( period = 71.370 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 35.454 ns               ;
+; N/A                                     ; 14.01 MHz ( period = 71.370 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 35.454 ns               ;
+; N/A                                     ; 14.01 MHz ( period = 71.370 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 35.454 ns               ;
+; N/A                                     ; 14.01 MHz ( period = 71.366 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 35.452 ns               ;
+; N/A                                     ; 14.26 MHz ( period = 70.144 ns )                    ; ADC_TLC549:inst2|tenvalue[8]  ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 34.841 ns               ;
+; N/A                                     ; 15.72 MHz ( period = 63.610 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 31.574 ns               ;
+; N/A                                     ; 15.88 MHz ( period = 62.964 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 31.245 ns               ;
+; N/A                                     ; 15.90 MHz ( period = 62.884 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 31.205 ns               ;
+; N/A                                     ; 15.91 MHz ( period = 62.856 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 31.188 ns               ;
+; N/A                                     ; 16.00 MHz ( period = 62.484 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 31.005 ns               ;
+; N/A                                     ; 16.08 MHz ( period = 62.208 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 30.867 ns               ;
+; N/A                                     ; 16.10 MHz ( period = 62.126 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 30.823 ns               ;
+; N/A                                     ; 16.20 MHz ( period = 61.722 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 30.621 ns               ;
+; N/A                                     ; 16.25 MHz ( period = 61.544 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 30.541 ns               ;
+; N/A                                     ; 16.25 MHz ( period = 61.542 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 30.540 ns               ;
+; N/A                                     ; 16.25 MHz ( period = 61.540 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 30.539 ns               ;
+; N/A                                     ; 16.25 MHz ( period = 61.540 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 30.539 ns               ;
+; N/A                                     ; 16.25 MHz ( period = 61.540 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 30.539 ns               ;
+; N/A                                     ; 16.25 MHz ( period = 61.540 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 30.539 ns               ;
+; N/A                                     ; 16.25 MHz ( period = 61.536 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 30.537 ns               ;
+; N/A                                     ; 16.58 MHz ( period = 60.314 ns )                    ; ADC_TLC549:inst2|tenvalue[7]  ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 29.926 ns               ;
+; N/A                                     ; 16.88 MHz ( period = 59.232 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 29.372 ns               ;
+; N/A                                     ; 16.91 MHz ( period = 59.124 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 29.315 ns               ;
+; N/A                                     ; 17.13 MHz ( period = 58.394 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 28.950 ns               ;
+; N/A                                     ; 17.26 MHz ( period = 57.936 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 28.730 ns               ;
+; N/A                                     ; 17.31 MHz ( period = 57.760 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 28.636 ns               ;
+; N/A                                     ; 17.39 MHz ( period = 57.506 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 28.515 ns               ;
+; N/A                                     ; 17.39 MHz ( period = 57.504 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 28.514 ns               ;
+; N/A                                     ; 17.39 MHz ( period = 57.502 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 28.513 ns               ;
+; N/A                                     ; 17.39 MHz ( period = 57.502 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 28.513 ns               ;
+; N/A                                     ; 17.39 MHz ( period = 57.502 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 28.513 ns               ;
+; N/A                                     ; 17.39 MHz ( period = 57.502 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 28.513 ns               ;
+; N/A                                     ; 17.39 MHz ( period = 57.498 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 28.511 ns               ;
+; N/A                                     ; 17.48 MHz ( period = 57.210 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 28.361 ns               ;
+; N/A                                     ; 17.60 MHz ( period = 56.810 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 28.161 ns               ;
+; N/A                                     ; 17.77 MHz ( period = 56.276 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 27.900 ns               ;
+; N/A                                     ; 17.84 MHz ( period = 56.048 ns )                    ; ADC_TLC549:inst2|tenvalue[6]  ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 27.777 ns               ;
+; N/A                                     ; 20.01 MHz ( period = 49.976 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[5]~reg0  ; clk        ; clk      ; None                        ; None                      ; 24.751 ns               ;
+; N/A                                     ; 20.05 MHz ( period = 49.868 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[4]~reg0  ; clk        ; clk      ; None                        ; None                      ; 24.694 ns               ;
+; N/A                                     ; 20.35 MHz ( period = 49.138 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 24.329 ns               ;
+; N/A                                     ; 20.40 MHz ( period = 49.026 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 24.282 ns               ;
+; N/A                                     ; 20.62 MHz ( period = 48.504 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 24.015 ns               ;
+; N/A                                     ; 20.73 MHz ( period = 48.250 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[0]~en    ; clk        ; clk      ; None                        ; None                      ; 23.894 ns               ;
+; N/A                                     ; 20.73 MHz ( period = 48.248 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[2]~en    ; clk        ; clk      ; None                        ; None                      ; 23.893 ns               ;
+; N/A                                     ; 20.73 MHz ( period = 48.246 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[7]~en    ; clk        ; clk      ; None                        ; None                      ; 23.892 ns               ;
+; N/A                                     ; 20.73 MHz ( period = 48.246 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[6]~en    ; clk        ; clk      ; None                        ; None                      ; 23.892 ns               ;
+; N/A                                     ; 20.73 MHz ( period = 48.246 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[5]~en    ; clk        ; clk      ; None                        ; None                      ; 23.892 ns               ;
+; N/A                                     ; 20.73 MHz ( period = 48.246 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[4]~en    ; clk        ; clk      ; None                        ; None                      ; 23.892 ns               ;
+; N/A                                     ; 20.73 MHz ( period = 48.242 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[1]~en    ; clk        ; clk      ; None                        ; None                      ; 23.890 ns               ;
+; N/A                                     ; 20.80 MHz ( period = 48.084 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 23.805 ns               ;
+; N/A                                     ; 20.91 MHz ( period = 47.828 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[2]~reg0  ; clk        ; clk      ; None                        ; None                      ; 23.677 ns               ;
+; N/A                                     ; 21.27 MHz ( period = 47.020 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[3]~en    ; clk        ; clk      ; None                        ; None                      ; 23.279 ns               ;
+; N/A                                     ; 21.43 MHz ( period = 46.666 ns )                    ; ADC_TLC549:inst2|tenvalue[5]  ; ADC_TLC549:inst2|segdata[7]~reg0  ; clk        ; clk      ; None                        ; None                      ; 23.093 ns               ;
+; N/A                                     ; 22.32 MHz ( period = 44.796 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|voltage_data1[1] ; clk        ; clk      ; None                        ; None                      ; 44.527 ns               ;
+; N/A                                     ; 22.32 MHz ( period = 44.795 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|voltage_data1[2] ; clk        ; clk      ; None                        ; None                      ; 44.526 ns               ;
+; N/A                                     ; 22.57 MHz ( period = 44.298 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|voltage_data1[1] ; clk        ; clk      ; None                        ; None                      ; 44.029 ns               ;
+; N/A                                     ; 22.57 MHz ( period = 44.297 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|voltage_data1[2] ; clk        ; clk      ; None                        ; None                      ; 44.028 ns               ;
+; N/A                                     ; 22.58 MHz ( period = 44.290 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|voltage_data1[3] ; clk        ; clk      ; None                        ; None                      ; 44.006 ns               ;
+; N/A                                     ; 22.62 MHz ( period = 44.218 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|voltage_data1[1] ; clk        ; clk      ; None                        ; None                      ; 43.949 ns               ;
+; N/A                                     ; 22.62 MHz ( period = 44.217 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|voltage_data1[2] ; clk        ; clk      ; None                        ; None                      ; 43.948 ns               ;
+; N/A                                     ; 22.84 MHz ( period = 43.792 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|voltage_data1[3] ; clk        ; clk      ; None                        ; None                      ; 43.508 ns               ;
+; N/A                                     ; 22.88 MHz ( period = 43.712 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|voltage_data1[3] ; clk        ; clk      ; None                        ; None                      ; 43.428 ns               ;
+; N/A                                     ; 23.13 MHz ( period = 43.233 ns )                    ; ADC_TLC549:inst2|tenvalue[15] ; ADC_TLC549:inst2|voltage_data1[0] ; clk        ; clk      ; None                        ; None                      ; 42.934 ns               ;
+; N/A                                     ; 23.13 MHz ( period = 43.228 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|voltage_data1[1] ; clk        ; clk      ; None                        ; None                      ; 42.959 ns               ;
+; N/A                                     ; 23.13 MHz ( period = 43.227 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|voltage_data1[2] ; clk        ; clk      ; None                        ; None                      ; 42.958 ns               ;
+; N/A                                     ; 23.40 MHz ( period = 42.735 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|voltage_data1[0] ; clk        ; clk      ; None                        ; None                      ; 42.436 ns               ;
+; N/A                                     ; 23.41 MHz ( period = 42.722 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|voltage_data1[3] ; clk        ; clk      ; None                        ; None                      ; 42.438 ns               ;
+; N/A                                     ; 23.44 MHz ( period = 42.655 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|voltage_data1[0] ; clk        ; clk      ; None                        ; None                      ; 42.356 ns               ;
+; N/A                                     ; 23.61 MHz ( period = 42.350 ns )                    ; ADC_TLC549:inst2|tenvalue[4]  ; ADC_TLC549:inst2|segdata[1]~reg0  ; clk        ; clk      ; None                        ; None                      ; 20.944 ns               ;
+; N/A                                     ; 24.00 MHz ( period = 41.665 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|voltage_data1[0] ; clk        ; clk      ; None                        ; None                      ; 41.366 ns               ;
+; N/A                                     ; 24.02 MHz ( period = 41.640 ns )                    ; ADC_TLC549:inst2|tenvalue[4]  ; ADC_TLC549:inst2|segdata[0]~reg0  ; clk        ; clk      ; None                        ; None                      ; 20.580 ns               ;
+; N/A                                     ; 24.10 MHz ( period = 41.500 ns )                    ; ADC_TLC549:inst2|tenvalue[14] ; ADC_TLC549:inst2|voltage_data2[0] ; clk        ; clk      ; None                        ; None                      ; 41.229 ns               ;
+; N/A                                     ; 24.15 MHz ( period = 41.408 ns )                    ; ADC_TLC549:inst2|tenvalue[4]  ; ADC_TLC549:inst2|segdata[6]~reg0  ; clk        ; clk      ; None                        ; None                      ; 20.467 ns               ;
+; N/A                                     ; 24.16 MHz ( period = 41.396 ns )                    ; ADC_TLC549:inst2|tenvalue[12] ; ADC_TLC549:inst2|voltage_data2[0] ; clk        ; clk      ; None                        ; None                      ; 41.125 ns               ;
+; N/A                                     ; 24.16 MHz ( period = 41.383 ns )                    ; ADC_TLC549:inst2|tenvalue[11] ; ADC_TLC549:inst2|voltage_data2[0] ; clk        ; clk      ; None                        ; None                      ; 41.110 ns               ;
+; N/A                                     ; 24.20 MHz ( period = 41.316 ns )                    ; ADC_TLC549:inst2|tenvalue[4]  ; ADC_TLC549:inst2|segdata[3]~reg0  ; clk        ; clk      ; None                        ; None                      ; 20.421 ns               ;
+; N/A                                     ; 24.24 MHz ( period = 41.246 ns )                    ; ADC_TLC549:inst2|tenvalue[13] ; ADC_TLC549:inst2|voltage_data2[0] ; clk        ; clk      ; None                        ; None                      ; 40.975 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                               ;                                   ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+-------------------------------+-----------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; tsu                                                                                        ;
++-------+--------------+------------+---------+-----------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From    ; To                                ; To Clock ;
++-------+--------------+------------+---------+-----------------------------------+----------+
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[11]             ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[10]             ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[8]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[9]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[14]             ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[12]             ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[13]             ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[15]             ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[7]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[5]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[4]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[6]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[2]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[1]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[0]              ; clk      ;
+; N/A   ; None         ; 6.627 ns   ; reset_n ; uart:inst|div_reg[3]              ; clk      ;
+; N/A   ; None         ; 5.232 ns   ; reset_n ; uart:inst|clkbaud8x               ; clk      ;
+; N/A   ; None         ; 4.214 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data4[1] ; clk      ;
+; N/A   ; None         ; 4.214 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data1[1] ; clk      ;
+; N/A   ; None         ; 4.214 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data4[2] ; clk      ;
+; N/A   ; None         ; 4.214 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data1[2] ; clk      ;
+; N/A   ; None         ; 4.214 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data3[2] ; clk      ;
+; N/A   ; None         ; 4.203 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data2[0] ; clk      ;
+; N/A   ; None         ; 4.203 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data2[1] ; clk      ;
+; N/A   ; None         ; 4.203 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data2[2] ; clk      ;
+; N/A   ; None         ; 4.203 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data2[3] ; clk      ;
+; N/A   ; None         ; 3.841 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data3[0] ; clk      ;
+; N/A   ; None         ; 3.841 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data3[1] ; clk      ;
+; N/A   ; None         ; 3.841 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data3[3] ; clk      ;
+; N/A   ; None         ; 3.804 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data1[3] ; clk      ;
+; N/A   ; None         ; 2.165 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data4[0] ; clk      ;
+; N/A   ; None         ; 2.165 ns   ; reset_n ; ADC_TLC549:inst2|voltage_data1[0] ; clk      ;
+; N/A   ; None         ; 1.015 ns   ; data    ; ADC_TLC549:inst2|dataout[0]       ; clk      ;
++-------+--------------+------------+---------+-----------------------------------+----------+
+
+
++------------------------------------------------------------------------------------------------+
+; tco                                                                                            ;
++-------+--------------+------------+----------------------------------+------------+------------+
+; Slack ; Required tco ; Actual tco ; From                             ; To         ; From Clock ;
++-------+--------------+------------+----------------------------------+------------+------------+
+; N/A   ; None         ; 13.842 ns  ; ADC_TLC549:inst2|segdata[4]~en   ; segdata[4] ; clk        ;
+; N/A   ; None         ; 13.607 ns  ; ADC_TLC549:inst2|segdata[3]~reg0 ; segdata[3] ; clk        ;
+; N/A   ; None         ; 13.590 ns  ; ADC_TLC549:inst2|segdata[4]~reg0 ; segdata[4] ; clk        ;
+; N/A   ; None         ; 13.538 ns  ; ADC_TLC549:inst2|segdata[7]~en   ; segdata[7] ; clk        ;
+; N/A   ; None         ; 13.472 ns  ; ADC_TLC549:inst2|segdata[3]~en   ; segdata[3] ; clk        ;
+; N/A   ; None         ; 13.459 ns  ; ADC_TLC549:inst2|segdata[0]~reg0 ; segdata[0] ; clk        ;
+; N/A   ; None         ; 13.274 ns  ; ADC_TLC549:inst2|start           ; led        ; clk        ;
+; N/A   ; None         ; 13.236 ns  ; ADC_TLC549:inst2|segdata[7]~reg0 ; segdata[7] ; clk        ;
+; N/A   ; None         ; 13.215 ns  ; ADC_TLC549:inst2|segdata[5]~reg0 ; segdata[5] ; clk        ;
+; N/A   ; None         ; 13.142 ns  ; ADC_TLC549:inst2|segdata[5]~en   ; segdata[5] ; clk        ;
+; N/A   ; None         ; 13.038 ns  ; ADC_TLC549:inst2|segdata[0]~en   ; segdata[0] ; clk        ;
+; N/A   ; None         ; 13.033 ns  ; ADC_TLC549:inst2|segdata[2]~en   ; segdata[2] ; clk        ;
+; N/A   ; None         ; 12.883 ns  ; ADC_TLC549:inst2|segdata[2]~reg0 ; segdata[2] ; clk        ;
+; N/A   ; None         ; 12.830 ns  ; ADC_TLC549:inst2|segdata[6]~reg0 ; segdata[6] ; clk        ;
+; N/A   ; None         ; 12.708 ns  ; ADC_TLC549:inst2|segdata[6]~en   ; segdata[6] ; clk        ;
+; N/A   ; None         ; 12.559 ns  ; ADC_TLC549:inst2|cs              ; cs         ; clk        ;
+; N/A   ; None         ; 12.424 ns  ; ADC_TLC549:inst2|segdata[1]~reg0 ; segdata[1] ; clk        ;
+; N/A   ; None         ; 12.363 ns  ; ADC_TLC549:inst2|segdata[1]~en   ; segdata[1] ; clk        ;
+; N/A   ; None         ; 12.138 ns  ; ADC_TLC549:inst2|segcs[0]        ; segcs[0]   ; clk        ;
+; N/A   ; None         ; 12.111 ns  ; ADC_TLC549:inst2|segcs[2]        ; segcs[2]   ; clk        ;
+; N/A   ; None         ; 11.776 ns  ; uart:inst|txd_reg                ; txd        ; clk        ;
+; N/A   ; None         ; 11.751 ns  ; ADC_TLC549:inst2|segcs[1]        ; segcs[1]   ; clk        ;
+; N/A   ; None         ; 11.671 ns  ; ADC_TLC549:inst2|segcs[3]        ; segcs[3]   ; clk        ;
+; N/A   ; None         ; 8.474 ns   ; ADC_TLC549:inst2|ioclk           ; ioclk      ; clk        ;
++-------+--------------+------------+----------------------------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; th                                                                                               ;
++---------------+-------------+-----------+---------+-----------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From    ; To                                ; To Clock ;
++---------------+-------------+-----------+---------+-----------------------------------+----------+
+; N/A           ; None        ; -0.749 ns ; data    ; ADC_TLC549:inst2|dataout[0]       ; clk      ;
+; N/A           ; None        ; -1.899 ns ; reset_n ; ADC_TLC549:inst2|voltage_data4[0] ; clk      ;
+; N/A           ; None        ; -1.899 ns ; reset_n ; ADC_TLC549:inst2|voltage_data1[0] ; clk      ;
+; N/A           ; None        ; -3.538 ns ; reset_n ; ADC_TLC549:inst2|voltage_data1[3] ; clk      ;
+; N/A           ; None        ; -3.575 ns ; reset_n ; ADC_TLC549:inst2|voltage_data3[0] ; clk      ;
+; N/A           ; None        ; -3.575 ns ; reset_n ; ADC_TLC549:inst2|voltage_data3[1] ; clk      ;
+; N/A           ; None        ; -3.575 ns ; reset_n ; ADC_TLC549:inst2|voltage_data3[3] ; clk      ;
+; N/A           ; None        ; -3.937 ns ; reset_n ; ADC_TLC549:inst2|voltage_data2[0] ; clk      ;
+; N/A           ; None        ; -3.937 ns ; reset_n ; ADC_TLC549:inst2|voltage_data2[1] ; clk      ;
+; N/A           ; None        ; -3.937 ns ; reset_n ; ADC_TLC549:inst2|voltage_data2[2] ; clk      ;
+; N/A           ; None        ; -3.937 ns ; reset_n ; ADC_TLC549:inst2|voltage_data2[3] ; clk      ;
+; N/A           ; None        ; -3.948 ns ; reset_n ; ADC_TLC549:inst2|voltage_data4[1] ; clk      ;
+; N/A           ; None        ; -3.948 ns ; reset_n ; ADC_TLC549:inst2|voltage_data1[1] ; clk      ;
+; N/A           ; None        ; -3.948 ns ; reset_n ; ADC_TLC549:inst2|voltage_data4[2] ; clk      ;
+; N/A           ; None        ; -3.948 ns ; reset_n ; ADC_TLC549:inst2|voltage_data1[2] ; clk      ;
+; N/A           ; None        ; -3.948 ns ; reset_n ; ADC_TLC549:inst2|voltage_data3[2] ; clk      ;
+; N/A           ; None        ; -4.966 ns ; reset_n ; uart:inst|clkbaud8x               ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[11]             ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[10]             ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[8]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[9]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[14]             ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[12]             ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[13]             ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[15]             ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[7]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[5]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[4]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[6]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[2]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[1]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[0]              ; clk      ;
+; N/A           ; None        ; -6.361 ns ; reset_n ; uart:inst|div_reg[3]              ; clk      ;
++---------------+-------------+-----------+---------+-----------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Fri Jun 06 10:57:57 2014
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off uart -c uart --timing_analysis_only
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Warning: Found 3 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "ADC_TLC549:inst2|ioclk" as buffer
+    Info: Detected ripple clock "uart:inst|clkbaud8x" as buffer
+    Info: Detected ripple clock "ADC_TLC549:inst2|clk1ms" as buffer
+Info: Clock "clk" has Internal fmax of 10.33 MHz between source register "ADC_TLC549:inst2|tenvalue[15]" and destination register "ADC_TLC549:inst2|segdata[1]~reg0" (period= 96.848 ns)
+    Info: + Longest register to register delay is 48.163 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X18_Y10_N1; Fanout = 12; REG Node = 'ADC_TLC549:inst2|tenvalue[15]'
+        Info: 2: + IC(1.111 ns) + CELL(0.596 ns) = 1.707 ns; Loc. = LCCOMB_X18_Y10_N24; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_4_result_int[3]~5'
+        Info: 3: + IC(0.000 ns) + CELL(0.086 ns) = 1.793 ns; Loc. = LCCOMB_X18_Y10_N26; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_4_result_int[4]~7'
+        Info: 4: + IC(0.000 ns) + CELL(0.506 ns) = 2.299 ns; Loc. = LCCOMB_X18_Y10_N28; Fanout = 13; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_4_result_int[5]~8'
+        Info: 5: + IC(0.685 ns) + CELL(0.206 ns) = 3.190 ns; Loc. = LCCOMB_X17_Y10_N18; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[22]~122'
+        Info: 6: + IC(0.666 ns) + CELL(0.706 ns) = 4.562 ns; Loc. = LCCOMB_X18_Y10_N14; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_5_result_int[3]~5'
+        Info: 7: + IC(0.000 ns) + CELL(0.086 ns) = 4.648 ns; Loc. = LCCOMB_X18_Y10_N16; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_5_result_int[4]~7'
+        Info: 8: + IC(0.000 ns) + CELL(0.506 ns) = 5.154 ns; Loc. = LCCOMB_X18_Y10_N18; Fanout = 14; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_5_result_int[5]~8'
+        Info: 9: + IC(1.117 ns) + CELL(0.206 ns) = 6.477 ns; Loc. = LCCOMB_X19_Y11_N22; Fanout = 3; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[27]~297'
+        Info: 10: + IC(1.049 ns) + CELL(0.621 ns) = 8.147 ns; Loc. = LCCOMB_X17_Y11_N4; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_6_result_int[3]~5'
+        Info: 11: + IC(0.000 ns) + CELL(0.086 ns) = 8.233 ns; Loc. = LCCOMB_X17_Y11_N6; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_6_result_int[4]~7'
+        Info: 12: + IC(0.000 ns) + CELL(0.506 ns) = 8.739 ns; Loc. = LCCOMB_X17_Y11_N8; Fanout = 14; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_6_result_int[5]~8'
+        Info: 13: + IC(1.048 ns) + CELL(0.206 ns) = 9.993 ns; Loc. = LCCOMB_X19_Y11_N0; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[31]~103'
+        Info: 14: + IC(0.672 ns) + CELL(0.596 ns) = 11.261 ns; Loc. = LCCOMB_X18_Y11_N2; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_7_result_int[2]~3'
+        Info: 15: + IC(0.000 ns) + CELL(0.086 ns) = 11.347 ns; Loc. = LCCOMB_X18_Y11_N4; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_7_result_int[3]~5'
+        Info: 16: + IC(0.000 ns) + CELL(0.086 ns) = 11.433 ns; Loc. = LCCOMB_X18_Y11_N6; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_7_result_int[4]~7'
+        Info: 17: + IC(0.000 ns) + CELL(0.506 ns) = 11.939 ns; Loc. = LCCOMB_X18_Y11_N8; Fanout = 14; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_7_result_int[5]~8'
+        Info: 18: + IC(0.727 ns) + CELL(0.206 ns) = 12.872 ns; Loc. = LCCOMB_X19_Y11_N2; Fanout = 3; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[37]~299'
+        Info: 19: + IC(0.697 ns) + CELL(0.621 ns) = 14.190 ns; Loc. = LCCOMB_X18_Y11_N20; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_8_result_int[3]~5'
+        Info: 20: + IC(0.000 ns) + CELL(0.086 ns) = 14.276 ns; Loc. = LCCOMB_X18_Y11_N22; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_8_result_int[4]~7'
+        Info: 21: + IC(0.000 ns) + CELL(0.506 ns) = 14.782 ns; Loc. = LCCOMB_X18_Y11_N24; Fanout = 14; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Div0|lpm_divide_hem:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_8_result_int[5]~8'
+        Info: 22: + IC(1.113 ns) + CELL(0.534 ns) = 16.429 ns; Loc. = LCCOMB_X19_Y10_N26; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[40]~89'
+        Info: 23: + IC(0.693 ns) + CELL(0.621 ns) = 17.743 ns; Loc. = LCCOMB_X19_Y10_N4; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_9_result_int[1]~1'
+        Info: 24: + IC(0.000 ns) + CELL(0.086 ns) = 17.829 ns; Loc. = LCCOMB_X19_Y10_N6; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_9_result_int[2]~3'
+        Info: 25: + IC(0.000 ns) + CELL(0.086 ns) = 17.915 ns; Loc. = LCCOMB_X19_Y10_N8; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_9_result_int[3]~5'
+        Info: 26: + IC(0.000 ns) + CELL(0.086 ns) = 18.001 ns; Loc. = LCCOMB_X19_Y10_N10; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_9_result_int[4]~7'
+        Info: 27: + IC(0.000 ns) + CELL(0.506 ns) = 18.507 ns; Loc. = LCCOMB_X19_Y10_N12; Fanout = 10; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_9_result_int[5]~8'
+        Info: 28: + IC(1.165 ns) + CELL(0.206 ns) = 19.878 ns; Loc. = LCCOMB_X19_Y9_N2; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[46]~305'
+        Info: 29: + IC(1.014 ns) + CELL(0.621 ns) = 21.513 ns; Loc. = LCCOMB_X19_Y10_N18; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_10_result_int[2]~3'
+        Info: 30: + IC(0.000 ns) + CELL(0.086 ns) = 21.599 ns; Loc. = LCCOMB_X19_Y10_N20; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_10_result_int[3]~5'
+        Info: 31: + IC(0.000 ns) + CELL(0.086 ns) = 21.685 ns; Loc. = LCCOMB_X19_Y10_N22; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_10_result_int[4]~7'
+        Info: 32: + IC(0.000 ns) + CELL(0.506 ns) = 22.191 ns; Loc. = LCCOMB_X19_Y10_N24; Fanout = 10; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_10_result_int[5]~8'
+        Info: 33: + IC(1.103 ns) + CELL(0.370 ns) = 23.664 ns; Loc. = LCCOMB_X20_Y9_N2; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[50]~69'
+        Info: 34: + IC(0.691 ns) + CELL(0.621 ns) = 24.976 ns; Loc. = LCCOMB_X20_Y9_N12; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_11_result_int[1]~1'
+        Info: 35: + IC(0.000 ns) + CELL(0.190 ns) = 25.166 ns; Loc. = LCCOMB_X20_Y9_N14; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_11_result_int[2]~3'
+        Info: 36: + IC(0.000 ns) + CELL(0.086 ns) = 25.252 ns; Loc. = LCCOMB_X20_Y9_N16; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_11_result_int[3]~5'
+        Info: 37: + IC(0.000 ns) + CELL(0.086 ns) = 25.338 ns; Loc. = LCCOMB_X20_Y9_N18; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_11_result_int[4]~7'
+        Info: 38: + IC(0.000 ns) + CELL(0.506 ns) = 25.844 ns; Loc. = LCCOMB_X20_Y9_N20; Fanout = 10; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_11_result_int[5]~8'
+        Info: 39: + IC(0.751 ns) + CELL(0.206 ns) = 26.801 ns; Loc. = LCCOMB_X19_Y9_N22; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[56]~307'
+        Info: 40: + IC(0.669 ns) + CELL(0.596 ns) = 28.066 ns; Loc. = LCCOMB_X20_Y9_N24; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_12_result_int[2]~3'
+        Info: 41: + IC(0.000 ns) + CELL(0.086 ns) = 28.152 ns; Loc. = LCCOMB_X20_Y9_N26; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_12_result_int[3]~5'
+        Info: 42: + IC(0.000 ns) + CELL(0.086 ns) = 28.238 ns; Loc. = LCCOMB_X20_Y9_N28; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_12_result_int[4]~7'
+        Info: 43: + IC(0.000 ns) + CELL(0.506 ns) = 28.744 ns; Loc. = LCCOMB_X20_Y9_N30; Fanout = 10; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_12_result_int[5]~8'
+        Info: 44: + IC(1.493 ns) + CELL(0.206 ns) = 30.443 ns; Loc. = LCCOMB_X19_Y7_N2; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[60]~44'
+        Info: 45: + IC(0.693 ns) + CELL(0.621 ns) = 31.757 ns; Loc. = LCCOMB_X19_Y7_N20; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_13_result_int[1]~1'
+        Info: 46: + IC(0.000 ns) + CELL(0.086 ns) = 31.843 ns; Loc. = LCCOMB_X19_Y7_N22; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_13_result_int[2]~3'
+        Info: 47: + IC(0.000 ns) + CELL(0.086 ns) = 31.929 ns; Loc. = LCCOMB_X19_Y7_N24; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_13_result_int[3]~5'
+        Info: 48: + IC(0.000 ns) + CELL(0.086 ns) = 32.015 ns; Loc. = LCCOMB_X19_Y7_N26; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_13_result_int[4]~7'
+        Info: 49: + IC(0.000 ns) + CELL(0.506 ns) = 32.521 ns; Loc. = LCCOMB_X19_Y7_N28; Fanout = 10; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_13_result_int[5]~8'
+        Info: 50: + IC(1.100 ns) + CELL(0.370 ns) = 33.991 ns; Loc. = LCCOMB_X18_Y8_N16; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[68]~36'
+        Info: 51: + IC(1.021 ns) + CELL(0.706 ns) = 35.718 ns; Loc. = LCCOMB_X19_Y7_N14; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_14_result_int[4]~7'
+        Info: 52: + IC(0.000 ns) + CELL(0.506 ns) = 36.224 ns; Loc. = LCCOMB_X19_Y7_N16; Fanout = 10; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_14_result_int[5]~8'
+        Info: 53: + IC(1.060 ns) + CELL(0.202 ns) = 37.486 ns; Loc. = LCCOMB_X21_Y7_N10; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[70]~29'
+        Info: 54: + IC(0.396 ns) + CELL(0.621 ns) = 38.503 ns; Loc. = LCCOMB_X21_Y7_N12; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_15_result_int[1]~1'
+        Info: 55: + IC(0.000 ns) + CELL(0.190 ns) = 38.693 ns; Loc. = LCCOMB_X21_Y7_N14; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_15_result_int[2]~3'
+        Info: 56: + IC(0.000 ns) + CELL(0.086 ns) = 38.779 ns; Loc. = LCCOMB_X21_Y7_N16; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_15_result_int[3]~5'
+        Info: 57: + IC(0.000 ns) + CELL(0.086 ns) = 38.865 ns; Loc. = LCCOMB_X21_Y7_N18; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_15_result_int[4]~7'
+        Info: 58: + IC(0.000 ns) + CELL(0.506 ns) = 39.371 ns; Loc. = LCCOMB_X21_Y7_N20; Fanout = 8; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_15_result_int[5]~8'
+        Info: 59: + IC(1.086 ns) + CELL(0.206 ns) = 40.663 ns; Loc. = LCCOMB_X22_Y8_N22; Fanout = 4; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[76]~311'
+        Info: 60: + IC(1.108 ns) + CELL(0.621 ns) = 42.392 ns; Loc. = LCCOMB_X21_Y7_N24; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_16_result_int[2]~3'
+        Info: 61: + IC(0.000 ns) + CELL(0.506 ns) = 42.898 ns; Loc. = LCCOMB_X21_Y7_N26; Fanout = 2; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|add_sub_16_result_int[3]~4'
+        Info: 62: + IC(0.376 ns) + CELL(0.624 ns) = 43.898 ns; Loc. = LCCOMB_X21_Y7_N2; Fanout = 9; COMB Node = 'ADC_TLC549:inst2|lpm_divide:Mod0|lpm_divide_k6m:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_o2f:divider|StageOut[83]~292'
+        Info: 63: + IC(1.151 ns) + CELL(0.606 ns) = 45.655 ns; Loc. = LCCOMB_X21_Y8_N4; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|Mux15~5'
+        Info: 64: + IC(1.053 ns) + CELL(0.206 ns) = 46.914 ns; Loc. = LCCOMB_X21_Y9_N12; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|Mux15~6'
+        Info: 65: + IC(0.365 ns) + CELL(0.206 ns) = 47.485 ns; Loc. = LCCOMB_X21_Y9_N6; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|Mux15~7'
+        Info: 66: + IC(0.364 ns) + CELL(0.206 ns) = 48.055 ns; Loc. = LCCOMB_X21_Y9_N8; Fanout = 1; COMB Node = 'ADC_TLC549:inst2|Mux15~8'
+        Info: 67: + IC(0.000 ns) + CELL(0.108 ns) = 48.163 ns; Loc. = LCFF_X21_Y9_N9; Fanout = 1; REG Node = 'ADC_TLC549:inst2|segdata[1]~reg0'
+        Info: Total cell delay = 21.926 ns ( 45.52 % )
+        Info: Total interconnect delay = 26.237 ns ( 54.48 % )
+    Info: - Smallest clock skew is 0.003 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 7.212 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 4; CLK Node = 'clk'
+            Info: 2: + IC(1.398 ns) + CELL(0.970 ns) = 3.468 ns; Loc. = LCFF_X9_Y7_N17; Fanout = 2; REG Node = 'ADC_TLC549:inst2|clk1ms'
+            Info: 3: + IC(2.233 ns) + CELL(0.000 ns) = 5.701 ns; Loc. = CLKCTRL_G1; Fanout = 23; COMB Node = 'ADC_TLC549:inst2|clk1ms~clkctrl'
+            Info: 4: + IC(0.845 ns) + CELL(0.666 ns) = 7.212 ns; Loc. = LCFF_X21_Y9_N9; Fanout = 1; REG Node = 'ADC_TLC549:inst2|segdata[1]~reg0'
+            Info: Total cell delay = 2.736 ns ( 37.94 % )
+            Info: Total interconnect delay = 4.476 ns ( 62.06 % )
+        Info: - Longest clock path from clock "clk" to source register is 7.209 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 4; CLK Node = 'clk'
+            Info: 2: + IC(1.398 ns) + CELL(0.970 ns) = 3.468 ns; Loc. = LCFF_X9_Y7_N3; Fanout = 3; REG Node = 'ADC_TLC549:inst2|ioclk'
+            Info: 3: + IC(2.230 ns) + CELL(0.000 ns) = 5.698 ns; Loc. = CLKCTRL_G0; Fanout = 45; COMB Node = 'ADC_TLC549:inst2|ioclk~clkctrl'
+            Info: 4: + IC(0.845 ns) + CELL(0.666 ns) = 7.209 ns; Loc. = LCFF_X18_Y10_N1; Fanout = 12; REG Node = 'ADC_TLC549:inst2|tenvalue[15]'
+            Info: Total cell delay = 2.736 ns ( 37.95 % )
+            Info: Total interconnect delay = 4.473 ns ( 62.05 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Micro setup delay of destination is -0.040 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "uart:inst|div_reg[11]" (data pin = "reset_n", clock pin = "clk") is 6.627 ns
+    Info: + Longest pin to register delay is 9.387 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.944 ns) = 0.944 ns; Loc. = PIN_64; Fanout = 4; PIN Node = 'reset_n'
+        Info: 2: + IC(6.883 ns) + CELL(0.370 ns) = 8.197 ns; Loc. = LCCOMB_X9_Y7_N14; Fanout = 16; COMB Node = 'uart:inst|div_reg[15]~50'
+        Info: 3: + IC(0.530 ns) + CELL(0.660 ns) = 9.387 ns; Loc. = LCFF_X10_Y7_N23; Fanout = 3; REG Node = 'uart:inst|div_reg[11]'
+        Info: Total cell delay = 1.974 ns ( 21.03 % )
+        Info: Total interconnect delay = 7.413 ns ( 78.97 % )
+    Info: + Micro setup delay of destination is -0.040 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.720 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 4; CLK Node = 'clk'
+        Info: 2: + IC(0.143 ns) + CELL(0.000 ns) = 1.243 ns; Loc. = CLKCTRL_G2; Fanout = 57; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.811 ns) + CELL(0.666 ns) = 2.720 ns; Loc. = LCFF_X10_Y7_N23; Fanout = 3; REG Node = 'uart:inst|div_reg[11]'
+        Info: Total cell delay = 1.766 ns ( 64.93 % )
+        Info: Total interconnect delay = 0.954 ns ( 35.07 % )
+Info: tco from clock "clk" to destination pin "segdata[4]" through register "ADC_TLC549:inst2|segdata[4]~en" is 13.842 ns
+    Info: + Longest clock path from clock "clk" to source register is 7.212 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 4; CLK Node = 'clk'
+        Info: 2: + IC(1.398 ns) + CELL(0.970 ns) = 3.468 ns; Loc. = LCFF_X9_Y7_N17; Fanout = 2; REG Node = 'ADC_TLC549:inst2|clk1ms'
+        Info: 3: + IC(2.233 ns) + CELL(0.000 ns) = 5.701 ns; Loc. = CLKCTRL_G1; Fanout = 23; COMB Node = 'ADC_TLC549:inst2|clk1ms~clkctrl'
+        Info: 4: + IC(0.845 ns) + CELL(0.666 ns) = 7.212 ns; Loc. = LCFF_X21_Y9_N19; Fanout = 1; REG Node = 'ADC_TLC549:inst2|segdata[4]~en'
+        Info: Total cell delay = 2.736 ns ( 37.94 % )
+        Info: Total interconnect delay = 4.476 ns ( 62.06 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Longest register to pin delay is 6.326 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X21_Y9_N19; Fanout = 1; REG Node = 'ADC_TLC549:inst2|segdata[4]~en'
+        Info: 2: + IC(3.008 ns) + CELL(3.318 ns) = 6.326 ns; Loc. = PIN_137; Fanout = 0; PIN Node = 'segdata[4]'
+        Info: Total cell delay = 3.318 ns ( 52.45 % )
+        Info: Total interconnect delay = 3.008 ns ( 47.55 % )
+Info: th for register "ADC_TLC549:inst2|dataout[0]" (data pin = "data", clock pin = "clk") is -0.749 ns
+    Info: + Longest clock path from clock "clk" to destination register is 7.190 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 4; CLK Node = 'clk'
+        Info: 2: + IC(1.398 ns) + CELL(0.970 ns) = 3.468 ns; Loc. = LCFF_X9_Y7_N3; Fanout = 3; REG Node = 'ADC_TLC549:inst2|ioclk'
+        Info: 3: + IC(2.230 ns) + CELL(0.000 ns) = 5.698 ns; Loc. = CLKCTRL_G0; Fanout = 45; COMB Node = 'ADC_TLC549:inst2|ioclk~clkctrl'
+        Info: 4: + IC(0.826 ns) + CELL(0.666 ns) = 7.190 ns; Loc. = LCFF_X22_Y7_N29; Fanout = 3; REG Node = 'ADC_TLC549:inst2|dataout[0]'
+        Info: Total cell delay = 2.736 ns ( 38.05 % )
+        Info: Total interconnect delay = 4.454 ns ( 61.95 % )
+    Info: + Micro hold delay of destination is 0.306 ns
+    Info: - Shortest pin to register delay is 8.245 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.934 ns) = 0.934 ns; Loc. = PIN_58; Fanout = 1; PIN Node = 'data'
+        Info: 2: + IC(6.851 ns) + CELL(0.460 ns) = 8.245 ns; Loc. = LCFF_X22_Y7_N29; Fanout = 3; REG Node = 'ADC_TLC549:inst2|dataout[0]'
+        Info: Total cell delay = 1.394 ns ( 16.91 % )
+        Info: Total interconnect delay = 6.851 ns ( 83.09 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 140 megabytes
+    Info: Processing ended: Fri Jun 06 10:57:58 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
+
+

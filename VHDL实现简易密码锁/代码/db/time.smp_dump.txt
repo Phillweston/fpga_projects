@@ -1,0 +1,6 @@
+
+State Machine - |time|bell:inst1|current_state
+Name current_state.stop current_state.start current_state.prepare 
+current_state.prepare 0 0 0 
+current_state.start 0 1 1 
+current_state.stop 1 0 1 

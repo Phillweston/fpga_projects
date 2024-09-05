@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed May 14 21:03:00 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : time
+Top-level Entity Name : time
+Family : Cyclone II
+Device : EP2C5T144C8
+Timing Models : Final
+Total logic elements : 271 / 4,608 ( 6 % )
+    Total combinational functions : 271 / 4,608 ( 6 % )
+    Dedicated logic registers : 112 / 4,608 ( 2 % )
+Total registers : 112
+Total pins : 41 / 89 ( 46 % )
+Total virtual pins : 0
+Total memory bits : 0 / 119,808 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 26 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

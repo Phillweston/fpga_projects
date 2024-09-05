@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.174 ns
+From           : reset
+To             : rst_tmp1
+From Clock     : --
+To Clock       : clk_in
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 5.190 ns
+From           : dis_seg:disp_seg|data[1]
+To             : seg[5]
+From Clock     : clk_in
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : -4.935 ns
+From           : reset
+To             : rst_tmp1
+From Clock     : --
+To Clock       : clk_in
+Failed Paths   : 0
+
+Type           : Clock Setup: 'pull1:pull|altpll:altpll_component|_clk0'
+Slack          : 7.406 ns
+Required Time  : 50.00 MHz ( period = 20.000 ns )
+Actual Time    : 192.75 MHz ( period = 5.188 ns )
+From           : dis_seg:disp_seg|err[0]
+To             : dis_seg:disp_seg|d1[0]
+From Clock     : pull1:pull|altpll:altpll_component|_clk0
+To Clock       : pull1:pull|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Clock Hold: 'pull1:pull|altpll:altpll_component|_clk0'
+Slack          : 0.341 ns
+Required Time  : 50.00 MHz ( period = 20.000 ns )
+Actual Time    : N/A
+From           : dis_seg:disp_seg|d3[1]
+To             : dis_seg:disp_seg|d3[1]
+From Clock     : pull1:pull|altpll:altpll_component|_clk0
+To Clock       : pull1:pull|altpll:altpll_component|_clk0
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

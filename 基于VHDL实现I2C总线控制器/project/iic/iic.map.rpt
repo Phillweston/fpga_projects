@@ -1,0 +1,349 @@
+Analysis & Synthesis report for iic
+Sat Apr 26 20:38:16 2014
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. State Machine - |iic|current_state
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Apr 26 20:38:16 2014    ;
+; Quartus II Version                 ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name                      ; iic                                      ;
+; Top-level Entity Name              ; iic                                      ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 373                                      ;
+;     Total combinational functions  ; 372                                      ;
+;     Dedicated logic registers      ; 92                                       ;
+; Total registers                    ; 92                                       ;
+; Total pins                         ; 32                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                            ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Option                                                         ; Setting            ; Default Value      ;
++----------------------------------------------------------------+--------------------+--------------------+
+; Device                                                         ; EP2C5T144C8        ;                    ;
+; Top-level entity name                                          ; iic                ; iic                ;
+; Family name                                                    ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                        ; Off                ;                    ;
+; Use smart compilation                                          ; Off                ; Off                ;
+; Restructure Multiplexers                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                            ; Off                ; Off                ;
+; Preserve fewer node names                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                      ; Off                ; Off                ;
+; Verilog Version                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                       ; Auto               ; Auto               ;
+; Safe State Machine                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                              ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                     ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                 ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On                 ; On                 ;
+; Parallel Synthesis                                             ; Off                ; Off                ;
+; DSP Block Balancing                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                 ; Off                ; Off                ;
+; Optimization Technique                                         ; Balanced           ; Balanced           ;
+; Carry Chain Length                                             ; 70                 ; 70                 ;
+; Auto Carry Chains                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                          ; Off                ; Off                ;
+; Auto ROM Replacement                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                  ; On                 ; On                 ;
+; Strict RAM Replacement                                         ; Off                ; Off                ;
+; Allow Synchronous Control Signals                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                              ; Off                ; Off                ;
+; Auto Resource Sharing                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                  ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing            ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives              ; Off                ; Off                ;
+; Timing-Driven Synthesis                                        ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                             ; Off                ; Off                ;
+; Synchronization Register Chain Length                          ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100                ; 100                ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100                ; 100                ;
+; Clock MUX Protection                                           ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                    ; Off                ; Off                ;
+; Block Design Naming                                            ; Auto               ; Auto               ;
+; SDC constraint protection                                      ; Off                ; Off                ;
+; Synthesis Effort                                               ; Auto               ; Auto               ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                             ; Medium             ; Medium             ;
++----------------------------------------------------------------+--------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+
+; iic.vhd                          ; yes             ; User VHDL File  ; G:/外接项目/基于FPGA的I2C控制器设计/project/iic/iic.vhd ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimated Total logic elements              ; 373     ;
+;                                             ;         ;
+; Total combinational functions               ; 372     ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 236     ;
+;     -- 3 input functions                    ; 63      ;
+;     -- <=2 input functions                  ; 73      ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 333     ;
+;     -- arithmetic mode                      ; 39      ;
+;                                             ;         ;
+; Total registers                             ; 92      ;
+;     -- Dedicated logic registers            ; 92      ;
+;     -- I/O registers                        ; 0       ;
+;                                             ;         ;
+; I/O pins                                    ; 32      ;
+; Maximum fan-out node                        ; flag_rw ;
+; Maximum fan-out                             ; 79      ;
+; Total fan-out                               ; 1558    ;
+; Average fan-out                             ; 3.14    ;
++---------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |iic                       ; 372 (372)         ; 92 (92)      ; 0           ; 0            ; 0       ; 0         ; 32   ; 0            ; |iic                ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |iic|current_state                                                                                                                                                                                                                                                                                                                                                    ;
++----------------------------------+--------------------+--------------------+-------------------------+--------------------+-------------------------+----------------------+--------------------+-------------------------+--------------------+--------------------------------+--------------------+----------------------------------+---------------------+-----------------------+
+; Name                             ; current_state.idle ; current_state.stop ; current_state.read_data ; current_state.ask3 ; current_state.send_read ; current_state.start1 ; current_state.nack ; current_state.send_data ; current_state.ask2 ; current_state.send_bit_address ; current_state.ask1 ; current_state.send_slave_address ; current_state.start ; current_state.prepare ;
++----------------------------------+--------------------+--------------------+-------------------------+--------------------+-------------------------+----------------------+--------------------+-------------------------+--------------------+--------------------------------+--------------------+----------------------------------+---------------------+-----------------------+
+; current_state.prepare            ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 0                     ;
+; current_state.start              ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 1                   ; 1                     ;
+; current_state.send_slave_address ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 1                                ; 0                   ; 1                     ;
+; current_state.ask1               ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 1                  ; 0                                ; 0                   ; 1                     ;
+; current_state.send_bit_address   ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 1                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.ask2               ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 1                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.send_data          ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 1                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.nack               ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 1                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.start1             ; 0                  ; 0                  ; 0                       ; 0                  ; 0                       ; 1                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.send_read          ; 0                  ; 0                  ; 0                       ; 0                  ; 1                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.ask3               ; 0                  ; 0                  ; 0                       ; 1                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.read_data          ; 0                  ; 0                  ; 1                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.stop               ; 0                  ; 1                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
+; current_state.idle               ; 1                  ; 0                  ; 0                       ; 0                  ; 0                       ; 0                    ; 0                  ; 0                       ; 0                  ; 0                              ; 0                  ; 0                                ; 0                   ; 1                     ;
++----------------------------------+--------------------+--------------------+-------------------------+--------------------+-------------------------+----------------------+--------------------+-------------------------+--------------------+--------------------------------+--------------------+----------------------------------+---------------------+-----------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; data[1]                                            ; reset_n             ; yes                    ;
+; data[2]                                            ; reset_n             ; yes                    ;
+; data[3]                                            ; reset_n             ; yes                    ;
+; data[4]                                            ; reset_n             ; yes                    ;
+; Number of user-specified and inferred latches = 4  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; seg_wei[7]~reg0                        ; Stuck at VCC due to stuck port data_in ;
+; seg_wei[6]~reg0                        ; Stuck at VCC due to stuck port data_in ;
+; seg_wei[5]~reg0                        ; Stuck at VCC due to stuck port data_in ;
+; seg_wei[4]~reg0                        ; Stuck at VCC due to stuck port data_in ;
+; seg_wei[3]~reg0                        ; Stuck at VCC due to stuck port data_in ;
+; seg_wei[2]~reg0                        ; Stuck at VCC due to stuck port data_in ;
+; slave_address[6]                       ; Merged with slave_address[8]           ;
+; slave_address[2..5]                    ; Merged with slave_address[7]           ;
+; slave_address[8]                       ; Stuck at VCC due to stuck port data_in ;
+; slave_address[7]                       ; Stuck at GND due to stuck port data_in ;
+; seg_duan[7]~reg0                       ; Stuck at VCC due to stuck port data_in ;
+; current_state.nack                     ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 15 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 92    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Asynchronous Clear ; 56    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 31    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; led[0]~reg0                            ; 1       ;
+; led[1]~reg0                            ; 1       ;
+; led[2]~reg0                            ; 1       ;
+; led[3]~reg0                            ; 1       ;
+; led[4]~reg0                            ; 1       ;
+; led[5]~reg0                            ; 1       ;
+; led[6]~reg0                            ; 1       ;
+; led[7]~reg0                            ; 1       ;
+; num_counter[3]                         ; 5       ;
+; Total number of inverted registers = 9 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |iic|seg_wei[0]~reg0       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |iic|temp[6]               ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |iic|num_counter[0]        ;
+; 34:1               ; 7 bits    ; 154 LEs       ; 42 LEs               ; 112 LEs                ; Yes        ; |iic|seg_duan[2]~reg0      ;
+; 10:1               ; 5 bits    ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |iic|\process_1:counter[2] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iic|data_temp_ge[1]       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |iic|Selector30            ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; No         ; |iic|Selector23            ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; No         ; |iic|current_state~27      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Sat Apr 26 20:38:02 2014
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off iic -c iic
+Info: Found 2 design units, including 1 entities, in source file iic.vhd
+    Info: Found design unit 1: iic-behave
+    Info: Found entity 1: iic
+Info: Elaborating entity "iic" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at iic.vhd(114): signal "key" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at iic.vhd(106): inferring latch(es) for signal or variable "data", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at iic.vhd(106): inferring latch(es) for signal or variable "bit_address", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "bit_address[1]" at iic.vhd(106)
+Info (10041): Inferred latch for "bit_address[2]" at iic.vhd(106)
+Info (10041): Inferred latch for "bit_address[3]" at iic.vhd(106)
+Info (10041): Inferred latch for "bit_address[4]" at iic.vhd(106)
+Info (10041): Inferred latch for "bit_address[5]" at iic.vhd(106)
+Info (10041): Inferred latch for "bit_address[6]" at iic.vhd(106)
+Info (10041): Inferred latch for "bit_address[7]" at iic.vhd(106)
+Info (10041): Inferred latch for "bit_address[8]" at iic.vhd(106)
+Info (10041): Inferred latch for "data[1]" at iic.vhd(106)
+Info (10041): Inferred latch for "data[2]" at iic.vhd(106)
+Info (10041): Inferred latch for "data[3]" at iic.vhd(106)
+Info (10041): Inferred latch for "data[4]" at iic.vhd(106)
+Warning: The following nodes have both tri-state and non-tri-state drivers
+    Warning: Inserted always-enabled tri-state buffer between "scl" and its non-tri-state driver.
+Info: One or more bidirs are fed by always enabled tri-state buffers
+    Info: Fan-out of permanently enabled tri-state buffer feeding bidir "scl" is moved to its source
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning: TRI or OPNDRN buffers permanently enabled
+    Warning: Node "scl~synth"
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg_duan[7]" is stuck at VCC
+    Warning (13410): Pin "seg_wei[2]" is stuck at VCC
+    Warning (13410): Pin "seg_wei[3]" is stuck at VCC
+    Warning (13410): Pin "seg_wei[4]" is stuck at VCC
+    Warning (13410): Pin "seg_wei[5]" is stuck at VCC
+    Warning (13410): Pin "seg_wei[6]" is stuck at VCC
+    Warning (13410): Pin "seg_wei[7]" is stuck at VCC
+Info: Implemented 406 device resources after synthesis - the final resource count might be different
+    Info: Implemented 6 input pins
+    Info: Implemented 24 output pins
+    Info: Implemented 2 bidirectional pins
+    Info: Implemented 374 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 195 megabytes
+    Info: Processing ended: Sat Apr 26 20:38:16 2014
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:14
+
+

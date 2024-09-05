@@ -1,0 +1,634 @@
+Release 13.4 - xst O.87xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> Reading design: picture.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "picture.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "picture"
+Output Format                      : NGC
+Target Device                      : xa7a8-2I-csg324
+
+---- Source Options
+Top Module Name                    : picture
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+INFO:Xst - Part-select index evaluated to out of bound value may lead to incorrect synthesis results; it is recommended not to use them in RTL
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "E:\users\gg\plane.vhd" into library work
+Parsing entity <airplane>.
+Parsing architecture <Behavioral> of entity <airplane>.
+Parsing VHDL file "E:\users\gg\enemy.vhd" into library work
+Parsing entity <enemy>.
+Parsing architecture <Behavioral> of entity <enemy>.
+Parsing VHDL file "E:\users\gg\codepage.vhd" into library work
+Parsing entity <codepage>.
+Parsing architecture <Behavioral> of entity <codepage>.
+Parsing VHDL file "E:\users\gg\bullet.vhd" into library work
+Parsing entity <bullet>.
+Parsing architecture <Behavioral> of entity <bullet>.
+Parsing VHDL file "E:\users\gg\picture.vhd" into library work
+Parsing entity <picture>.
+Parsing architecture <Behavioral> of entity <picture>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <picture> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <airplane> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <enemy> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <bullet> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "E:\users\gg\picture.vhd" Line 231: dd should be on the sensitivity list of the process
+
+Elaborating entity <codepage> (architecture <Behavioral>) from library <work>.
+WARNING:Xst:2972 - "e:/users/gg/picture.vhd" line 133. All outputs of instance <b2> of block <enemy> are unconnected in block <picture>. Underlying logic will be removed.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <picture>.
+    Related source file is "e:/users/gg/picture.vhd".
+WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <start> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "e:/users/gg/picture.vhd" line 133: Output port <data> of the instance <b2> is unconnected or connected to loadless signal.
+    Found 3-bit register for signal <enemy_rgb>.
+    Found 3-bit register for signal <enemy2_rgb>.
+    Found 3-bit register for signal <bullet_rgb>.
+    Found 1-bit register for signal <en>.
+    Found 9-bit register for signal <addr>.
+    Found 1-bit register for signal <en_g>.
+    Found 9-bit register for signal <addr_g>.
+    Found 3-bit register for signal <goal_rgb>.
+    Found 3-bit register for signal <plane_rgb>.
+    Found 32-bit adder for signal <plane_x[31]_GND_5_o_add_18_OUT> created at line 154.
+    Found 32-bit adder for signal <plane_y[31]_GND_5_o_add_21_OUT> created at line 154.
+    Found 32-bit adder for signal <enemy_x[31]_GND_5_o_add_26_OUT> created at line 160.
+    Found 32-bit adder for signal <enemy_y[31]_GND_5_o_add_29_OUT> created at line 160.
+    Found 32-bit adder for signal <enemy_x2[31]_GND_5_o_add_35_OUT> created at line 167.
+    Found 32-bit adder for signal <enemy_y2[31]_GND_5_o_add_38_OUT> created at line 167.
+    Found 32-bit adder for signal <bullet_x[31]_GND_5_o_add_44_OUT> created at line 174.
+    Found 32-bit adder for signal <bullet_y[31]_GND_5_o_add_47_OUT> created at line 174.
+    Found 32-bit adder for signal <n0226> created at line 192.
+    Found 10-bit subtractor for signal <x_plane> created at line 57.
+    Found 10-bit subtractor for signal <y_plane> created at line 57.
+    Found 10-bit subtractor for signal <x_enemy> created at line 57.
+    Found 10-bit subtractor for signal <y_enemy> created at line 57.
+    Found 10-bit subtractor for signal <x_bullet> created at line 57.
+    Found 10-bit subtractor for signal <y_bullet> created at line 57.
+    Found 10-bit subtractor for signal <x_dis> created at line 64.
+    Found 10-bit subtractor for signal <y_dis> created at line 64.
+    Found 10-bit subtractor for signal <y_dis_g> created at line 64.
+    Found 32-bit adder for signal <n0225> created at line 189.
+    Found 32-bit comparator lessequal for signal <n0018> created at line 154
+    Found 32-bit comparator lessequal for signal <n0021> created at line 154
+    Found 32-bit comparator lessequal for signal <n0023> created at line 154
+    Found 32-bit comparator lessequal for signal <n0026> created at line 154
+    Found 32-bit comparator lessequal for signal <n0034> created at line 160
+    Found 32-bit comparator lessequal for signal <n0037> created at line 160
+    Found 32-bit comparator lessequal for signal <n0039> created at line 160
+    Found 32-bit comparator lessequal for signal <n0042> created at line 160
+    Found 32-bit comparator lessequal for signal <n0051> created at line 167
+    Found 32-bit comparator lessequal for signal <n0054> created at line 167
+    Found 32-bit comparator lessequal for signal <n0056> created at line 167
+    Found 32-bit comparator lessequal for signal <n0059> created at line 167
+    Found 32-bit comparator lessequal for signal <n0068> created at line 174
+    Found 32-bit comparator lessequal for signal <n0071> created at line 174
+    Found 32-bit comparator lessequal for signal <n0073> created at line 174
+    Found 32-bit comparator lessequal for signal <n0076> created at line 174
+    Found 32-bit comparator lessequal for signal <n0091> created at line 187
+    Found 10-bit comparator greater for signal <y_dis[9]_GND_5_o_LessThan_74_o> created at line 214
+    Found 10-bit comparator greater for signal <x_dis[9]_GND_5_o_LessThan_75_o> created at line 215
+    Found 10-bit comparator greater for signal <x_dis[9]_GND_5_o_LessThan_76_o> created at line 218
+    Found 10-bit comparator greater for signal <y_dis_g[9]_GND_5_o_LessThan_93_o> created at line 262
+    Found 10-bit comparator greater for signal <x_dis[9]_GND_5_o_LessThan_96_o> created at line 269
+    Found 10-bit comparator greater for signal <x_dis[9]_GND_5_o_LessThan_97_o> created at line 272
+    Summary:
+	inferred  19 Adder/Subtractor(s).
+	inferred  35 D-type flip-flop(s).
+	inferred  23 Comparator(s).
+	inferred   8 Multiplexer(s).
+Unit <picture> synthesized.
+
+Synthesizing Unit <airplane>.
+    Related source file is "e:/users/gg/plane.vhd".
+WARNING:Xst:647 - Input <y<5:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <x<5:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32x11-bit Read Only RAM for signal <_n0070>
+    Summary:
+	inferred   1 RAM(s).
+	inferred  25 Multiplexer(s).
+Unit <airplane> synthesized.
+
+Synthesizing Unit <enemy>.
+    Related source file is "e:/users/gg/enemy.vhd".
+WARNING:Xst:647 - Input <y<5:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <x<5:5>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Summary:
+	inferred  25 Multiplexer(s).
+Unit <enemy> synthesized.
+
+Synthesizing Unit <bullet>.
+    Related source file is "e:/users/gg/bullet.vhd".
+    Summary:
+	inferred   8 Multiplexer(s).
+Unit <bullet> synthesized.
+
+Synthesizing Unit <codepage>.
+    Related source file is "e:/users/gg/codepage.vhd".
+    Found 3-bit subtractor for signal <GND_9_o_GND_9_o_sub_2_OUT<2:0>> created at line 619.
+    Found 512x7-bit Read Only RAM for signal <_n0529>
+    Found 1-bit 8-to-1 multiplexer for signal <d> created at line 619.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Multiplexer(s).
+Unit <codepage> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 3
+ 32x11-bit single-port Read Only RAM                   : 1
+ 512x7-bit single-port Read Only RAM                   : 2
+# Adders/Subtractors                                   : 21
+ 10-bit subtractor                                     : 9
+ 3-bit subtractor                                      : 2
+ 32-bit adder                                          : 10
+# Registers                                            : 9
+ 1-bit register                                        : 2
+ 3-bit register                                        : 5
+ 9-bit register                                        : 2
+# Comparators                                          : 23
+ 10-bit comparator greater                             : 6
+ 32-bit comparator lessequal                           : 17
+# Multiplexers                                         : 68
+ 1-bit 2-to-1 multiplexer                              : 60
+ 1-bit 8-to-1 multiplexer                              : 2
+ 3-bit 2-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 1
+ 9-bit 2-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst - The specified part-type was not generated at build time. XST is loading the full part-type and will therefore consume more CPU and memory.
+Loading device for application Rf_Device from file '7a8.nph' in environment D:\Xilinx\13.4\ISE_DS\ISE\.
+Loading device for application Rf_Device from file '7a8.nph' in environment D:\Xilinx\13.4\ISE_DS\ISE\.
+WARNING:Xst:1710 - FF/Latch <enemy_rgb_0> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <enemy_rgb_2> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <enemy2_rgb_0> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <enemy2_rgb_2> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bullet_rgb_0> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bullet_rgb_2> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <plane_rgb_1> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <plane_rgb_2> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <goal_rgb_1> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <goal_rgb_2> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2404 -  FFs/Latches <goal_rgb<2:1>> (without init value) have a constant value of 0 in block <picture>.
+WARNING:Xst:2404 -  FFs/Latches <enemy_rgb<2:2>> (without init value) have a constant value of 0 in block <picture>.
+WARNING:Xst:2404 -  FFs/Latches <enemy2_rgb<2:2>> (without init value) have a constant value of 0 in block <picture>.
+WARNING:Xst:2404 -  FFs/Latches <bullet_rgb<2:2>> (without init value) have a constant value of 0 in block <picture>.
+WARNING:Xst:2404 -  FFs/Latches <plane_rgb<2:1>> (without init value) have a constant value of 0 in block <picture>.
+
+Synthesizing (advanced) Unit <airplane>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n0070> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 11-bit                    |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <y>             |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <airplane> synthesized (advanced).
+
+Synthesizing (advanced) Unit <picture>.
+INFO:Xst:3226 - The RAM <e/Mram__n0529> will be implemented as a BLOCK RAM, absorbing the following register(s): <addr_g>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 7-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     enA            | connected to internal node          | low      |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr_g[8]_g1[5]_mux_100_OUT> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3226 - The RAM <d/Mram__n0529> will be implemented as a BLOCK RAM, absorbing the following register(s): <addr>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 512-word x 7-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     enA            | connected to internal node          | low      |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <addr[8]_t1[5]_mux_77_OUT> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <picture> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 3
+ 32x11-bit single-port distributed Read Only RAM       : 1
+ 512x7-bit single-port block Read Only RAM             : 2
+# Adders/Subtractors                                   : 21
+ 10-bit subtractor                                     : 3
+ 3-bit subtractor                                      : 2
+ 32-bit adder                                          : 8
+ 4-bit subtractor                                      : 2
+ 6-bit subtractor                                      : 4
+ 7-bit adder                                           : 2
+# Registers                                            : 10
+ Flip-Flops                                            : 10
+# Comparators                                          : 23
+ 10-bit comparator greater                             : 6
+ 32-bit comparator lessequal                           : 17
+# Multiplexers                                         : 68
+ 1-bit 2-to-1 multiplexer                              : 60
+ 1-bit 8-to-1 multiplexer                              : 2
+ 3-bit 2-to-1 multiplexer                              : 1
+ 7-bit 2-to-1 multiplexer                              : 1
+ 9-bit 2-to-1 multiplexer                              : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <enemy_rgb_0> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <enemy2_rgb_0> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bullet_rgb_0> (without init value) has a constant value of 0 in block <picture>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2697 - Unit <MTP_> : the RAMs <e/Mram__n0529>, <d/Mram__n0529> are packed into the single block RAM <e/Mram__n05291>
+
+Optimizing unit <picture> ...
+
+Optimizing unit <enemy> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block picture, actual ratio is 11.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 7
+ Flip-Flops                                            : 7
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : picture.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1619
+#      GND                         : 1
+#      INV                         : 14
+#      LUT1                        : 210
+#      LUT2                        : 50
+#      LUT3                        : 11
+#      LUT4                        : 491
+#      LUT5                        : 58
+#      LUT6                        : 70
+#      MUXCY                       : 473
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 238
+# FlipFlops/Latches                : 7
+#      FDR                         : 3
+#      FDRE                        : 4
+# RAMS                             : 1
+#      RAMB18E1                    : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 483
+#      IBUF                        : 480
+#      OBUF                        : 3
+
+Device utilization summary:
+---------------------------
+
+Selected Device : xa7a8csg324-2i 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:               7  out of  19200     0%  
+ Number of Slice LUTs:                  904  out of   9600     9%  
+    Number used as Logic:               904  out of   9600     9%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    904
+   Number with an unused Flip Flop:     897  out of    904    99%  
+   Number with an unused LUT:             0  out of    904     0%  
+   Number of fully used LUT-FF pairs:     7  out of    904     0%  
+   Number of unique control sets:         7
+
+IO Utilization: 
+ Number of IOs:                         486
+ Number of bonded IOBs:                 484  out of    200   242% (*) 
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                1  out of     40     2%  
+    Number using Block RAM only:          1
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 8     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+pic_rgb_2_OBUF(XST_GND:G)          | NONE(e/Mram__n05291)   | 2     |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 3.325ns (Maximum Frequency: 300.738MHz)
+   Minimum input arrival time before clock: 5.051ns
+   Maximum output required time after clock: 4.090ns
+   Maximum combinational path delay: 2.033ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.325ns (frequency: 300.738MHz)
+  Total number of paths / destination ports: 8 / 2
+-------------------------------------------------------------------------
+Delay:               3.325ns (Levels of Logic = 2)
+  Source:            e/Mram__n05291 (RAM)
+  Destination:       goal_rgb (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: e/Mram__n05291 to goal_rgb
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB18E1:CLKARDCLK->DOADO2    1   2.325   0.616  e/Mram__n05291 (e/_n0529<4>)
+     LUT6:I2->O            1   0.097   0.000  e/Mmux_d13_G (N21)
+     MUXF7:I1->O           1   0.279   0.000  e/Mmux_d13 (dd_g)
+     FDR:D                     0.008          goal_rgb
+    ----------------------------------------
+    Total                      3.325ns (2.709ns logic, 0.616ns route)
+                                       (81.5% logic, 18.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 11894 / 35
+-------------------------------------------------------------------------
+Offset:              5.051ns (Levels of Logic = 12)
+  Source:            vcnt<0> (PAD)
+  Destination:       enemy_rgb_1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: vcnt<0> to enemy_rgb_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   0.001   0.550  vcnt_0_IBUF (vcnt_0_IBUF)
+     LUT2:I0->O            1   0.097   0.000  Msub_y_enemy_Madd_lut<0> (Msub_y_enemy_Madd_lut<0>)
+     MUXCY:S->O            1   0.353   0.000  Msub_y_enemy_Madd_cy<0> (Msub_y_enemy_Madd_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  Msub_y_enemy_Madd_cy<1> (Msub_y_enemy_Madd_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  Msub_y_enemy_Madd_cy<2> (Msub_y_enemy_Madd_cy<2>)
+     MUXCY:CI->O           0   0.023   0.000  Msub_y_enemy_Madd_cy<3> (Msub_y_enemy_Madd_cy<3>)
+     XORCY:CI->O          13   0.370   0.811  Msub_y_enemy_Madd_xor<4> (y_enemy<4>)
+     LUT5:I0->O            2   0.097   0.621  b1/d<19>1 (b1/d<19>)
+     LUT6:I2->O            1   0.097   0.753  b1/data3 (b1/data2)
+     LUT6:I0->O            1   0.097   0.753  b1/data9 (b1/data8)
+     LUT6:I0->O            1   0.097   0.000  b1/data18_F (N18)
+     MUXF7:I0->O           2   0.277   0.000  b1/data18 (data_e)
+     FDRE:D                    0.008          enemy_rgb_1
+    ----------------------------------------
+    Total                      5.051ns (1.563ns logic, 3.488ns route)
+                                       (30.9% logic, 69.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 13 / 2
+-------------------------------------------------------------------------
+Offset:              4.090ns (Levels of Logic = 3)
+  Source:            e/Mram__n05291 (RAM)
+  Destination:       pic_rgb<0> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: e/Mram__n05291 to pic_rgb<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB18E1:CLKARDCLK->DOBDO4    1   2.325   0.616  e/Mram__n05291 (d/_n0529<2>)
+     LUT6:I2->O            1   0.097   0.616  pic_rgb<0>1 (pic_rgb<0>1)
+     LUT6:I2->O            1   0.097   0.339  pic_rgb<0>3 (pic_rgb_0_OBUF)
+     OBUF:I->O                 0.000          pic_rgb_0_OBUF (pic_rgb<0>)
+    ----------------------------------------
+    Total                      4.090ns (2.519ns logic, 1.571ns route)
+                                       (61.6% logic, 38.4% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 5 / 1
+-------------------------------------------------------------------------
+Delay:               2.033ns (Levels of Logic = 4)
+  Source:            hcnt<3> (PAD)
+  Destination:       pic_rgb<0> (PAD)
+
+  Data Path: hcnt<3> to pic_rgb<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            33   0.001   0.883  hcnt_3_IBUF (hcnt_3_IBUF)
+     LUT6:I0->O            1   0.097   0.616  pic_rgb<0>1 (pic_rgb<0>1)
+     LUT6:I2->O            1   0.097   0.339  pic_rgb<0>3 (pic_rgb_0_OBUF)
+     OBUF:I->O                 0.000          pic_rgb_0_OBUF (pic_rgb<0>)
+    ----------------------------------------
+    Total                      2.033ns (0.195ns logic, 1.838ns route)
+                                       (9.6% logic, 90.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.325|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 44.00 secs
+Total CPU time to Xst completion: 44.10 secs
+ 
+--> 
+
+Total memory usage is 679952 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   28 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
+

@@ -1,0 +1,266 @@
+/********************************版权声明**************************************
+**                              大西瓜团队
+**                            
+**----------------------------文件信息--------------------------
+** 文件名称：fir.v
+** 创建日期：
+** 功能描述：
+             
+** 操作过程：
+** 硬件平台：大西瓜第一代开发板 http://daxiguafpga.taobao.com
+** 版权声明：本代码属个人知识产权,本代码仅供交流学习.
+**---------------------------修改文件的相关信息----------------
+** 修改人：wjr
+** 修改日期：		
+** 修改内容：
+**采样频率为100K
+  基波为1000Hz
+  谐波为21KHz
+  截止频率为20K,滤波器的阶数为8
+*******************************************************************************/
+module fir(
+           clk,
+           reset_n,
+           data_in,
+           fir_data,
+           fir_data_20
+           );
+input  clk;
+input  reset_n;
+output  [9:0]data_in;
+output  [9:0]fir_data_20;
+wire   clk;
+wire   reset_n;
+//wire   [9:0]data_in;
+output [9:0]fir_data;
+reg    [9:0]fir_data;
+reg    [9:0]fir_data_20;
+
+reg    [31:0] clk_cnt;
+reg    clk_div;
+
+rom_top u1(
+               .clk(clk),
+               .reset_n(reset_n),
+               .q(),
+               .dds_tri_out(),
+               .data_temp(data_in)
+              );
+always @(posedge clk or negedge reset_n)
+ begin
+  if(!reset_n)
+   begin
+    clk_div<=1'b0;
+    clk_cnt<=32'd0;
+   end
+  else
+    if(clk_cnt==32'd249)//sample 100K
+     begin
+      clk_div<=~clk_div;
+      clk_cnt<=32'd0;
+     end
+    else
+     clk_cnt<=clk_cnt+1'b1;
+ end
+reg    [9:0] t1[10:0];
+//****************************************************//
+//******************横截型（链型结构）****************//
+//****************************************************//
+//always @(posedge clk_div or negedge reset_n)
+// begin
+//   if(!reset_n)
+//    fir_data<=10'd0;
+//   else
+//    begin
+//     fir_data<=
+//               9*t1[0]/1000
+//               +48*t1[1]/1000
+//               +164*t1[2]/1000
+//               +279*t1[3]/1000
+//               +279*t1[4]/1000
+//               +164*t1[5]/1000
+//               +48*t1[6]/1000
+//               +9*t1[7]/1000;
+//     t1[1]<=t1[0];
+//     t1[2]<=t1[1];
+//     t1[3]<=t1[2];
+//     t1[4]<=t1[3];
+//     t1[5]<=t1[4];
+//     t1[6]<=t1[5];
+//     t1[7]<=t1[6];
+//     t1[0]<=data_in;
+//    end
+// end
+//****************************************************//
+//******************横截型（树形结构）****************//
+//****************************************************//
+//reg [9:0]data_reg [5:0];
+// always @(posedge clk_div or negedge reset_n)
+//  begin
+//   if(!reset_n)
+//    fir_data<=10'd0;
+//   else
+//    begin
+//     data_reg[0]<=(9*t1[0]+48*t1[1])/1000;
+//     data_reg[1]<=(164*t1[2]+279*t1[3])/1000;
+//     data_reg[2]<=(279*t1[4]+164*t1[5])/1000;
+//     data_reg[3]<=(48*t1[6]+9*t1[7])/1000;
+//     data_reg[4]<=data_reg[0]+data_reg[1];
+//     data_reg[5]<=data_reg[2]+data_reg[3];
+//     fir_data<=data_reg[4]+data_reg[5];
+//     
+//     t1[1]<=t1[0];
+//     t1[2]<=t1[1];
+//     t1[3]<=t1[2];
+//     t1[4]<=t1[3];
+//     t1[5]<=t1[4];
+//     t1[6]<=t1[5];
+//     t1[7]<=t1[6];
+//     t1[0]<=data_in;
+//    end
+//  end
+//****************************************************//
+//************************（线性相位结构）************//
+//****************************************************//
+wire [31:0]data_reg [5:0];
+wire [31:0]data_temp;
+
+assign data_reg[0]=9*(t1[0]+t1[7]);
+assign data_reg[1]=48*(t1[1]+t1[6]);
+assign data_reg[2]=164*(t1[2]+t1[5]);
+assign data_reg[3]=279*(t1[3]+t1[4]);
+assign data_reg[4]=data_reg[0]+data_reg[1];
+assign data_reg[5]=data_reg[2]+data_reg[3];   
+assign data_temp=(data_reg[4]+data_reg[5])/1000;
+ always @(posedge clk_div or negedge reset_n)
+  begin
+   if(!reset_n)
+    fir_data<=10'd0;
+   else
+    begin
+     fir_data<=data_temp[9:0];
+     t1[1]<=t1[0];
+     t1[2]<=t1[1];
+     t1[3]<=t1[2];
+     t1[4]<=t1[3];
+     t1[5]<=t1[4];
+     t1[6]<=t1[5];
+     t1[7]<=t1[6];
+     t1[0]<=data_in;
+    end
+  end
+//****************************************************//
+//******************20阶横截型（链型结构）************//
+//****************************************************//
+//reg    [9:0] t[20:0];
+//always @(posedge clk_div or negedge reset_n)
+// begin
+//   if(!reset_n)
+//    fir_data_20<=10'd0;
+//   else
+//     fir_data_20<=
+//                  0*t[0]/1000
+//                 -2*t[1]/1000
+//                 -6*t[2]/1000
+//                 -12*t[3]/1000
+//                 -12*t[4]/1000
+//                 +0*t[5]/1000
+//                 +32*t[6]/1000
+//                 +81*t[7]/1000
+//                 +138*t[8]/1000
+//                 +182*t[9]/1000
+//                 +199*t[10]/1000
+//                 +182*t[11]/1000
+//                 +138*t[12]/1000
+//                 +81*t[13]/1000
+//                 +32*t[14]/1000
+//                 +0*t[15]/1000
+//                 -12*t[16]/1000
+//                 -12*t[17]/1000
+//                 -6*t[18]/1000
+//                 -2*t[19]/1000
+//                 +0*t[20]/1000;
+//                 
+//				 t[1]<=t[0];
+//				 t[2]<=t[1];
+//				 t[3]<=t[2];
+//				 t[4]<=t[3];
+//				 t[5]<=t[4];
+//				 t[6]<=t[5];
+//				 t[7]<=t[6];
+//				 t[8]<=t[7];
+//				 t[9]<=t[8];
+//				 t[10]<=t[9];
+//				 t[11]<=t[10];
+//				 t[12]<=t[11];
+//				 t[13]<=t[12];
+//				 t[14]<=t[13];
+//				 t[15]<=t[14];
+//				 t[16]<=t[15];
+//				 t[17]<=t[16];
+//				 t[18]<=t[17];
+//				 t[19]<=t[18];
+//				 t[20]<=t[19];
+//     
+//				 t[0]<=data_in;
+// end
+//****************************************************//
+//************************（线性相位结构）************//
+//****************************************************//
+reg        [9:0] t[20:0];
+wire       [31:0]data_reg21 [16:0];
+wire       [31:0]data_fir21;
+assign     data_reg21[0]= 2*(t[1]+t[19]);//-
+assign     data_reg21[1]= 6*(t[2]+t[18]);//-
+assign     data_reg21[2]=12*(t[3]+t[17]);//-
+assign     data_reg21[3]=12*(t[4]+t[16]);//-
+     
+assign     data_reg21[4]=32*(t[6]+t[14]);
+assign     data_reg21[5]=81*(t[7]+t[13]);
+assign     data_reg21[6]=138*(t[8]+t[12]);
+assign     data_reg21[7]=182*(t[9]+t[11]);
+assign     data_reg21[8]=199*t[10];
+     
+assign     data_reg21[9]= data_reg21[0]+data_reg21[1];
+assign     data_reg21[10]=data_reg21[2]+data_reg21[3];
+assign     data_reg21[11]=data_reg21[4]+data_reg21[5];
+assign     data_reg21[12]=data_reg21[6]+data_reg21[7];
+     
+assign     data_reg21[13]=data_reg21[9]+data_reg21[10];
+assign     data_reg21[14]=data_reg21[11]+data_reg21[12];
+assign     data_reg21[15]=data_reg21[14]+data_reg21[8];
+     
+assign     data_reg21[16]=data_reg21[15]-data_reg21[13];
+assign     data_fir21=data_reg21[16]/1000;
+always @(posedge clk_div or negedge reset_n)
+ begin
+   if(!reset_n)
+    fir_data_20<=10'd0;
+   else
+    begin
+		 fir_data_20<=data_fir21[9:0];
+		 t[1]<=t[0];
+		 t[2]<=t[1];
+		 t[3]<=t[2];
+		 t[4]<=t[3];
+		 t[5]<=t[4];
+		 t[6]<=t[5];
+		 t[7]<=t[6];
+		 t[8]<=t[7];
+		 t[9]<=t[8];
+		 t[10]<=t[9];
+		 t[11]<=t[10];
+		 t[12]<=t[11];
+		 t[13]<=t[12];
+		 t[14]<=t[13];
+		 t[15]<=t[14];
+		 t[16]<=t[15];
+		 t[17]<=t[16];
+		 t[18]<=t[17];
+		 t[19]<=t[18];
+		 t[20]<=t[19];
+ 
+	 t[0]<=data_in;
+   end
+ end
+endmodule

@@ -1,0 +1,283 @@
+--/******************************************************************************
+-- ** 功能描述：串口通信__FPGA和上位机通信(波特率：9600bps,10个bit是1位起始位，8个数据位，1个结束)
+-- ** 操作过程：按动key2，FPGA向PC发送“da xi gua"一次,KEY1是复位按键。
+-- 字符串（串口调试工具设成字符格式接受和发送方式）,FPGA接受（0到9）后显示在7段数码管上。
+--*******************************************************************************/
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_arith.all;
+entity uart_seg is
+port(
+    clk:in std_logic;
+    rst:in std_logic;
+    rxd:in std_logic;
+    txd:out std_logic;
+    en:out std_logic_vector(7 downto 0);
+    seg_data:out std_logic_vector(7 downto 0);
+    key_input:in std_logic
+    );
+end uart_seg;
+architecture behave of uart_seg is
+--/*****************************/
+signal div_reg:integer range 0 to 326 ;       --分频计数器，分频值由波特率决定。分频后得到频率8倍波特率的时钟
+signal div8_tras_reg:std_logic_vector(2 downto 0);  --该寄存器的计数值对应发送时当前位于的时隙数
+signal div8_rec_reg:std_logic_vector(2 downto 0);   --该寄存器的计数值对应接收时当前位于的时隙数
+signal state_tras:std_logic_vector(3 downto 0);     --发送状态寄存器
+signal state_rec:std_logic_vector(3 downto 0);      --接受状态寄存器
+signal clkbaud_tras:std_logic;                      --以波特率为频率的发送使能信号
+signal clkbaud_rec:std_logic;                       --以波特率为频率的接受使能信号
+signal clkbaud8x:std_logic;                         --以8倍波特率为频率的时钟，它的作用是将发送或接受一个bit的时钟周期分为8个时隙
+
+signal recstart:std_logic;                          --开始发送标志
+signal recstart_tmp:std_logic;
+
+signal trasstart:std_logic;                         --开始接受标志
+
+signal rxd_reg1:std_logic;                          --接收寄存器1
+signal rxd_reg2:std_logic;                          --接收寄存器2，因为接收数据为异步信号，故用两级缓存
+signal txd_reg:std_logic;                           --发送寄存器
+signal rxd_buf:std_logic_vector(7 downto 0);        --接受数据缓存
+signal txd_buf:std_logic_vector(7 downto 0);        --发送数据缓存
+
+signal send_state:std_logic_vector(2 downto 0);     --这是发送状态寄存器
+signal cnt_delay:integer range 0 to 800000 ;     --延时去抖计数器
+signal start_delaycnt:std_logic;                    --开始延时计数标志
+signal key_entry1:std_logic;                        --确定有键按下标志
+signal key_entry2:std_logic;                        --确定有键按下标志
+signal key_input_temp:std_logic; 
+
+--constant div_par :=16'h145;
+-- //分频参数，其值由对应的波特率计算而得，按此参数分频的时钟频率是波倍特率的8	
+-- //倍，此处值对应9600的波特率，即分频出的时钟频率是9600*8  (CLK  50M)
+begin
+    txd <= txd_reg;
+    en <= "00000000";--7段数码管使能信号赋值
+    key_input_temp <= key_input;
+    process(clk,rst)
+    begin
+        if(clk'event and clk = '1')then--上升沿触发
+            if(rst = '0')then
+                cnt_delay<=0;
+                start_delaycnt<='0';
+            else
+                if(start_delaycnt = '1')then
+                    if(cnt_delay/=800000)then
+                        cnt_delay<=cnt_delay+1;
+                    else
+                        cnt_delay<=0;
+                        start_delaycnt<='0';
+                    end if;
+                else
+                    if((not key_input_temp)='1' and cnt_delay=0)then
+                        start_delaycnt<='1';
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process(clk,rst)
+    begin
+        if(clk'event and clk = '1')then--上升沿触发
+            if(rst = '0')then
+                key_entry1<='0';
+            else
+                if(key_entry2='1')then
+                    key_entry1<='0';
+                elsif(cnt_delay=800000)then
+                        if((not key_input)='1')then
+                            key_entry1<='1';
+                        end if;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process(clk,rst)
+    begin
+        if(clk'event and clk = '1')then--上升沿触发
+            if(rst = '0')then
+                div_reg<=0;
+            else
+                if(div_reg = 324)then
+                    div_reg <= 0;
+                else
+                    div_reg <= div_reg+1;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process(clk,rst)--分频得到8倍波特率的时钟
+    begin
+        if(clk'event and clk = '1')then--上升沿触发
+            if(rst = '0')then
+                clkbaud8x<='0';
+            else
+                if(div_reg = 324)then
+                    clkbaud8x <=not clkbaud8x;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process(clkbaud8x,rst)
+    begin
+        if(clkbaud8x'event and clkbaud8x = '1')then--上升沿触发
+            if(rst = '0')then
+                div8_rec_reg<="000";
+            else
+                if(recstart='1')then--接收开始标志
+                    div8_rec_reg <= div8_rec_reg + '1';--接收开始后，时隙数在8倍波特率的时钟下加1循环
+                end if;
+            end if;
+        end if;
+    end process;
+    
+    -- process(clkbaud8x,reset_n)
+    -- begin
+        -- if(clkbaud8x'event and clkbaud8x = '1')then--上升沿触发
+            -- if(reset_n = '0')then
+                -- div8_tras_reg <= "000";
+            -- else
+                -- if(trasstart)then
+                    -- div8_tras_reg<=div8_tras_reg+'1';--发送开始后，时隙数在8倍波特率的时钟下加1循环
+                -- end if;
+            -- end if;
+        -- end if;
+    -- end process;
+    
+    process(div8_rec_reg)
+    begin
+        if(div8_rec_reg="111")then
+            clkbaud_rec<='1';--在第7个时隙，接收使能信号有效，将数据打入
+        else
+            clkbaud_rec<='0';
+        end if;
+    end process;
+    
+    -- process(div8_tras_reg)
+    -- begin
+        -- if(div8_tras_reg="111")then
+            -- clkbaud_tras<='1';--在第7个时隙，发送使能信号有效，将数据发出
+        -- else
+            -- clkbaud_tras<='0';
+        -- end if;
+    -- end process;
+    
+    process(clkbaud8x,rst)--接受PC机的数据
+    begin
+        if(clkbaud8x'event and clkbaud8x = '1')then--上升沿触发
+            if(rst='0')then
+                rxd_reg1 <= '0';
+                rxd_reg2 <= '0';
+                rxd_buf <= "00000000";
+                state_rec <= "0000";
+                recstart <= '0';
+                recstart_tmp <= '0';
+            else
+                rxd_reg1 <= rxd;
+                rxd_reg2 <= rxd_reg1;
+                if(state_rec="0000")then
+                    if(recstart_tmp='1')then
+                        recstart<='1';
+                        recstart_tmp<='0';
+                        state_rec<=state_rec+'1';
+                    elsif((not rxd_reg1)='1' and rxd_reg2='1')then --检测到起始位的下降沿，进入接受状态
+                        recstart_tmp<='1';
+                    end if;
+                elsif(state_rec>="0001" and state_rec<="1000")then
+                    if(clkbaud_rec)then
+                        rxd_buf(7) <= rxd_reg2;
+                        rxd_buf(6 downto 0) <= rxd_buf(7 downto 1);
+                        state_rec <= state_rec + '1';
+                    end if;
+                elsif(state_rec = "1001")then
+                    if(clkbaud_rec='1')then
+                        state_rec<="0000";
+                        recstart<='0';
+                    end if;
+                end if;
+              end if;
+        end if;
+    end process;
+    
+    process(rxd_buf)--将接受的数据用数码管显示出来
+    begin
+          case (rxd_buf)is
+            when "00110000"=>
+                seg_data<="11000000";
+            when "00110001"=>
+                seg_data<="11111001";
+            when "00110010"=>
+                seg_data<="10100100";
+            when "00110011"=>
+                seg_data<="10110000";
+            when "00110100"=>
+                seg_data<="10011001";
+            when "00110101"=>
+                seg_data<="10010010";
+            when "00110110"=>
+                seg_data<="10000010";
+            when "00110111"=>
+                seg_data<="11111000";
+            when "00111000"=>
+                seg_data<="10000000";
+            when "00111001"=>
+                seg_data<="10010000";
+            when "01000001"=>
+                seg_data<="10001000";
+            when "01000010"=>
+                seg_data<="10000011";
+            when "01000011"=>
+                seg_data<="11000110";
+            when "01000100"=>
+                seg_data<="10100001";
+            when "01000101"=>
+                seg_data<="10000110";
+            when "01000110"=>
+                seg_data<="10001110";
+            when others =>
+                seg_data<="11111111";
+         end case;
+    end process;	
+end behave;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

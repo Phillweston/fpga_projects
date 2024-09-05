@@ -1,0 +1,956 @@
+Simulator report for yinyue
+Wed Dec 17 22:34:18 2014
+Quartus II Version 7.1 Build 178 06/25/2007 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 433 nodes    ;
+; Simulation Coverage         ;      12.50 % ;
+; Total Number of Transitions ; 122638       ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
++-----------------------------+--------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                      ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Option                                                                                     ; Setting    ; Default Value ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+; Simulation mode                                                                            ; Functional ; Timing        ;
+; Start time                                                                                 ; 0 ns       ; 0 ns          ;
+; Simulation results format                                                                  ; CVWF       ;               ;
+; Vector input source                                                                        ; song.vwf   ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On         ; On            ;
+; Check outputs                                                                              ; Off        ; Off           ;
+; Report simulation coverage                                                                 ; On         ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On         ; On            ;
+; Display missing 1-value coverage report                                                    ; On         ; On            ;
+; Display missing 0-value coverage report                                                    ; On         ; On            ;
+; Detect setup and hold time violations                                                      ; Off        ; Off           ;
+; Detect glitches                                                                            ; Off        ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off        ; Off           ;
+; Generate Signal Activity File                                                              ; Off        ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off        ; Off           ;
+; Group bus channels in simulation results                                                   ; Off        ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On         ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off        ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off        ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto       ; Auto          ;
++--------------------------------------------------------------------------------------------+------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      12.50 % ;
+; Total nodes checked                                 ; 433          ;
+; Total output ports checked                          ; 432          ;
+; Total output ports with complete 1/0-value coverage ; 54           ;
+; Total output ports with no 1/0-value coverage       ; 363          ;
+; Total output ports with no 1-value coverage         ; 363          ;
+; Total output ports with no 0-value coverage         ; 378          ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++----------------------------------------------------------+
+; Complete 1/0-Value Coverage                              ;
++-------------------+-------------------+------------------+
+; Node Name         ; Output Port Name  ; Output Port Type ;
++-------------------+-------------------+------------------+
+; |song|divider~0   ; |song|divider~0   ; out              ;
+; |song|divider~1   ; |song|divider~1   ; out              ;
+; |song|divider~2   ; |song|divider~2   ; out              ;
+; |song|divider~3   ; |song|divider~3   ; out              ;
+; |song|divider~4   ; |song|divider~4   ; out              ;
+; |song|divider~5   ; |song|divider~5   ; out              ;
+; |song|divider~6   ; |song|divider~6   ; out              ;
+; |song|divider~7   ; |song|divider~7   ; out              ;
+; |song|divider~8   ; |song|divider~8   ; out              ;
+; |song|divider~9   ; |song|divider~9   ; out              ;
+; |song|divider~10  ; |song|divider~10  ; out              ;
+; |song|divider~11  ; |song|divider~11  ; out              ;
+; |song|divider~12  ; |song|divider~12  ; out              ;
+; |song|divider~13  ; |song|divider~13  ; out              ;
+; |song|divider[0]  ; |song|divider[0]  ; regout           ;
+; |song|divider[12] ; |song|divider[12] ; regout           ;
+; |song|divider[11] ; |song|divider[11] ; regout           ;
+; |song|divider[10] ; |song|divider[10] ; regout           ;
+; |song|divider[9]  ; |song|divider[9]  ; regout           ;
+; |song|divider[8]  ; |song|divider[8]  ; regout           ;
+; |song|divider[7]  ; |song|divider[7]  ; regout           ;
+; |song|divider[6]  ; |song|divider[6]  ; regout           ;
+; |song|divider[5]  ; |song|divider[5]  ; regout           ;
+; |song|divider[4]  ; |song|divider[4]  ; regout           ;
+; |song|divider[3]  ; |song|divider[3]  ; regout           ;
+; |song|divider[2]  ; |song|divider[2]  ; regout           ;
+; |song|divider[1]  ; |song|divider[1]  ; regout           ;
+; |song|clk_6mhz    ; |song|clk_6mhz    ; out              ;
+; |song|clk_4hz     ; |song|clk_4hz     ; out              ;
+; |song|Add0~70     ; |song|Add0~70     ; out0             ;
+; |song|Add0~71     ; |song|Add0~71     ; out0             ;
+; |song|Add0~72     ; |song|Add0~72     ; out0             ;
+; |song|Add0~73     ; |song|Add0~73     ; out0             ;
+; |song|Add0~74     ; |song|Add0~74     ; out0             ;
+; |song|Add0~75     ; |song|Add0~75     ; out0             ;
+; |song|Add0~76     ; |song|Add0~76     ; out0             ;
+; |song|Add0~77     ; |song|Add0~77     ; out0             ;
+; |song|Add0~78     ; |song|Add0~78     ; out0             ;
+; |song|Add0~79     ; |song|Add0~79     ; out0             ;
+; |song|Add0~80     ; |song|Add0~80     ; out0             ;
+; |song|Add0~81     ; |song|Add0~81     ; out0             ;
+; |song|Add0~82     ; |song|Add0~82     ; out0             ;
+; |song|Add0~83     ; |song|Add0~83     ; out0             ;
+; |song|Add0~84     ; |song|Add0~84     ; out0             ;
+; |song|Add0~85     ; |song|Add0~85     ; out0             ;
+; |song|Add0~86     ; |song|Add0~86     ; out0             ;
+; |song|Add0~87     ; |song|Add0~87     ; out0             ;
+; |song|Add0~88     ; |song|Add0~88     ; out0             ;
+; |song|Add0~89     ; |song|Add0~89     ; out0             ;
+; |song|Add0~90     ; |song|Add0~90     ; out0             ;
+; |song|Add0~91     ; |song|Add0~91     ; out0             ;
+; |song|Add0~92     ; |song|Add0~92     ; out0             ;
+; |song|Add0~93     ; |song|Add0~93     ; out0             ;
+; |song|Add0~94     ; |song|Add0~94     ; out0             ;
++-------------------+-------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------+
+; Missing 1-Value Coverage                                   ;
++--------------------+--------------------+------------------+
+; Node Name          ; Output Port Name   ; Output Port Type ;
++--------------------+--------------------+------------------+
+; |song|WideNor0     ; |song|WideNor0     ; out0             ;
+; |song|WideOr0      ; |song|WideOr0      ; out0             ;
+; |song|WideOr1      ; |song|WideOr1      ; out0             ;
+; |song|WideOr3      ; |song|WideOr3      ; out0             ;
+; |song|WideOr5      ; |song|WideOr5      ; out0             ;
+; |song|WideOr8      ; |song|WideOr8      ; out0             ;
+; |song|WideOr10     ; |song|WideOr10     ; out0             ;
+; |song|WideOr12     ; |song|WideOr12     ; out0             ;
+; |song|WideOr13     ; |song|WideOr13     ; out0             ;
+; |song|WideOr15     ; |song|WideOr15     ; out0             ;
+; |song|WideOr17     ; |song|WideOr17     ; out0             ;
+; |song|WideOr20     ; |song|WideOr20     ; out0             ;
+; |song|WideOr22     ; |song|WideOr22     ; out0             ;
+; |song|WideOr24     ; |song|WideOr24     ; out0             ;
+; |song|WideOr25     ; |song|WideOr25     ; out0             ;
+; |song|WideNor1     ; |song|WideNor1     ; out0             ;
+; |song|high~0       ; |song|high~0       ; out              ;
+; |song|high~1       ; |song|high~1       ; out              ;
+; |song|high~2       ; |song|high~2       ; out              ;
+; |song|med~0        ; |song|med~0        ; out              ;
+; |song|WideOr29     ; |song|WideOr29     ; out0             ;
+; |song|WideOr31     ; |song|WideOr31     ; out0             ;
+; |song|WideOr33     ; |song|WideOr33     ; out0             ;
+; |song|low~0        ; |song|low~0        ; out              ;
+; |song|WideOr35     ; |song|WideOr35     ; out0             ;
+; |song|WideOr36     ; |song|WideOr36     ; out0             ;
+; |song|WideOr38     ; |song|WideOr38     ; out0             ;
+; |song|counter~0    ; |song|counter~0    ; out              ;
+; |song|counter~1    ; |song|counter~1    ; out              ;
+; |song|counter~2    ; |song|counter~2    ; out              ;
+; |song|counter~3    ; |song|counter~3    ; out              ;
+; |song|counter~4    ; |song|counter~4    ; out              ;
+; |song|counter~5    ; |song|counter~5    ; out              ;
+; |song|counter~6    ; |song|counter~6    ; out              ;
+; |song|counter~7    ; |song|counter~7    ; out              ;
+; |song|counter~8    ; |song|counter~8    ; out              ;
+; |song|counter~9    ; |song|counter~9    ; out              ;
+; |song|counter[9]   ; |song|counter[9]   ; regout           ;
+; |song|counter[8]   ; |song|counter[8]   ; regout           ;
+; |song|counter[7]   ; |song|counter[7]   ; regout           ;
+; |song|counter[6]   ; |song|counter[6]   ; regout           ;
+; |song|counter[5]   ; |song|counter[5]   ; regout           ;
+; |song|counter[4]   ; |song|counter[4]   ; regout           ;
+; |song|counter[3]   ; |song|counter[3]   ; regout           ;
+; |song|counter[2]   ; |song|counter[2]   ; regout           ;
+; |song|counter[1]   ; |song|counter[1]   ; regout           ;
+; |song|counter[0]   ; |song|counter[0]   ; regout           ;
+; |song|high[3]~reg0 ; |song|high[3]~reg0 ; regout           ;
+; |song|high[2]~reg0 ; |song|high[2]~reg0 ; regout           ;
+; |song|high[1]~reg0 ; |song|high[1]~reg0 ; regout           ;
+; |song|high[0]~reg0 ; |song|high[0]~reg0 ; regout           ;
+; |song|med[3]~reg0  ; |song|med[3]~reg0  ; regout           ;
+; |song|med[2]~reg0  ; |song|med[2]~reg0  ; regout           ;
+; |song|med[1]~reg0  ; |song|med[1]~reg0  ; regout           ;
+; |song|med[0]~reg0  ; |song|med[0]~reg0  ; regout           ;
+; |song|low[3]~reg0  ; |song|low[3]~reg0  ; regout           ;
+; |song|low[2]~reg0  ; |song|low[2]~reg0  ; regout           ;
+; |song|low[1]~reg0  ; |song|low[1]~reg0  ; regout           ;
+; |song|WideNor2     ; |song|WideNor2     ; out0             ;
+; |song|high~3       ; |song|high~3       ; out              ;
+; |song|high~4       ; |song|high~4       ; out              ;
+; |song|high~5       ; |song|high~5       ; out              ;
+; |song|high~6       ; |song|high~6       ; out              ;
+; |song|low[0]~reg0  ; |song|low[0]~reg0  ; regout           ;
+; |song|med~1        ; |song|med~1        ; out              ;
+; |song|med~2        ; |song|med~2        ; out              ;
+; |song|WideOr40     ; |song|WideOr40     ; out0             ;
+; |song|WideOr42     ; |song|WideOr42     ; out0             ;
+; |song|low~1        ; |song|low~1        ; out              ;
+; |song|WideOr45     ; |song|WideOr45     ; out0             ;
+; |song|WideOr47     ; |song|WideOr47     ; out0             ;
+; |song|WideOr49     ; |song|WideOr49     ; out0             ;
+; |song|counter~10   ; |song|counter~10   ; out              ;
+; |song|counter~11   ; |song|counter~11   ; out              ;
+; |song|counter~12   ; |song|counter~12   ; out              ;
+; |song|counter~13   ; |song|counter~13   ; out              ;
+; |song|counter~14   ; |song|counter~14   ; out              ;
+; |song|counter~15   ; |song|counter~15   ; out              ;
+; |song|counter~16   ; |song|counter~16   ; out              ;
+; |song|counter~17   ; |song|counter~17   ; out              ;
+; |song|counter~18   ; |song|counter~18   ; out              ;
+; |song|counter~19   ; |song|counter~19   ; out              ;
+; |song|high~7       ; |song|high~7       ; out              ;
+; |song|high~8       ; |song|high~8       ; out              ;
+; |song|high~9       ; |song|high~9       ; out              ;
+; |song|high~10      ; |song|high~10      ; out              ;
+; |song|med~3        ; |song|med~3        ; out              ;
+; |song|med~4        ; |song|med~4        ; out              ;
+; |song|med~5        ; |song|med~5        ; out              ;
+; |song|med~6        ; |song|med~6        ; out              ;
+; |song|low~2        ; |song|low~2        ; out              ;
+; |song|low~3        ; |song|low~3        ; out              ;
+; |song|low~4        ; |song|low~4        ; out              ;
+; |song|low~5        ; |song|low~5        ; out              ;
+; |song|counter~20   ; |song|counter~20   ; out              ;
+; |song|counter~21   ; |song|counter~21   ; out              ;
+; |song|counter~22   ; |song|counter~22   ; out              ;
+; |song|counter~23   ; |song|counter~23   ; out              ;
+; |song|counter~24   ; |song|counter~24   ; out              ;
+; |song|counter~25   ; |song|counter~25   ; out              ;
+; |song|counter~26   ; |song|counter~26   ; out              ;
+; |song|counter~27   ; |song|counter~27   ; out              ;
+; |song|counter~28   ; |song|counter~28   ; out              ;
+; |song|counter~29   ; |song|counter~29   ; out              ;
+; |song|high~11      ; |song|high~11      ; out              ;
+; |song|high~12      ; |song|high~12      ; out              ;
+; |song|high~13      ; |song|high~13      ; out              ;
+; |song|high~14      ; |song|high~14      ; out              ;
+; |song|med~7        ; |song|med~7        ; out              ;
+; |song|med~8        ; |song|med~8        ; out              ;
+; |song|med~9        ; |song|med~9        ; out              ;
+; |song|med~10       ; |song|med~10       ; out              ;
+; |song|low~6        ; |song|low~6        ; out              ;
+; |song|low~7        ; |song|low~7        ; out              ;
+; |song|low~8        ; |song|low~8        ; out              ;
+; |song|low~9        ; |song|low~9        ; out              ;
+; |song|speaker      ; |song|speaker      ; pin_out          ;
+; |song|high[0]      ; |song|high[0]      ; pin_out          ;
+; |song|high[1]      ; |song|high[1]      ; pin_out          ;
+; |song|high[2]      ; |song|high[2]      ; pin_out          ;
+; |song|high[3]      ; |song|high[3]      ; pin_out          ;
+; |song|med[0]       ; |song|med[0]       ; pin_out          ;
+; |song|med[1]       ; |song|med[1]       ; pin_out          ;
+; |song|med[2]       ; |song|med[2]       ; pin_out          ;
+; |song|med[3]       ; |song|med[3]       ; pin_out          ;
+; |song|low[0]       ; |song|low[0]       ; pin_out          ;
+; |song|low[1]       ; |song|low[1]       ; pin_out          ;
+; |song|low[2]       ; |song|low[2]       ; pin_out          ;
+; |song|low[3]       ; |song|low[3]       ; pin_out          ;
+; |song|k            ; |song|k            ; out              ;
+; |song|Selector0~4  ; |song|Selector0~4  ; out0             ;
+; |song|Selector0~5  ; |song|Selector0~5  ; out0             ;
+; |song|Selector1~4  ; |song|Selector1~4  ; out0             ;
+; |song|Selector1~5  ; |song|Selector1~5  ; out0             ;
+; |song|Selector2~4  ; |song|Selector2~4  ; out0             ;
+; |song|Selector2~5  ; |song|Selector2~5  ; out0             ;
+; |song|Selector3~4  ; |song|Selector3~4  ; out0             ;
+; |song|Selector3~5  ; |song|Selector3~5  ; out0             ;
+; |song|Selector4~4  ; |song|Selector4~4  ; out0             ;
+; |song|Selector4~5  ; |song|Selector4~5  ; out0             ;
+; |song|Selector5~4  ; |song|Selector5~4  ; out0             ;
+; |song|Selector5~5  ; |song|Selector5~5  ; out0             ;
+; |song|Selector6~4  ; |song|Selector6~4  ; out0             ;
+; |song|Selector6~5  ; |song|Selector6~5  ; out0             ;
+; |song|Selector7~4  ; |song|Selector7~4  ; out0             ;
+; |song|Selector7~5  ; |song|Selector7~5  ; out0             ;
+; |song|Selector8~4  ; |song|Selector8~4  ; out0             ;
+; |song|Selector8~5  ; |song|Selector8~5  ; out0             ;
+; |song|Selector9~4  ; |song|Selector9~4  ; out0             ;
+; |song|Selector9~5  ; |song|Selector9~5  ; out0             ;
+; |song|Selector10~4 ; |song|Selector10~4 ; out0             ;
+; |song|Selector10~5 ; |song|Selector10~5 ; out0             ;
+; |song|Selector11~4 ; |song|Selector11~4 ; out0             ;
+; |song|Selector11~5 ; |song|Selector11~5 ; out0             ;
+; |song|Selector12~4 ; |song|Selector12~4 ; out0             ;
+; |song|Selector12~5 ; |song|Selector12~5 ; out0             ;
+; |song|Selector13~4 ; |song|Selector13~4 ; out0             ;
+; |song|Selector13~5 ; |song|Selector13~5 ; out0             ;
+; |song|Selector14~4 ; |song|Selector14~4 ; out0             ;
+; |song|Selector14~5 ; |song|Selector14~5 ; out0             ;
+; |song|Selector15~4 ; |song|Selector15~4 ; out0             ;
+; |song|Selector15~5 ; |song|Selector15~5 ; out0             ;
+; |song|Selector16~4 ; |song|Selector16~4 ; out0             ;
+; |song|Selector16~5 ; |song|Selector16~5 ; out0             ;
+; |song|Selector17~4 ; |song|Selector17~4 ; out0             ;
+; |song|Selector17~5 ; |song|Selector17~5 ; out0             ;
+; |song|Selector18~4 ; |song|Selector18~4 ; out0             ;
+; |song|Selector18~5 ; |song|Selector18~5 ; out0             ;
+; |song|Selector19~4 ; |song|Selector19~4 ; out0             ;
+; |song|Selector19~5 ; |song|Selector19~5 ; out0             ;
+; |song|Selector20~4 ; |song|Selector20~4 ; out0             ;
+; |song|Selector20~5 ; |song|Selector20~5 ; out0             ;
+; |song|Selector21~4 ; |song|Selector21~4 ; out0             ;
+; |song|Selector21~5 ; |song|Selector21~5 ; out0             ;
+; |song|Selector22~4 ; |song|Selector22~4 ; out0             ;
+; |song|Selector22~5 ; |song|Selector22~5 ; out0             ;
+; |song|Selector23~4 ; |song|Selector23~4 ; out0             ;
+; |song|Selector23~5 ; |song|Selector23~5 ; out0             ;
+; |song|Selector24~4 ; |song|Selector24~4 ; out0             ;
+; |song|Selector24~5 ; |song|Selector24~5 ; out0             ;
+; |song|Selector25~4 ; |song|Selector25~4 ; out0             ;
+; |song|Selector25~5 ; |song|Selector25~5 ; out0             ;
+; |song|Add1~50      ; |song|Add1~50      ; out0             ;
+; |song|Add1~51      ; |song|Add1~51      ; out0             ;
+; |song|Add1~52      ; |song|Add1~52      ; out0             ;
+; |song|Add1~53      ; |song|Add1~53      ; out0             ;
+; |song|Add1~54      ; |song|Add1~54      ; out0             ;
+; |song|Add1~55      ; |song|Add1~55      ; out0             ;
+; |song|Add1~56      ; |song|Add1~56      ; out0             ;
+; |song|Add1~57      ; |song|Add1~57      ; out0             ;
+; |song|Add1~58      ; |song|Add1~58      ; out0             ;
+; |song|Add1~59      ; |song|Add1~59      ; out0             ;
+; |song|Add1~60      ; |song|Add1~60      ; out0             ;
+; |song|Add1~61      ; |song|Add1~61      ; out0             ;
+; |song|Add1~62      ; |song|Add1~62      ; out0             ;
+; |song|Add1~63      ; |song|Add1~63      ; out0             ;
+; |song|Add1~64      ; |song|Add1~64      ; out0             ;
+; |song|Add1~65      ; |song|Add1~65      ; out0             ;
+; |song|Add1~66      ; |song|Add1~66      ; out0             ;
+; |song|Equal0~33    ; |song|Equal0~33    ; out0             ;
+; |song|Equal1~33    ; |song|Equal1~33    ; out0             ;
+; |song|Equal2~33    ; |song|Equal2~33    ; out0             ;
+; |song|Equal3~33    ; |song|Equal3~33    ; out0             ;
+; |song|Equal4~33    ; |song|Equal4~33    ; out0             ;
+; |song|Equal5~33    ; |song|Equal5~33    ; out0             ;
+; |song|Equal6~33    ; |song|Equal6~33    ; out0             ;
+; |song|Equal7~33    ; |song|Equal7~33    ; out0             ;
+; |song|Equal8~33    ; |song|Equal8~33    ; out0             ;
+; |song|Equal9~33    ; |song|Equal9~33    ; out0             ;
+; |song|Equal10~33   ; |song|Equal10~33   ; out0             ;
+; |song|Equal11~33   ; |song|Equal11~33   ; out0             ;
+; |song|Equal12~33   ; |song|Equal12~33   ; out0             ;
+; |song|Equal13~33   ; |song|Equal13~33   ; out0             ;
+; |song|Equal14~33   ; |song|Equal14~33   ; out0             ;
+; |song|Equal15~33   ; |song|Equal15~33   ; out0             ;
+; |song|Equal16~33   ; |song|Equal16~33   ; out0             ;
+; |song|Equal17~33   ; |song|Equal17~33   ; out0             ;
+; |song|Equal18~33   ; |song|Equal18~33   ; out0             ;
+; |song|Equal19~33   ; |song|Equal19~33   ; out0             ;
+; |song|Equal20~33   ; |song|Equal20~33   ; out0             ;
+; |song|Equal21~33   ; |song|Equal21~33   ; out0             ;
+; |song|Equal22~33   ; |song|Equal22~33   ; out0             ;
+; |song|Equal23~33   ; |song|Equal23~33   ; out0             ;
+; |song|Equal24~33   ; |song|Equal24~33   ; out0             ;
+; |song|Equal25~33   ; |song|Equal25~33   ; out0             ;
+; |song|Equal26~33   ; |song|Equal26~33   ; out0             ;
+; |song|Equal27~33   ; |song|Equal27~33   ; out0             ;
+; |song|Equal28~33   ; |song|Equal28~33   ; out0             ;
+; |song|Equal29~33   ; |song|Equal29~33   ; out0             ;
+; |song|Equal30~33   ; |song|Equal30~33   ; out0             ;
+; |song|Equal31~33   ; |song|Equal31~33   ; out0             ;
+; |song|Equal32~33   ; |song|Equal32~33   ; out0             ;
+; |song|Equal33~33   ; |song|Equal33~33   ; out0             ;
+; |song|Equal34~33   ; |song|Equal34~33   ; out0             ;
+; |song|Equal35~33   ; |song|Equal35~33   ; out0             ;
+; |song|Equal36~33   ; |song|Equal36~33   ; out0             ;
+; |song|Equal37~33   ; |song|Equal37~33   ; out0             ;
+; |song|Equal38~33   ; |song|Equal38~33   ; out0             ;
+; |song|Equal39~33   ; |song|Equal39~33   ; out0             ;
+; |song|Equal40~33   ; |song|Equal40~33   ; out0             ;
+; |song|Equal41~33   ; |song|Equal41~33   ; out0             ;
+; |song|Equal42~33   ; |song|Equal42~33   ; out0             ;
+; |song|Equal43~33   ; |song|Equal43~33   ; out0             ;
+; |song|Equal44~33   ; |song|Equal44~33   ; out0             ;
+; |song|Equal45~33   ; |song|Equal45~33   ; out0             ;
+; |song|Equal46~33   ; |song|Equal46~33   ; out0             ;
+; |song|Equal47~33   ; |song|Equal47~33   ; out0             ;
+; |song|Equal48~33   ; |song|Equal48~33   ; out0             ;
+; |song|Equal49~33   ; |song|Equal49~33   ; out0             ;
+; |song|Equal50~33   ; |song|Equal50~33   ; out0             ;
+; |song|Equal51~33   ; |song|Equal51~33   ; out0             ;
+; |song|Equal52~33   ; |song|Equal52~33   ; out0             ;
+; |song|Equal53~33   ; |song|Equal53~33   ; out0             ;
+; |song|Equal54~33   ; |song|Equal54~33   ; out0             ;
+; |song|Equal55~33   ; |song|Equal55~33   ; out0             ;
+; |song|Equal56~33   ; |song|Equal56~33   ; out0             ;
+; |song|Equal57~33   ; |song|Equal57~33   ; out0             ;
+; |song|Equal58~33   ; |song|Equal58~33   ; out0             ;
+; |song|Equal59~33   ; |song|Equal59~33   ; out0             ;
+; |song|Equal60~33   ; |song|Equal60~33   ; out0             ;
+; |song|Equal61~33   ; |song|Equal61~33   ; out0             ;
+; |song|Equal62~33   ; |song|Equal62~33   ; out0             ;
+; |song|Equal63~33   ; |song|Equal63~33   ; out0             ;
+; |song|Equal64~33   ; |song|Equal64~33   ; out0             ;
+; |song|Equal65~33   ; |song|Equal65~33   ; out0             ;
+; |song|Equal66~33   ; |song|Equal66~33   ; out0             ;
+; |song|Equal67~33   ; |song|Equal67~33   ; out0             ;
+; |song|Equal68~33   ; |song|Equal68~33   ; out0             ;
+; |song|Equal69~33   ; |song|Equal69~33   ; out0             ;
+; |song|Equal70~33   ; |song|Equal70~33   ; out0             ;
+; |song|Equal71~33   ; |song|Equal71~33   ; out0             ;
+; |song|Equal72~33   ; |song|Equal72~33   ; out0             ;
+; |song|Equal73~33   ; |song|Equal73~33   ; out0             ;
+; |song|Equal74~33   ; |song|Equal74~33   ; out0             ;
+; |song|Equal75~33   ; |song|Equal75~33   ; out0             ;
+; |song|Equal76~33   ; |song|Equal76~33   ; out0             ;
+; |song|Equal77~33   ; |song|Equal77~33   ; out0             ;
+; |song|Equal78~33   ; |song|Equal78~33   ; out0             ;
+; |song|Equal79~33   ; |song|Equal79~33   ; out0             ;
+; |song|Equal80~33   ; |song|Equal80~33   ; out0             ;
+; |song|Equal81~33   ; |song|Equal81~33   ; out0             ;
+; |song|Equal82~33   ; |song|Equal82~33   ; out0             ;
+; |song|Equal83~33   ; |song|Equal83~33   ; out0             ;
+; |song|Equal84~33   ; |song|Equal84~33   ; out0             ;
+; |song|Equal85~33   ; |song|Equal85~33   ; out0             ;
+; |song|Equal86~33   ; |song|Equal86~33   ; out0             ;
+; |song|Equal87~33   ; |song|Equal87~33   ; out0             ;
+; |song|Equal88~33   ; |song|Equal88~33   ; out0             ;
+; |song|Equal89~33   ; |song|Equal89~33   ; out0             ;
+; |song|Equal90~33   ; |song|Equal90~33   ; out0             ;
+; |song|Equal91~33   ; |song|Equal91~33   ; out0             ;
+; |song|Equal92~33   ; |song|Equal92~33   ; out0             ;
+; |song|Equal93~33   ; |song|Equal93~33   ; out0             ;
+; |song|Equal94~33   ; |song|Equal94~33   ; out0             ;
+; |song|Equal95~33   ; |song|Equal95~33   ; out0             ;
+; |song|Equal96~33   ; |song|Equal96~33   ; out0             ;
+; |song|Equal97~33   ; |song|Equal97~33   ; out0             ;
+; |song|Equal98~33   ; |song|Equal98~33   ; out0             ;
+; |song|Equal99~33   ; |song|Equal99~33   ; out0             ;
+; |song|Equal100~33  ; |song|Equal100~33  ; out0             ;
+; |song|Equal101~33  ; |song|Equal101~33  ; out0             ;
+; |song|Equal102~33  ; |song|Equal102~33  ; out0             ;
+; |song|Equal103~33  ; |song|Equal103~33  ; out0             ;
+; |song|Equal104~33  ; |song|Equal104~33  ; out0             ;
+; |song|Equal105~33  ; |song|Equal105~33  ; out0             ;
+; |song|Equal106~33  ; |song|Equal106~33  ; out0             ;
+; |song|Equal107~33  ; |song|Equal107~33  ; out0             ;
+; |song|Equal108~33  ; |song|Equal108~33  ; out0             ;
+; |song|Equal109~33  ; |song|Equal109~33  ; out0             ;
+; |song|Equal110~33  ; |song|Equal110~33  ; out0             ;
+; |song|Equal111~33  ; |song|Equal111~33  ; out0             ;
+; |song|Equal112~33  ; |song|Equal112~33  ; out0             ;
+; |song|Equal113~33  ; |song|Equal113~33  ; out0             ;
+; |song|Equal114~33  ; |song|Equal114~33  ; out0             ;
+; |song|Equal115~33  ; |song|Equal115~33  ; out0             ;
+; |song|Equal116~33  ; |song|Equal116~33  ; out0             ;
+; |song|Equal117~33  ; |song|Equal117~33  ; out0             ;
+; |song|Equal118~33  ; |song|Equal118~33  ; out0             ;
+; |song|Equal119~33  ; |song|Equal119~33  ; out0             ;
+; |song|Equal120~33  ; |song|Equal120~33  ; out0             ;
+; |song|Equal121~33  ; |song|Equal121~33  ; out0             ;
+; |song|Equal122~33  ; |song|Equal122~33  ; out0             ;
+; |song|Equal123~33  ; |song|Equal123~33  ; out0             ;
+; |song|Equal124~33  ; |song|Equal124~33  ; out0             ;
+; |song|Equal125~33  ; |song|Equal125~33  ; out0             ;
+; |song|Equal126~33  ; |song|Equal126~33  ; out0             ;
+; |song|Equal127~33  ; |song|Equal127~33  ; out0             ;
+; |song|Equal128~33  ; |song|Equal128~33  ; out0             ;
+; |song|Equal129~33  ; |song|Equal129~33  ; out0             ;
+; |song|Equal130~33  ; |song|Equal130~33  ; out0             ;
+; |song|Equal131~33  ; |song|Equal131~33  ; out0             ;
+; |song|Equal132~33  ; |song|Equal132~33  ; out0             ;
+; |song|Equal133~33  ; |song|Equal133~33  ; out0             ;
+; |song|Equal134~33  ; |song|Equal134~33  ; out0             ;
+; |song|Equal135~33  ; |song|Equal135~33  ; out0             ;
+; |song|Equal136~33  ; |song|Equal136~33  ; out0             ;
+; |song|Equal137~33  ; |song|Equal137~33  ; out0             ;
+; |song|Equal138~33  ; |song|Equal138~33  ; out0             ;
+; |song|Equal139~33  ; |song|Equal139~33  ; out0             ;
+; |song|Equal140~33  ; |song|Equal140~33  ; out0             ;
+; |song|Equal141~33  ; |song|Equal141~33  ; out0             ;
+; |song|Equal142~33  ; |song|Equal142~33  ; out0             ;
+; |song|Equal143~33  ; |song|Equal143~33  ; out0             ;
+; |song|Equal144~33  ; |song|Equal144~33  ; out0             ;
+; |song|Equal145~33  ; |song|Equal145~33  ; out0             ;
+; |song|Equal146~33  ; |song|Equal146~33  ; out0             ;
+; |song|Equal147~33  ; |song|Equal147~33  ; out0             ;
+; |song|Equal148~33  ; |song|Equal148~33  ; out0             ;
+; |song|Equal149~33  ; |song|Equal149~33  ; out0             ;
+; |song|Equal150~33  ; |song|Equal150~33  ; out0             ;
+; |song|Equal151~33  ; |song|Equal151~33  ; out0             ;
+; |song|Equal152~33  ; |song|Equal152~33  ; out0             ;
+; |song|Equal153~33  ; |song|Equal153~33  ; out0             ;
+; |song|Equal154~33  ; |song|Equal154~33  ; out0             ;
+; |song|Equal155~33  ; |song|Equal155~33  ; out0             ;
+; |song|Equal156~33  ; |song|Equal156~33  ; out0             ;
+; |song|Equal157~33  ; |song|Equal157~33  ; out0             ;
+; |song|Equal158~33  ; |song|Equal158~33  ; out0             ;
+; |song|Equal159~33  ; |song|Equal159~33  ; out0             ;
+; |song|Equal160~33  ; |song|Equal160~33  ; out0             ;
+; |song|Equal161~33  ; |song|Equal161~33  ; out0             ;
+; |song|Equal162~33  ; |song|Equal162~33  ; out0             ;
+; |song|Equal163~33  ; |song|Equal163~33  ; out0             ;
++--------------------+--------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------+
+; Missing 0-Value Coverage                                   ;
++--------------------+--------------------+------------------+
+; Node Name          ; Output Port Name   ; Output Port Type ;
++--------------------+--------------------+------------------+
+; |song|WideNor0     ; |song|WideNor0     ; out0             ;
+; |song|WideOr0      ; |song|WideOr0      ; out0             ;
+; |song|WideOr1      ; |song|WideOr1      ; out0             ;
+; |song|WideOr3      ; |song|WideOr3      ; out0             ;
+; |song|WideOr5      ; |song|WideOr5      ; out0             ;
+; |song|WideOr8      ; |song|WideOr8      ; out0             ;
+; |song|WideOr10     ; |song|WideOr10     ; out0             ;
+; |song|WideOr12     ; |song|WideOr12     ; out0             ;
+; |song|WideOr13     ; |song|WideOr13     ; out0             ;
+; |song|WideOr15     ; |song|WideOr15     ; out0             ;
+; |song|WideOr17     ; |song|WideOr17     ; out0             ;
+; |song|WideOr20     ; |song|WideOr20     ; out0             ;
+; |song|WideOr22     ; |song|WideOr22     ; out0             ;
+; |song|WideOr24     ; |song|WideOr24     ; out0             ;
+; |song|WideOr25     ; |song|WideOr25     ; out0             ;
+; |song|WideNor1     ; |song|WideNor1     ; out0             ;
+; |song|high~0       ; |song|high~0       ; out              ;
+; |song|high~1       ; |song|high~1       ; out              ;
+; |song|high~2       ; |song|high~2       ; out              ;
+; |song|med~0        ; |song|med~0        ; out              ;
+; |song|WideOr29     ; |song|WideOr29     ; out0             ;
+; |song|WideOr31     ; |song|WideOr31     ; out0             ;
+; |song|WideOr33     ; |song|WideOr33     ; out0             ;
+; |song|low~0        ; |song|low~0        ; out              ;
+; |song|WideOr35     ; |song|WideOr35     ; out0             ;
+; |song|WideOr36     ; |song|WideOr36     ; out0             ;
+; |song|WideOr38     ; |song|WideOr38     ; out0             ;
+; |song|counter~0    ; |song|counter~0    ; out              ;
+; |song|counter~1    ; |song|counter~1    ; out              ;
+; |song|counter~2    ; |song|counter~2    ; out              ;
+; |song|counter~3    ; |song|counter~3    ; out              ;
+; |song|counter~4    ; |song|counter~4    ; out              ;
+; |song|counter~5    ; |song|counter~5    ; out              ;
+; |song|counter~6    ; |song|counter~6    ; out              ;
+; |song|counter~7    ; |song|counter~7    ; out              ;
+; |song|counter~8    ; |song|counter~8    ; out              ;
+; |song|counter~9    ; |song|counter~9    ; out              ;
+; |song|divider[13]  ; |song|divider[13]  ; regout           ;
+; |song|origin[13]   ; |song|origin[13]   ; regout           ;
+; |song|origin[12]   ; |song|origin[12]   ; regout           ;
+; |song|origin[11]   ; |song|origin[11]   ; regout           ;
+; |song|origin[10]   ; |song|origin[10]   ; regout           ;
+; |song|origin[9]    ; |song|origin[9]    ; regout           ;
+; |song|origin[8]    ; |song|origin[8]    ; regout           ;
+; |song|origin[7]    ; |song|origin[7]    ; regout           ;
+; |song|origin[6]    ; |song|origin[6]    ; regout           ;
+; |song|origin[5]    ; |song|origin[5]    ; regout           ;
+; |song|origin[4]    ; |song|origin[4]    ; regout           ;
+; |song|origin[3]    ; |song|origin[3]    ; regout           ;
+; |song|origin[2]    ; |song|origin[2]    ; regout           ;
+; |song|origin[1]    ; |song|origin[1]    ; regout           ;
+; |song|counter[9]   ; |song|counter[9]   ; regout           ;
+; |song|counter[8]   ; |song|counter[8]   ; regout           ;
+; |song|counter[7]   ; |song|counter[7]   ; regout           ;
+; |song|counter[6]   ; |song|counter[6]   ; regout           ;
+; |song|counter[5]   ; |song|counter[5]   ; regout           ;
+; |song|counter[4]   ; |song|counter[4]   ; regout           ;
+; |song|counter[3]   ; |song|counter[3]   ; regout           ;
+; |song|counter[2]   ; |song|counter[2]   ; regout           ;
+; |song|counter[1]   ; |song|counter[1]   ; regout           ;
+; |song|counter[0]   ; |song|counter[0]   ; regout           ;
+; |song|high[3]~reg0 ; |song|high[3]~reg0 ; regout           ;
+; |song|high[2]~reg0 ; |song|high[2]~reg0 ; regout           ;
+; |song|high[1]~reg0 ; |song|high[1]~reg0 ; regout           ;
+; |song|high[0]~reg0 ; |song|high[0]~reg0 ; regout           ;
+; |song|med[3]~reg0  ; |song|med[3]~reg0  ; regout           ;
+; |song|med[2]~reg0  ; |song|med[2]~reg0  ; regout           ;
+; |song|med[1]~reg0  ; |song|med[1]~reg0  ; regout           ;
+; |song|med[0]~reg0  ; |song|med[0]~reg0  ; regout           ;
+; |song|low[3]~reg0  ; |song|low[3]~reg0  ; regout           ;
+; |song|low[2]~reg0  ; |song|low[2]~reg0  ; regout           ;
+; |song|low[1]~reg0  ; |song|low[1]~reg0  ; regout           ;
+; |song|WideNor2     ; |song|WideNor2     ; out0             ;
+; |song|high~3       ; |song|high~3       ; out              ;
+; |song|high~4       ; |song|high~4       ; out              ;
+; |song|high~5       ; |song|high~5       ; out              ;
+; |song|high~6       ; |song|high~6       ; out              ;
+; |song|low[0]~reg0  ; |song|low[0]~reg0  ; regout           ;
+; |song|med~1        ; |song|med~1        ; out              ;
+; |song|med~2        ; |song|med~2        ; out              ;
+; |song|WideOr40     ; |song|WideOr40     ; out0             ;
+; |song|WideOr42     ; |song|WideOr42     ; out0             ;
+; |song|low~1        ; |song|low~1        ; out              ;
+; |song|WideOr45     ; |song|WideOr45     ; out0             ;
+; |song|WideOr47     ; |song|WideOr47     ; out0             ;
+; |song|WideOr49     ; |song|WideOr49     ; out0             ;
+; |song|counter~10   ; |song|counter~10   ; out              ;
+; |song|counter~11   ; |song|counter~11   ; out              ;
+; |song|counter~12   ; |song|counter~12   ; out              ;
+; |song|counter~13   ; |song|counter~13   ; out              ;
+; |song|counter~14   ; |song|counter~14   ; out              ;
+; |song|counter~15   ; |song|counter~15   ; out              ;
+; |song|counter~16   ; |song|counter~16   ; out              ;
+; |song|counter~17   ; |song|counter~17   ; out              ;
+; |song|counter~18   ; |song|counter~18   ; out              ;
+; |song|counter~19   ; |song|counter~19   ; out              ;
+; |song|high~7       ; |song|high~7       ; out              ;
+; |song|high~8       ; |song|high~8       ; out              ;
+; |song|high~9       ; |song|high~9       ; out              ;
+; |song|high~10      ; |song|high~10      ; out              ;
+; |song|med~3        ; |song|med~3        ; out              ;
+; |song|med~4        ; |song|med~4        ; out              ;
+; |song|med~5        ; |song|med~5        ; out              ;
+; |song|med~6        ; |song|med~6        ; out              ;
+; |song|low~2        ; |song|low~2        ; out              ;
+; |song|low~3        ; |song|low~3        ; out              ;
+; |song|low~4        ; |song|low~4        ; out              ;
+; |song|low~5        ; |song|low~5        ; out              ;
+; |song|counter~20   ; |song|counter~20   ; out              ;
+; |song|counter~21   ; |song|counter~21   ; out              ;
+; |song|counter~22   ; |song|counter~22   ; out              ;
+; |song|counter~23   ; |song|counter~23   ; out              ;
+; |song|counter~24   ; |song|counter~24   ; out              ;
+; |song|counter~25   ; |song|counter~25   ; out              ;
+; |song|counter~26   ; |song|counter~26   ; out              ;
+; |song|counter~27   ; |song|counter~27   ; out              ;
+; |song|counter~28   ; |song|counter~28   ; out              ;
+; |song|counter~29   ; |song|counter~29   ; out              ;
+; |song|high~11      ; |song|high~11      ; out              ;
+; |song|high~12      ; |song|high~12      ; out              ;
+; |song|high~13      ; |song|high~13      ; out              ;
+; |song|high~14      ; |song|high~14      ; out              ;
+; |song|med~7        ; |song|med~7        ; out              ;
+; |song|med~8        ; |song|med~8        ; out              ;
+; |song|med~9        ; |song|med~9        ; out              ;
+; |song|med~10       ; |song|med~10       ; out              ;
+; |song|low~6        ; |song|low~6        ; out              ;
+; |song|low~7        ; |song|low~7        ; out              ;
+; |song|low~8        ; |song|low~8        ; out              ;
+; |song|low~9        ; |song|low~9        ; out              ;
+; |song|origin[0]    ; |song|origin[0]    ; regout           ;
+; |song|speaker      ; |song|speaker      ; pin_out          ;
+; |song|high[0]      ; |song|high[0]      ; pin_out          ;
+; |song|high[1]      ; |song|high[1]      ; pin_out          ;
+; |song|high[2]      ; |song|high[2]      ; pin_out          ;
+; |song|high[3]      ; |song|high[3]      ; pin_out          ;
+; |song|med[0]       ; |song|med[0]       ; pin_out          ;
+; |song|med[1]       ; |song|med[1]       ; pin_out          ;
+; |song|med[2]       ; |song|med[2]       ; pin_out          ;
+; |song|med[3]       ; |song|med[3]       ; pin_out          ;
+; |song|low[0]       ; |song|low[0]       ; pin_out          ;
+; |song|low[1]       ; |song|low[1]       ; pin_out          ;
+; |song|low[2]       ; |song|low[2]       ; pin_out          ;
+; |song|low[3]       ; |song|low[3]       ; pin_out          ;
+; |song|k            ; |song|k            ; out              ;
+; |song|Selector0~4  ; |song|Selector0~4  ; out0             ;
+; |song|Selector0~5  ; |song|Selector0~5  ; out0             ;
+; |song|Selector1~4  ; |song|Selector1~4  ; out0             ;
+; |song|Selector1~5  ; |song|Selector1~5  ; out0             ;
+; |song|Selector2~4  ; |song|Selector2~4  ; out0             ;
+; |song|Selector2~5  ; |song|Selector2~5  ; out0             ;
+; |song|Selector3~4  ; |song|Selector3~4  ; out0             ;
+; |song|Selector3~5  ; |song|Selector3~5  ; out0             ;
+; |song|Selector4~4  ; |song|Selector4~4  ; out0             ;
+; |song|Selector4~5  ; |song|Selector4~5  ; out0             ;
+; |song|Selector5~4  ; |song|Selector5~4  ; out0             ;
+; |song|Selector5~5  ; |song|Selector5~5  ; out0             ;
+; |song|Selector6~4  ; |song|Selector6~4  ; out0             ;
+; |song|Selector6~5  ; |song|Selector6~5  ; out0             ;
+; |song|Selector7~4  ; |song|Selector7~4  ; out0             ;
+; |song|Selector7~5  ; |song|Selector7~5  ; out0             ;
+; |song|Selector8~4  ; |song|Selector8~4  ; out0             ;
+; |song|Selector8~5  ; |song|Selector8~5  ; out0             ;
+; |song|Selector9~4  ; |song|Selector9~4  ; out0             ;
+; |song|Selector9~5  ; |song|Selector9~5  ; out0             ;
+; |song|Selector10~4 ; |song|Selector10~4 ; out0             ;
+; |song|Selector10~5 ; |song|Selector10~5 ; out0             ;
+; |song|Selector11~4 ; |song|Selector11~4 ; out0             ;
+; |song|Selector11~5 ; |song|Selector11~5 ; out0             ;
+; |song|Selector12~4 ; |song|Selector12~4 ; out0             ;
+; |song|Selector12~5 ; |song|Selector12~5 ; out0             ;
+; |song|Selector13~4 ; |song|Selector13~4 ; out0             ;
+; |song|Selector13~5 ; |song|Selector13~5 ; out0             ;
+; |song|Selector14~4 ; |song|Selector14~4 ; out0             ;
+; |song|Selector14~5 ; |song|Selector14~5 ; out0             ;
+; |song|Selector15~4 ; |song|Selector15~4 ; out0             ;
+; |song|Selector15~5 ; |song|Selector15~5 ; out0             ;
+; |song|Selector16~4 ; |song|Selector16~4 ; out0             ;
+; |song|Selector16~5 ; |song|Selector16~5 ; out0             ;
+; |song|Selector17~4 ; |song|Selector17~4 ; out0             ;
+; |song|Selector17~5 ; |song|Selector17~5 ; out0             ;
+; |song|Selector18~4 ; |song|Selector18~4 ; out0             ;
+; |song|Selector18~5 ; |song|Selector18~5 ; out0             ;
+; |song|Selector19~4 ; |song|Selector19~4 ; out0             ;
+; |song|Selector19~5 ; |song|Selector19~5 ; out0             ;
+; |song|Selector20~4 ; |song|Selector20~4 ; out0             ;
+; |song|Selector20~5 ; |song|Selector20~5 ; out0             ;
+; |song|Selector21~4 ; |song|Selector21~4 ; out0             ;
+; |song|Selector21~5 ; |song|Selector21~5 ; out0             ;
+; |song|Selector22~4 ; |song|Selector22~4 ; out0             ;
+; |song|Selector22~5 ; |song|Selector22~5 ; out0             ;
+; |song|Selector23~4 ; |song|Selector23~4 ; out0             ;
+; |song|Selector23~5 ; |song|Selector23~5 ; out0             ;
+; |song|Selector24~4 ; |song|Selector24~4 ; out0             ;
+; |song|Selector24~5 ; |song|Selector24~5 ; out0             ;
+; |song|Selector25~4 ; |song|Selector25~4 ; out0             ;
+; |song|Selector25~5 ; |song|Selector25~5 ; out0             ;
+; |song|Add1~50      ; |song|Add1~50      ; out0             ;
+; |song|Add1~51      ; |song|Add1~51      ; out0             ;
+; |song|Add1~52      ; |song|Add1~52      ; out0             ;
+; |song|Add1~53      ; |song|Add1~53      ; out0             ;
+; |song|Add1~54      ; |song|Add1~54      ; out0             ;
+; |song|Add1~55      ; |song|Add1~55      ; out0             ;
+; |song|Add1~56      ; |song|Add1~56      ; out0             ;
+; |song|Add1~57      ; |song|Add1~57      ; out0             ;
+; |song|Add1~58      ; |song|Add1~58      ; out0             ;
+; |song|Add1~59      ; |song|Add1~59      ; out0             ;
+; |song|Add1~60      ; |song|Add1~60      ; out0             ;
+; |song|Add1~61      ; |song|Add1~61      ; out0             ;
+; |song|Add1~62      ; |song|Add1~62      ; out0             ;
+; |song|Add1~63      ; |song|Add1~63      ; out0             ;
+; |song|Add1~64      ; |song|Add1~64      ; out0             ;
+; |song|Add1~65      ; |song|Add1~65      ; out0             ;
+; |song|Add1~66      ; |song|Add1~66      ; out0             ;
+; |song|Equal0~33    ; |song|Equal0~33    ; out0             ;
+; |song|Equal1~33    ; |song|Equal1~33    ; out0             ;
+; |song|Equal2~33    ; |song|Equal2~33    ; out0             ;
+; |song|Equal3~33    ; |song|Equal3~33    ; out0             ;
+; |song|Equal4~33    ; |song|Equal4~33    ; out0             ;
+; |song|Equal5~33    ; |song|Equal5~33    ; out0             ;
+; |song|Equal6~33    ; |song|Equal6~33    ; out0             ;
+; |song|Equal7~33    ; |song|Equal7~33    ; out0             ;
+; |song|Equal8~33    ; |song|Equal8~33    ; out0             ;
+; |song|Equal9~33    ; |song|Equal9~33    ; out0             ;
+; |song|Equal10~33   ; |song|Equal10~33   ; out0             ;
+; |song|Equal11~33   ; |song|Equal11~33   ; out0             ;
+; |song|Equal12~33   ; |song|Equal12~33   ; out0             ;
+; |song|Equal13~33   ; |song|Equal13~33   ; out0             ;
+; |song|Equal14~33   ; |song|Equal14~33   ; out0             ;
+; |song|Equal15~33   ; |song|Equal15~33   ; out0             ;
+; |song|Equal16~33   ; |song|Equal16~33   ; out0             ;
+; |song|Equal17~33   ; |song|Equal17~33   ; out0             ;
+; |song|Equal18~33   ; |song|Equal18~33   ; out0             ;
+; |song|Equal19~33   ; |song|Equal19~33   ; out0             ;
+; |song|Equal20~33   ; |song|Equal20~33   ; out0             ;
+; |song|Equal21~33   ; |song|Equal21~33   ; out0             ;
+; |song|Equal22~33   ; |song|Equal22~33   ; out0             ;
+; |song|Equal23~33   ; |song|Equal23~33   ; out0             ;
+; |song|Equal24~33   ; |song|Equal24~33   ; out0             ;
+; |song|Equal25~33   ; |song|Equal25~33   ; out0             ;
+; |song|Equal26~33   ; |song|Equal26~33   ; out0             ;
+; |song|Equal27~33   ; |song|Equal27~33   ; out0             ;
+; |song|Equal28~33   ; |song|Equal28~33   ; out0             ;
+; |song|Equal29~33   ; |song|Equal29~33   ; out0             ;
+; |song|Equal30~33   ; |song|Equal30~33   ; out0             ;
+; |song|Equal31~33   ; |song|Equal31~33   ; out0             ;
+; |song|Equal32~33   ; |song|Equal32~33   ; out0             ;
+; |song|Equal33~33   ; |song|Equal33~33   ; out0             ;
+; |song|Equal34~33   ; |song|Equal34~33   ; out0             ;
+; |song|Equal35~33   ; |song|Equal35~33   ; out0             ;
+; |song|Equal36~33   ; |song|Equal36~33   ; out0             ;
+; |song|Equal37~33   ; |song|Equal37~33   ; out0             ;
+; |song|Equal38~33   ; |song|Equal38~33   ; out0             ;
+; |song|Equal39~33   ; |song|Equal39~33   ; out0             ;
+; |song|Equal40~33   ; |song|Equal40~33   ; out0             ;
+; |song|Equal41~33   ; |song|Equal41~33   ; out0             ;
+; |song|Equal42~33   ; |song|Equal42~33   ; out0             ;
+; |song|Equal43~33   ; |song|Equal43~33   ; out0             ;
+; |song|Equal44~33   ; |song|Equal44~33   ; out0             ;
+; |song|Equal45~33   ; |song|Equal45~33   ; out0             ;
+; |song|Equal46~33   ; |song|Equal46~33   ; out0             ;
+; |song|Equal47~33   ; |song|Equal47~33   ; out0             ;
+; |song|Equal48~33   ; |song|Equal48~33   ; out0             ;
+; |song|Equal49~33   ; |song|Equal49~33   ; out0             ;
+; |song|Equal50~33   ; |song|Equal50~33   ; out0             ;
+; |song|Equal51~33   ; |song|Equal51~33   ; out0             ;
+; |song|Equal52~33   ; |song|Equal52~33   ; out0             ;
+; |song|Equal53~33   ; |song|Equal53~33   ; out0             ;
+; |song|Equal54~33   ; |song|Equal54~33   ; out0             ;
+; |song|Equal55~33   ; |song|Equal55~33   ; out0             ;
+; |song|Equal56~33   ; |song|Equal56~33   ; out0             ;
+; |song|Equal57~33   ; |song|Equal57~33   ; out0             ;
+; |song|Equal58~33   ; |song|Equal58~33   ; out0             ;
+; |song|Equal59~33   ; |song|Equal59~33   ; out0             ;
+; |song|Equal60~33   ; |song|Equal60~33   ; out0             ;
+; |song|Equal61~33   ; |song|Equal61~33   ; out0             ;
+; |song|Equal62~33   ; |song|Equal62~33   ; out0             ;
+; |song|Equal63~33   ; |song|Equal63~33   ; out0             ;
+; |song|Equal64~33   ; |song|Equal64~33   ; out0             ;
+; |song|Equal65~33   ; |song|Equal65~33   ; out0             ;
+; |song|Equal66~33   ; |song|Equal66~33   ; out0             ;
+; |song|Equal67~33   ; |song|Equal67~33   ; out0             ;
+; |song|Equal68~33   ; |song|Equal68~33   ; out0             ;
+; |song|Equal69~33   ; |song|Equal69~33   ; out0             ;
+; |song|Equal70~33   ; |song|Equal70~33   ; out0             ;
+; |song|Equal71~33   ; |song|Equal71~33   ; out0             ;
+; |song|Equal72~33   ; |song|Equal72~33   ; out0             ;
+; |song|Equal73~33   ; |song|Equal73~33   ; out0             ;
+; |song|Equal74~33   ; |song|Equal74~33   ; out0             ;
+; |song|Equal75~33   ; |song|Equal75~33   ; out0             ;
+; |song|Equal76~33   ; |song|Equal76~33   ; out0             ;
+; |song|Equal77~33   ; |song|Equal77~33   ; out0             ;
+; |song|Equal78~33   ; |song|Equal78~33   ; out0             ;
+; |song|Equal79~33   ; |song|Equal79~33   ; out0             ;
+; |song|Equal80~33   ; |song|Equal80~33   ; out0             ;
+; |song|Equal81~33   ; |song|Equal81~33   ; out0             ;
+; |song|Equal82~33   ; |song|Equal82~33   ; out0             ;
+; |song|Equal83~33   ; |song|Equal83~33   ; out0             ;
+; |song|Equal84~33   ; |song|Equal84~33   ; out0             ;
+; |song|Equal85~33   ; |song|Equal85~33   ; out0             ;
+; |song|Equal86~33   ; |song|Equal86~33   ; out0             ;
+; |song|Equal87~33   ; |song|Equal87~33   ; out0             ;
+; |song|Equal88~33   ; |song|Equal88~33   ; out0             ;
+; |song|Equal89~33   ; |song|Equal89~33   ; out0             ;
+; |song|Equal90~33   ; |song|Equal90~33   ; out0             ;
+; |song|Equal91~33   ; |song|Equal91~33   ; out0             ;
+; |song|Equal92~33   ; |song|Equal92~33   ; out0             ;
+; |song|Equal93~33   ; |song|Equal93~33   ; out0             ;
+; |song|Equal94~33   ; |song|Equal94~33   ; out0             ;
+; |song|Equal95~33   ; |song|Equal95~33   ; out0             ;
+; |song|Equal96~33   ; |song|Equal96~33   ; out0             ;
+; |song|Equal97~33   ; |song|Equal97~33   ; out0             ;
+; |song|Equal98~33   ; |song|Equal98~33   ; out0             ;
+; |song|Equal99~33   ; |song|Equal99~33   ; out0             ;
+; |song|Equal100~33  ; |song|Equal100~33  ; out0             ;
+; |song|Equal101~33  ; |song|Equal101~33  ; out0             ;
+; |song|Equal102~33  ; |song|Equal102~33  ; out0             ;
+; |song|Equal103~33  ; |song|Equal103~33  ; out0             ;
+; |song|Equal104~33  ; |song|Equal104~33  ; out0             ;
+; |song|Equal105~33  ; |song|Equal105~33  ; out0             ;
+; |song|Equal106~33  ; |song|Equal106~33  ; out0             ;
+; |song|Equal107~33  ; |song|Equal107~33  ; out0             ;
+; |song|Equal108~33  ; |song|Equal108~33  ; out0             ;
+; |song|Equal109~33  ; |song|Equal109~33  ; out0             ;
+; |song|Equal110~33  ; |song|Equal110~33  ; out0             ;
+; |song|Equal111~33  ; |song|Equal111~33  ; out0             ;
+; |song|Equal112~33  ; |song|Equal112~33  ; out0             ;
+; |song|Equal113~33  ; |song|Equal113~33  ; out0             ;
+; |song|Equal114~33  ; |song|Equal114~33  ; out0             ;
+; |song|Equal115~33  ; |song|Equal115~33  ; out0             ;
+; |song|Equal116~33  ; |song|Equal116~33  ; out0             ;
+; |song|Equal117~33  ; |song|Equal117~33  ; out0             ;
+; |song|Equal118~33  ; |song|Equal118~33  ; out0             ;
+; |song|Equal119~33  ; |song|Equal119~33  ; out0             ;
+; |song|Equal120~33  ; |song|Equal120~33  ; out0             ;
+; |song|Equal121~33  ; |song|Equal121~33  ; out0             ;
+; |song|Equal122~33  ; |song|Equal122~33  ; out0             ;
+; |song|Equal123~33  ; |song|Equal123~33  ; out0             ;
+; |song|Equal124~33  ; |song|Equal124~33  ; out0             ;
+; |song|Equal125~33  ; |song|Equal125~33  ; out0             ;
+; |song|Equal126~33  ; |song|Equal126~33  ; out0             ;
+; |song|Equal127~33  ; |song|Equal127~33  ; out0             ;
+; |song|Equal128~33  ; |song|Equal128~33  ; out0             ;
+; |song|Equal129~33  ; |song|Equal129~33  ; out0             ;
+; |song|Equal130~33  ; |song|Equal130~33  ; out0             ;
+; |song|Equal131~33  ; |song|Equal131~33  ; out0             ;
+; |song|Equal132~33  ; |song|Equal132~33  ; out0             ;
+; |song|Equal133~33  ; |song|Equal133~33  ; out0             ;
+; |song|Equal134~33  ; |song|Equal134~33  ; out0             ;
+; |song|Equal135~33  ; |song|Equal135~33  ; out0             ;
+; |song|Equal136~33  ; |song|Equal136~33  ; out0             ;
+; |song|Equal137~33  ; |song|Equal137~33  ; out0             ;
+; |song|Equal138~33  ; |song|Equal138~33  ; out0             ;
+; |song|Equal139~33  ; |song|Equal139~33  ; out0             ;
+; |song|Equal140~33  ; |song|Equal140~33  ; out0             ;
+; |song|Equal141~33  ; |song|Equal141~33  ; out0             ;
+; |song|Equal142~33  ; |song|Equal142~33  ; out0             ;
+; |song|Equal143~33  ; |song|Equal143~33  ; out0             ;
+; |song|Equal144~33  ; |song|Equal144~33  ; out0             ;
+; |song|Equal145~33  ; |song|Equal145~33  ; out0             ;
+; |song|Equal146~33  ; |song|Equal146~33  ; out0             ;
+; |song|Equal147~33  ; |song|Equal147~33  ; out0             ;
+; |song|Equal148~33  ; |song|Equal148~33  ; out0             ;
+; |song|Equal149~33  ; |song|Equal149~33  ; out0             ;
+; |song|Equal150~33  ; |song|Equal150~33  ; out0             ;
+; |song|Equal151~33  ; |song|Equal151~33  ; out0             ;
+; |song|Equal152~33  ; |song|Equal152~33  ; out0             ;
+; |song|Equal153~33  ; |song|Equal153~33  ; out0             ;
+; |song|Equal154~33  ; |song|Equal154~33  ; out0             ;
+; |song|Equal155~33  ; |song|Equal155~33  ; out0             ;
+; |song|Equal156~33  ; |song|Equal156~33  ; out0             ;
+; |song|Equal157~33  ; |song|Equal157~33  ; out0             ;
+; |song|Equal158~33  ; |song|Equal158~33  ; out0             ;
+; |song|Equal159~33  ; |song|Equal159~33  ; out0             ;
+; |song|Equal160~33  ; |song|Equal160~33  ; out0             ;
+; |song|Equal161~33  ; |song|Equal161~33  ; out0             ;
+; |song|Equal162~33  ; |song|Equal162~33  ; out0             ;
+; |song|Equal163~33  ; |song|Equal163~33  ; out0             ;
++--------------------+--------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II Simulator
+    Info: Version 7.1 Build 178 06/25/2007 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Dec 17 22:34:18 2014
+Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off yinyue -c yinyue
+Info: Using vector source file "C:/Users/xu/Desktop/“Ù¿÷≤•∑≈∆˜781/yinyue/song.vwf"
+Warning: Can't find signal in vector source file for input pin "|song|k"
+Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info: Simulation partitioned into 1 sub-simulations
+Info: Simulation coverage is      12.50 %
+Info: Number of transitions in simulation is 122638
+Info: Quartus II Simulator was successful. 0 errors, 1 warning
+    Info: Allocated 147 megabytes of memory during processing
+    Info: Processing ended: Wed Dec 17 22:34:18 2014
+    Info: Elapsed time: 00:00:00
+
+

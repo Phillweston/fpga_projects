@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Apr 26 20:38:25 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : iic
+Top-level Entity Name : iic
+Family : Cyclone II
+Device : EP2C5T144C8
+Timing Models : Final
+Total logic elements : 374 / 4,608 ( 8 % )
+    Total combinational functions : 372 / 4,608 ( 8 % )
+    Dedicated logic registers : 92 / 4,608 ( 2 % )
+Total registers : 92
+Total pins : 32 / 89 ( 36 % )
+Total virtual pins : 0
+Total memory bits : 0 / 119,808 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 26 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

@@ -1,0 +1,122 @@
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x00f3996b: DB_HDB + 0x7996b (?find_sections@HDB_SECTIONS_COL@@QBI?AVconst_iterator@?$list@PAVHDB_SECTION_COL@@V?$MEM_STL_ALLOCATOR@PAVHDB_SECTION_COL@@@@@_Dinkum_std@@W4ACF_SECTION_TYPE_ENUM@@@Z + 0xb)
+	</callstack>
+	<error>Current editor: RPW, STED, STED, STED, STED, STED, STED, STED, STED, STED, STED, STED</error>
+	<date>Sat Jul 28 10:11:57 2012</date>
+	<version>Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version</version>
+	<full_error>Access Violation at 0X00F3996B
+Current editor: RPW, STED, STED, STED, STED, STED, STED, STED, STED, STED, STED, STED
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x00f3996b: DB_HDB + 0x7996b (?find_sections@HDB_SECTIONS_COL@@QBI?AVconst_iterator@?$list@PAVHDB_SECTION_COL@@V?$MEM_STL_ALLOCATOR@PAVHDB_SECTION_COL@@@@@_Dinkum_std@@W4ACF_SECTION_TYPE_ENUM@@@Z + 0xb)
+	</callstack>
+	<error>Current editor: STED, STED, RPW, STED, STED, STED, STED, STED</error>
+	<date>Fri Aug 03 10:39:58 2012</date>
+	<version>Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version</version>
+	<full_error>Access Violation at 0X00F3996B
+Current editor: STED, STED, RPW, STED, STED, STED, STED, STED
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>MEM</sub_system>
+	<file>/quartus/ccl/mem/mem_segment.cpp</file>
+	<line>764</line>
+	<callstack>
+	0x007b2225: CCL_ERR + 0x2225 (?err_report_internal_error@@YIXPBD00H@Z + 0x15)
+	0x007094bb: ccl_mem + 0x94bb (?locked_allocate@MEM_SEGMENT_INTERNAL@@AAIPAXPADKKPAVMEM_TRACKER_DATA@@@Z + 0x2b)
+	</callstack>
+	<error>Attempting to allocate -2004318064 bytes</error>
+	<date>Fri Aug 03 13:25:55 2012</date>
+	<version>Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version</version>
+	<full_error>Attempting to allocate -2004318064 bytes
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>MEM</sub_system>
+	<file>/quartus/ccl/mem/mem_segment.cpp</file>
+	<line>764</line>
+	<callstack>
+	0x007b2225: CCL_ERR + 0x2225 (?err_report_internal_error@@YIXPBD00H@Z + 0x15)
+	0x007094bb: ccl_mem + 0x94bb (?locked_allocate@MEM_SEGMENT_INTERNAL@@AAIPAXPADKKPAVMEM_TRACKER_DATA@@@Z + 0x2b)
+	</callstack>
+	<error>Attempting to allocate 1684633200 bytes</error>
+	<date>Mon Aug 27 11:25:04 2012</date>
+	<version>Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version</version>
+	<full_error>Attempting to allocate 1684633200 bytes
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>MEM</sub_system>
+	<file>/quartus/ccl/mem/mem_segment.cpp</file>
+	<line>764</line>
+	<callstack>
+	0x007b2225: CCL_ERR + 0x2225 (?err_report_internal_error@@YIXPBD00H@Z + 0x15)
+	0x007094bb: ccl_mem + 0x94bb (?locked_allocate@MEM_SEGMENT_INTERNAL@@AAIPAXPADKKPAVMEM_TRACKER_DATA@@@Z + 0x2b)
+	</callstack>
+	<error>Attempting to allocate 1937009776 bytes</error>
+	<date>Mon Aug 27 13:45:15 2012</date>
+	<version>Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version</version>
+	<full_error>Attempting to allocate 1937009776 bytes
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x00f3996b: DB_HDB + 0x7996b (?find_sections@HDB_SECTIONS_COL@@QBI?AVconst_iterator@?$list@PAVHDB_SECTION_COL@@V?$MEM_STL_ALLOCATOR@PAVHDB_SECTION_COL@@@@@_Dinkum_std@@W4ACF_SECTION_TYPE_ENUM@@@Z + 0xb)
+	</callstack>
+	<error>Current editor: RPW, STED, STED, GED, STED, PGMW, SED</error>
+	<date>Mon Aug 27 16:57:22 2012</date>
+	<version>Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version</version>
+	<full_error>Access Violation at 0X00F3996B
+Current editor: RPW, STED, STED, GED, STED, PGMW, SED
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version </full_error>
+</internal_error>
+
+<internal_error>
+	<executable>quartus.exe</executable>
+	<sub_system>unknown</sub_system>
+	<file>unknown</file>
+	<line>0</line>
+	<callstack>
+	0x0000072a:
+	0x06029672: MEGA_WIZMAN + 0x9672
+	0x77d1f7f5: USER32 + 0xf7f5 (EnableMenuItem + 0x6e)
+	0x77d301f7: USER32 + 0x201f7 (ScrollWindowEx + 0xb0)
+	0x7c92e472: ntdll + 0xe472 (KiUserCallbackDispatcher + 0x12)
+	0x7867a737: mfc90 + 0x9a737
+	0x00691968: ccl_thr + 0x1968 (thr_thread_var_destroy + 0x28)
+	0x78647201: mfc90 + 0x67201
+	0x0044f42e: quartus + 0x4f42e (Pjm_Uninit + 0x401ee)
+	0x7c816fe6: kernel32 + 0x16fe6 (RegisterWaitForInputIdle + 0x48)
+	0xffffffffffffffff:
+	</callstack>
+	<error>Current editor: RPW, PPL, STED</error>
+	<date>Sun Apr 12 14:58:46 2015</date>
+	<version>Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition</version>
+	<full_error>Access Violation at 0X0000072A
+Current editor: RPW, PPL, STED
+Quartus II Version 9.0 Build 235 06/17/2009 Service Pack 2 SJ Web Edition </full_error>
+</internal_error>
+

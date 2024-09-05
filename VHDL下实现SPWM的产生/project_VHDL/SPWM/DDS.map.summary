@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Apr 12 14:55:31 2015
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : DDS
+Top-level Entity Name : PWM
+Family : Cyclone II
+Total logic elements : 647
+    Total combinational functions : 516
+    Dedicated logic registers : 453
+Total registers : 453
+Total pins : 5
+Total virtual pins : 0
+Total memory bits : 20,756
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

@@ -1,0 +1,43 @@
+Release 13.4 - xst O.87xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to D:/Users/gg/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to D:/Users/gg/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/Users/gg/plane.vhd" in Library work.
+Architecture behavioral of Entity airplane is up to date.
+Compiling vhdl file "D:/Users/gg/enemy.vhd" in Library work.
+Architecture behavioral of Entity enemy is up to date.
+Compiling vhdl file "D:/Users/gg/bullet.vhd" in Library work.
+Architecture behavioral of Entity bullet is up to date.
+Compiling vhdl file "D:/Users/gg/codepage.vhd" in Library work.
+Architecture behavioral of Entity codepage is up to date.
+Compiling vhdl file "D:/Users/gg/picture.vhd" in Library work.
+Entity <picture> compiled.
+Entity <picture> (Architecture <behavioral>) compiled.
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.22 secs
+ 
+--> 
+
+Total memory usage is 209588 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

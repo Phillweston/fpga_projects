@@ -1,0 +1,169 @@
+----与正弦波的数值比较，从而输出SPWM的信号
+----该PWM信号的频率由三角波频率控制字控制
+----相移由相移控制字控制
+----模拟输出的正弦波的幅值由调制值进行控制
+----模拟输出的正弦波的频率有数字正弦波的频率进行控制
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_arith.all;
+entity comparator is
+port(
+    clk:in std_logic;--250MHz
+    clk_div:in std_logic;--50MHz
+    ------------------------------------
+    pwm1:out std_logic;--三路SPWM输出
+    pwm2:out std_logic;
+    pwm3:out std_logic;
+    ------------------------------------
+    dc_pwm1:out std_logic;--三路PWM输出
+    dc_pwm2:out std_logic;
+    dc_pwm3:out std_logic;
+    ------------------------------------
+    data2:in std_logic_vector(9 downto 0);--经过移相的正弦数据输入(有符号类型)
+    tri_data:in std_logic_vector(9 downto 0);---三角波数据输入(有符号类型)
+    ------------------------------------
+    dc_data_in:in std_logic_vector(9 downto 0);--DC调制数据的输入
+    ------------控制信号的输入--------------
+    M_set:in std_logic_vector(9 downto 0)--幅值控制参数的输入
+);
+end comparator;
+architecture comparator_behave of comparator is
+---------------------------------------------------------------------------
+----------------------------DC TO AC---------------------------------------
+signal M:integer range 1 to 1000:=200;
+signal sin_data_temp:integer range -512 to -512;
+signal sin_data:integer range -512 to 512;
+signal sin:std_logic_vector(9 downto 0);
+
+signal data2_temp:signed (9 downto 0);
+signal tri_data_temp:signed (9 downto 0);
+signal sin_temp:signed(9 downto 0);
+
+signal  dead_time:signed(9 downto 0);--死区控制时间变量
+constant data_tiem_init:signed(9 downto 0):="0000100010";--死区控制时间
+-----------------------------------------------------------------------
+----------------------------DC TO DC------------------------------------
+signal dutyfactor:signed(10 downto 0):="00111101100";--------占空比控制字(2%)0111101100
+signal dutyfactor_temp:signed(10 downto 0);
+signal dc_data_intemp:signed(9 downto 0);
+type dc_control_state is(soft_start,run);---DC TO DC控制状态
+signal dc_contorl:dc_control_state:=soft_start;
+----------------------反馈控制信号------------------
+signal dc_en:std_logic:='1';---DC TO DC使能
+signal dc_reduce_duty:std_logic:='0';---DC TO DC占空比压缩
+---------------------------------------------------
+signal set_dutyfactor:signed(10 downto 0):="00110011100";----有上位机设定的占空比值00110011100
+signal dutyfactor_counter:signed(10 downto 0):="00000000000";--DC TO DC占空比压缩量计数
+
+begin
+   dead_time<=data_tiem_init;----10.17(修改)
+--------------DC TO AC数据格式的转换-------------
+   data2_temp<=signed(data2);--将调制的数字波转换为有符号型
+   tri_data_temp<=signed(tri_data);--将载波的数字波转换为有符号型
+--   M<=conv_integer(M_set);--将输入的标准矢量转换为整形数据
+-------------DC TO DC数据格式的转换--------------
+   dc_data_intemp<=signed(dc_data_in); 
+   dutyfactor_temp<=0-dutyfactor;
+---------------------DC TO AC数据格式的转换--------
+    process(clk)
+      begin
+       if(clk'event and clk='1')then 
+          sin_data_temp<=conv_integer(data2_temp);
+          sin_data<=sin_data_temp*M/1000;
+          sin<=conv_std_logic_vector(sin_data,10);
+          sin_temp<=signed(sin);
+        end if;
+    end process;
+----------------------DC TO AC--------------------------------  
+    process(sin_temp,tri_data_temp,dead_time)
+       begin
+          if(tri_data_temp>0)then
+             pwm1<='0';
+           elsif(tri_data_temp<=0)then
+             pwm1<='1';
+           else null;
+          end if;
+          
+          if(sin_temp>tri_data_temp)then
+             pwm2<='1';
+          elsif(sin_temp<=tri_data_temp)then
+             pwm2<='0';
+          else null;
+          end if;
+          											  
+          if(sin_temp>tri_data_temp-dead_time)then    
+			 pwm3<='0';
+          elsif(sin_temp<=tri_data_temp)then
+             pwm3<='1';
+          else null;
+          end if;
+    end process;
+ ----------------------------------------------------------------
+ ----------------------------DC TO DC控制-----------------------
+ ----------------------------------------------------------------
+    process(clk,dc_en)
+       begin 
+         if(clk'event and clk='1')then 
+           case dc_contorl is
+            when soft_start=>--软启动状态
+                    if(dc_en='1')then--小于1.2V
+                        if(dc_reduce_duty='0')then--小于1.0V
+                            if(dutyfactor>=set_dutyfactor+dutyfactor_counter)then--达到设定值
+                               dc_contorl<=run;------转到运行控制中
+--                               dutyfactor_counter<="0000000000";
+                            else 
+                               dutyfactor<=dutyfactor-1;--增大占空比
+                            end if;
+                        else--压缩占空比
+                           dutyfactor<=dutyfactor+1;
+                           dutyfactor_counter<=dutyfactor_counter+1;
+                        end if;
+                    else
+                       dutyfactor<="01000000000";----占空比为0
+                    end if;
+            when run=>----运行状态
+                    dutyfactor<=set_dutyfactor+dutyfactor_counter;
+                    if(dc_en='1')then--小于1.2V
+                        if(dc_reduce_duty='0')then--<1.0V
+                            if(dutyfactor>=set_dutyfactor+dutyfactor_counter)then--达到设定值+调整值
+                               dc_contorl<=run;------转到运行控制中
+                            else null;
+                            end if;
+                        else--压缩占空比
+                           dutyfactor<=dutyfactor+1;
+                           dutyfactor_counter<=dutyfactor_counter+1;
+                        end if;
+                    else 
+                       dutyfactor<="01000000000";----占空比为0
+                    end if;
+             when others=>null;
+          end case;
+        end if;
+    end process;
+----------------------------------DC TO DC-----------------------------------
+    process(dc_data_intemp,dutyfactor,dutyfactor_temp)-------------(PWM输出，占空比由dutyfactor进行控制)
+   --采用状态机进行控制，该过程涉及到开机时的软启动过程，经过该过程的正常启动后便可以进入到运行之中。
+       begin
+         if(dc_data_intemp>=dutyfactor)then
+             dc_pwm2<='1';
+         elsif(dc_data_intemp<dutyfactor)then 
+             dc_pwm2<='0';
+         else null;
+         end if;
+
+         if(dc_data_intemp>=0)then 
+             dc_pwm1<='1';
+         elsif(dc_data_intemp<0)then 
+             dc_pwm1<='0';
+         else null;
+         end if;
+         
+         if(dc_data_intemp>=dutyfactor_temp)then
+             dc_pwm3<='0';
+         elsif(dc_data_intemp<dutyfactor_temp)then
+             dc_pwm3<='1';
+         else null;
+         end if;  
+   end process;
+end comparator_behave;

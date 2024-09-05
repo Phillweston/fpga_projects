@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon May 19 10:56:29 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : division
+Top-level Entity Name : unsign_division
+Family : Cyclone II
+Total logic elements : 169
+    Total combinational functions : 90
+    Dedicated logic registers : 128
+Total registers : 128
+Total pins : 67
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

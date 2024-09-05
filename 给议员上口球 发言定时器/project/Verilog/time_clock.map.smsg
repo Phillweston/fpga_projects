@@ -1,0 +1,6 @@
+Warning (10273): Verilog HDL warning at time_clock.v(124): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at time_clock.v(139): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at time_clock.v(157): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at time_clock.v(172): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at time_clock.v(184): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at time_clock.v(195): extended using "x" or "z"

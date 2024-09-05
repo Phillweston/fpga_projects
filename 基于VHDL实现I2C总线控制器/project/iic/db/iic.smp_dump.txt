@@ -1,0 +1,17 @@
+
+State Machine - |iic|current_state
+Name current_state.idle current_state.stop current_state.read_data current_state.ask3 current_state.send_read current_state.start1 current_state.nack current_state.send_data current_state.ask2 current_state.send_bit_address current_state.ask1 current_state.send_slave_address current_state.start current_state.prepare 
+current_state.prepare 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+current_state.start 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+current_state.send_slave_address 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+current_state.ask1 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+current_state.send_bit_address 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+current_state.ask2 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+current_state.send_data 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+current_state.nack 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+current_state.start1 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+current_state.send_read 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+current_state.ask3 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+current_state.read_data 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+current_state.stop 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+current_state.idle 1 0 0 0 0 0 0 0 0 0 0 0 0 1 

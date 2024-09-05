@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.147 ns
+From           : k
+To             : song:inst4|med[2]
+From Clock     : --
+To Clock       : clk_48mhz
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 17.466 ns
+From           : disp:inst8|seg[2]
+To             : seg[2]
+From Clock     : clk_48mhz
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 1.334 ns
+From           : k
+To             : song:inst4|high[0]
+From Clock     : --
+To Clock       : clk_48mhz
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk_48mhz'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 125.87 MHz ( period = 7.945 ns )
+From           : div_clk4hz:inst1|cnt[1]
+To             : div_clk4hz:inst1|clk_4hz
+From Clock     : clk_48mhz
+To Clock       : clk_48mhz
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk_48mhz'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : song:inst4|speaker
+To             : song:inst4|speaker
+From Clock     : clk_48mhz
+To Clock       : clk_48mhz
+Failed Paths   : 1
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 1
+
+--------------------------------------------------------------------------------------
+

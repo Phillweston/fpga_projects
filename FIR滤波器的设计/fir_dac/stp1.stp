@@ -1,0 +1,236 @@
+<session jtag_chain="USB-Blaster [USB-0]" jtag_device="@1: EP2C5 (0x020B10DD)" sof_file="fir_dac.sof" top_level_entity="rom_top">
+  <display_tree gui_logging_enabled="0">
+    <display_branch instance="auto_signaltap_0" log="USE_GLOBAL_TEMP" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
+  </display_tree>
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <single attribute="lock mode" value="36110"/>
+    <multi attribute="window position" size="9" value="902,353,398,124,0,50,19,0,5"/>
+    <multi attribute="column width" size="23" value="34,34,102,74,68,70,88,88,98,98,88,88,110,101,101,101,101,101,101,101,101,107,78"/>
+  </global_info>
+  <instance entity_name="sld_signaltap" is_auto_node="yes" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
+    <position_info>
+      <single attribute="active tab" value="0"/>
+      <single attribute="data vertical scroll position" value="0"/>
+      <single attribute="data horizontal scroll position" value="0"/>
+      <single attribute="zoom level numerator" value="1"/>
+      <single attribute="zoom level denominator" value="1"/>
+      <single attribute="zoom offset numerator" value="130560"/>
+      <single attribute="zoom offset denominator" value="1"/>
+    </position_info>
+    <signal_set global_temp="1" name="signal_set: 2013/05/18 19:36:04  #0">
+      <clock name="clk_test" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="512" trigger_in_enable="no" trigger_out_enable="no"/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire name="data_temp[0]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[1]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[2]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[3]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[4]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[5]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[6]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[7]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[8]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[9]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[0]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[1]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[2]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[3]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[4]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[5]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[6]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[7]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[8]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[9]" tap_mode="classic" type="output pin"/>
+          <wire name="q[0]" tap_mode="classic" type="output pin"/>
+          <wire name="q[1]" tap_mode="classic" type="output pin"/>
+          <wire name="q[2]" tap_mode="classic" type="output pin"/>
+          <wire name="q[3]" tap_mode="classic" type="output pin"/>
+          <wire name="q[4]" tap_mode="classic" type="output pin"/>
+          <wire name="q[5]" tap_mode="classic" type="output pin"/>
+          <wire name="q[6]" tap_mode="classic" type="output pin"/>
+          <wire name="q[7]" tap_mode="classic" type="output pin"/>
+          <wire name="q[8]" tap_mode="classic" type="output pin"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire name="data_temp[0]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[1]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[2]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[3]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[4]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[5]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[6]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[7]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[8]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[9]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[0]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[1]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[2]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[3]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[4]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[5]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[6]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[7]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[8]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[9]" tap_mode="classic" type="output pin"/>
+          <wire name="q[0]" tap_mode="classic" type="output pin"/>
+          <wire name="q[1]" tap_mode="classic" type="output pin"/>
+          <wire name="q[2]" tap_mode="classic" type="output pin"/>
+          <wire name="q[3]" tap_mode="classic" type="output pin"/>
+          <wire name="q[4]" tap_mode="classic" type="output pin"/>
+          <wire name="q[5]" tap_mode="classic" type="output pin"/>
+          <wire name="q[6]" tap_mode="classic" type="output pin"/>
+          <wire name="q[7]" tap_mode="classic" type="output pin"/>
+          <wire name="q[8]" tap_mode="classic" type="output pin"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec>
+          <wire name="data_temp[0]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[1]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[2]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[3]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[4]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[5]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[6]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[7]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[8]" tap_mode="classic" type="output pin"/>
+          <wire name="data_temp[9]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[0]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[1]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[2]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[3]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[4]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[5]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[6]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[7]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[8]" tap_mode="classic" type="output pin"/>
+          <wire name="fir_data[9]" tap_mode="classic" type="output pin"/>
+          <wire name="q[0]" tap_mode="classic" type="output pin"/>
+          <wire name="q[1]" tap_mode="classic" type="output pin"/>
+          <wire name="q[2]" tap_mode="classic" type="output pin"/>
+          <wire name="q[3]" tap_mode="classic" type="output pin"/>
+          <wire name="q[4]" tap_mode="classic" type="output pin"/>
+          <wire name="q[5]" tap_mode="classic" type="output pin"/>
+          <wire name="q[6]" tap_mode="classic" type="output pin"/>
+          <wire name="q[7]" tap_mode="classic" type="output pin"/>
+          <wire name="q[8]" tap_mode="classic" type="output pin"/>
+        </storage_qualifier_input_vec>
+      </signal_vec>
+      <presentation>
+        <data_view>
+          <bus is_signal_inverted="no" link="all" name="data_temp" order="lsb_to_msb" radix="line" state="collapse" type="output pin">
+            <net is_signal_inverted="no" name="data_temp[0]"/>
+            <net is_signal_inverted="no" name="data_temp[1]"/>
+            <net is_signal_inverted="no" name="data_temp[2]"/>
+            <net is_signal_inverted="no" name="data_temp[3]"/>
+            <net is_signal_inverted="no" name="data_temp[4]"/>
+            <net is_signal_inverted="no" name="data_temp[5]"/>
+            <net is_signal_inverted="no" name="data_temp[6]"/>
+            <net is_signal_inverted="no" name="data_temp[7]"/>
+            <net is_signal_inverted="no" name="data_temp[8]"/>
+            <net is_signal_inverted="no" name="data_temp[9]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="q" order="lsb_to_msb" radix="line" state="collapse" type="output pin">
+            <net is_signal_inverted="no" name="q[0]"/>
+            <net is_signal_inverted="no" name="q[1]"/>
+            <net is_signal_inverted="no" name="q[2]"/>
+            <net is_signal_inverted="no" name="q[3]"/>
+            <net is_signal_inverted="no" name="q[4]"/>
+            <net is_signal_inverted="no" name="q[5]"/>
+            <net is_signal_inverted="no" name="q[6]"/>
+            <net is_signal_inverted="no" name="q[7]"/>
+            <net is_signal_inverted="no" name="q[8]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="fir_data" order="lsb_to_msb" radix="line" state="collapse" type="output pin">
+            <net is_signal_inverted="no" name="fir_data[0]"/>
+            <net is_signal_inverted="no" name="fir_data[1]"/>
+            <net is_signal_inverted="no" name="fir_data[2]"/>
+            <net is_signal_inverted="no" name="fir_data[3]"/>
+            <net is_signal_inverted="no" name="fir_data[4]"/>
+            <net is_signal_inverted="no" name="fir_data[5]"/>
+            <net is_signal_inverted="no" name="fir_data[6]"/>
+            <net is_signal_inverted="no" name="fir_data[7]"/>
+            <net is_signal_inverted="no" name="fir_data[8]"/>
+            <net is_signal_inverted="no" name="fir_data[9]"/>
+          </bus>
+        </data_view>
+        <setup_view>
+          <bus is_signal_inverted="no" link="all" name="data_temp" order="lsb_to_msb" radix="line" state="collapse" type="output pin">
+            <net is_signal_inverted="no" name="data_temp[0]"/>
+            <net is_signal_inverted="no" name="data_temp[1]"/>
+            <net is_signal_inverted="no" name="data_temp[2]"/>
+            <net is_signal_inverted="no" name="data_temp[3]"/>
+            <net is_signal_inverted="no" name="data_temp[4]"/>
+            <net is_signal_inverted="no" name="data_temp[5]"/>
+            <net is_signal_inverted="no" name="data_temp[6]"/>
+            <net is_signal_inverted="no" name="data_temp[7]"/>
+            <net is_signal_inverted="no" name="data_temp[8]"/>
+            <net is_signal_inverted="no" name="data_temp[9]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="fir_data" order="lsb_to_msb" radix="line" state="collapse" type="output pin">
+            <net is_signal_inverted="no" name="fir_data[0]"/>
+            <net is_signal_inverted="no" name="fir_data[1]"/>
+            <net is_signal_inverted="no" name="fir_data[2]"/>
+            <net is_signal_inverted="no" name="fir_data[3]"/>
+            <net is_signal_inverted="no" name="fir_data[4]"/>
+            <net is_signal_inverted="no" name="fir_data[5]"/>
+            <net is_signal_inverted="no" name="fir_data[6]"/>
+            <net is_signal_inverted="no" name="fir_data[7]"/>
+            <net is_signal_inverted="no" name="fir_data[8]"/>
+            <net is_signal_inverted="no" name="fir_data[9]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="q" order="lsb_to_msb" radix="line" state="collapse" type="output pin">
+            <net is_signal_inverted="no" name="q[0]"/>
+            <net is_signal_inverted="no" name="q[1]"/>
+            <net is_signal_inverted="no" name="q[2]"/>
+            <net is_signal_inverted="no" name="q[3]"/>
+            <net is_signal_inverted="no" name="q[4]"/>
+            <net is_signal_inverted="no" name="q[5]"/>
+            <net is_signal_inverted="no" name="q[6]"/>
+            <net is_signal_inverted="no" name="q[7]"/>
+            <net is_signal_inverted="no" name="q[8]"/>
+          </bus>
+        </setup_view>
+      </presentation>
+      <trigger CRC="317914D9" attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2013/05/18 19:36:04  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="1" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_in="dont_care" trigger_out="active high" trigger_type="circular">
+        <power_up_trigger position="pre" storage_qualifier_disabled="no" trigger_in="dont_care" trigger_out="active high"/>
+        <events use_custom_flow_control="no">
+          <level enabled="yes" name="condition1" type="basic">
+            <power_up enabled="yes">
+            </power_up>
+            <op_node/>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>00000000000000000000000000000
+            <pwr_up_transitional>00000000000000000000000000000
+            </pwr_up_transitional>
+          </transitional>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+        </storage_qualifier_events>
+        <log>
+          <data global_temp="1" name="log: 2013/05/18 19:41:58  #0"/>
+          <extradata/>
+        </log>
+      </trigger>
+    </signal_set>
+  </instance>
+  <mnemonics/>
+  <static_plugin_mnemonics/>
+</session>

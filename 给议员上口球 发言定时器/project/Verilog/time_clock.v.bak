@@ -1,0 +1,210 @@
+/********************************版权声明**************************************
+**                              大西瓜团队
+**                            
+**----------------------------文件信息--------------------------
+** 文件名称： time_clock.v
+** 创建日期：
+** 功能描述：时钟码管显示
+** 硬件平台：大西瓜第一代开发板
+** 版权声明：本代码属个人知识产权,本代码仅供交流学习.
+**---------------------------修改文件的相关信息----------------
+** 修改人：
+** 修改日期：		
+** 修改内容：
+*******************************************************************************/
+module time_clock(clk,duan,wei);//clk:50MHZ时钟输入，duan:数码管段码，wei:数码管位码
+input clk;
+output [7:0]duan;
+output [5:0]wei;
+reg [7:0]duan;
+reg [5:0]wei;
+
+integer count;//1HZ时钟计数器
+integer count2;//扫描时钟计数器
+reg clk_1hz;//1HZ时钟信号
+
+reg [3:0]miao_ge;//秒个位数BCD码
+reg [2:0]miao_shi;//秒十位BCD二进制码
+reg [3:0]fen_ge;//分钟个位数
+reg [2:0]fen_shi;//分钟十位数
+reg [1:0]shi_ge;//时钟个位数
+reg [1:0]shi_shi;//时钟十位数
+
+
+reg clk_scan;//数码管扫描时钟
+reg [2:0]select; //用于扫描时选择显示位码
+
+
+always @(posedge clk)//1HZ时钟进程
+  begin
+    if(count==25000000)
+      begin
+         clk_1hz=~clk_1hz;
+         count=0;
+      end
+    else
+       count=count+1'b1;
+  end
+  
+always @(posedge clk_1hz)//秒分时各位累加功能进程
+  begin
+    if(miao_ge==4'b1001)
+    begin
+			 miao_ge=4'b0000;
+			 if(miao_shi==3'b101)
+			 begin
+			         miao_shi=3'b000;
+					 if(fen_ge==4'b1001)
+					 begin
+							fen_ge=4'b0000;
+							if(fen_shi==3'b101)
+							begin
+							    fen_shi=3'b000;
+								if(shi_ge==2'b11)
+								begin
+									  shi_ge=2'b00;
+									  if(shi_shi==2'b10)
+                                        shi_shi=2'b00;
+                                      else
+                                        shi_shi=shi_shi+1'b1;									  
+							    end
+								else
+								shi_ge=shi_ge+1'b1;
+							end
+							else
+						    fen_shi=fen_shi+1'b1;
+					 end
+					 else
+					 fen_ge=fen_ge+1'b1;
+			 end
+			 else
+			 miao_shi=miao_shi+1'b1;
+    end
+      
+    else
+      miao_ge=miao_ge+1'b1;
+  end
+      
+always @(posedge clk)//数码管扫描时钟产生进程
+begin
+   if(count2==10000)
+     begin
+     count2=0;
+     clk_scan=~clk_scan;
+     end
+   else
+     count2=count2+1;
+end
+   
+always @(posedge clk_scan)
+ begin 
+     if(select==3'b110)
+	 select=3'b000;
+	 else
+     select=select+1'b1;
+	 
+ end
+   
+always @(miao_ge or miao_shi or fen_ge or fen_shi or shi_ge or shi_shi or select)//敏感信号列表
+ begin 
+   if(select==3'b001)
+   begin
+   wei=6'b111110;//秒个位数显示
+   case(miao_ge)
+       4'b0000:begin duan=8'b1100_0000;end
+       4'b0001:begin duan=8'b1111_1001;end
+       4'b0010:begin duan=8'b1010_0100;end
+       4'b0011:begin duan=8'b1011_0000;end
+       4'b0100:begin duan=8'b1001_1001;end
+       4'b0101:begin duan=8'b1001_0010;end
+       4'b0110:begin duan=8'b1000_0011;end
+       4'b0111:begin duan=8'b1111_1000;end
+       4'b1000:begin duan=8'b1000_0000;end
+       4'b1001:begin duan=8'b1001_1000;end
+       default duan=8'bx;
+   endcase
+   end
+   
+   else if(select==3'b010)
+   begin
+   wei=6'b111101;//秒十位数显示
+   case(miao_shi)
+       3'b000:duan=8'b1100_0000;
+       3'b001:duan=8'b1111_1001;
+       3'b010:duan=8'b1010_0100;
+       3'b011:duan=8'b1011_0000;
+       3'b100:duan=8'b1001_1001;
+       3'b101:duan=8'b1001_0010;
+       3'b110:duan=8'b1000_0011;
+       default duan=8'bx;
+   endcase
+   end
+   
+   else if(select==3'b011)
+   begin
+   wei=6'b111011;//分钟个位数显示
+   case(fen_ge)
+       4'b0000:begin duan=8'b1100_0000;end
+       4'b0001:begin duan=8'b1111_1001;end
+       4'b0010:begin duan=8'b1010_0100;end
+       4'b0011:begin duan=8'b1011_0000;end
+       4'b0100:begin duan=8'b1001_1001;end
+       4'b0101:begin duan=8'b1001_0010;end
+       4'b0110:begin duan=8'b1000_0011;end
+       4'b0111:begin duan=8'b1111_1000;end
+       4'b1000:begin duan=8'b1000_0000;end
+       4'b1001:begin duan=8'b1001_1000;end
+       default duan=8'bx;
+   endcase
+   end
+   
+   else if(select==3'b100)
+   begin
+   wei=6'b110111;//分钟十位数显示
+   case(fen_shi)
+       3'b000:duan=8'b1100_0000;
+       3'b001:duan=8'b1111_1001;
+       3'b010:duan=8'b1010_0100;
+       3'b011:duan=8'b1011_0000;
+       3'b100:duan=8'b1001_1001;
+       3'b101:duan=8'b1001_0010;
+       3'b110:duan=8'b1000_0011;
+       default duan=8'bx;
+   endcase
+   end
+   
+   else if(select==3'b101)
+   begin
+   wei=6'b101111;//时钟个位数显示
+   case(shi_ge)
+       4'b0000:begin duan=8'b1100_0000;end
+       4'b0001:begin duan=8'b1111_1001;end
+       4'b0010:begin duan=8'b1010_0100;end
+       4'b0011:begin duan=8'b1011_0000;end
+       default duan=8'bx;
+   endcase
+   end
+   
+   else 
+   begin
+   wei=6'b011111;//时钟十位数显示
+   case(shi_shi)
+       3'b000:duan=8'b1100_0000;
+       3'b001:duan=8'b1111_1001;
+       3'b010:duan=8'b1010_0100;
+       default duan=8'bx;
+   endcase
+   end
+end
+   
+endmodule
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+|spi
+cs <= spi_out:inst.cs
+clk_in => spi_out:inst.clk_in
+sck_out <= spi_out:inst.sck_out
+data_out[0] <= spi_out:inst.received_data_out[0]
+data_out[1] <= spi_out:inst.received_data_out[1]
+data_out[2] <= spi_out:inst.received_data_out[2]
+data_out[3] <= spi_out:inst.received_data_out[3]
+data_out[4] <= spi_out:inst.received_data_out[4]
+data_out[5] <= spi_out:inst.received_data_out[5]
+data_out[6] <= spi_out:inst.received_data_out[6]
+data_out[7] <= spi_out:inst.received_data_out[7]
+
+
+|spi|spi_out:inst
+clk_in => counter[2].CLK
+clk_in => counter[1].CLK
+clk_in => counter[0].CLK
+clk_in => clk_div.CLK
+miso => gain_data~7.DATAB
+miso => gain_data~6.DATAB
+miso => gain_data~5.DATAB
+miso => gain_data~4.DATAB
+miso => gain_data~3.DATAB
+miso => gain_data~2.DATAB
+miso => gain_data~1.DATAB
+miso => gain_data~0.DATAB
+cs <= cs~reg0.DB_MAX_OUTPUT_PORT_TYPE
+mosi <= mosi~0.DB_MAX_OUTPUT_PORT_TYPE
+sck_out <= clk_div.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[0] <= received_data_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[1] <= received_data_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[2] <= received_data_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[3] <= received_data_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[4] <= received_data_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[5] <= received_data_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[6] <= received_data_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+received_data_out[7] <= received_data_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

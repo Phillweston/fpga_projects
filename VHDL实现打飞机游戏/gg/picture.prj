@@ -1,0 +1,5 @@
+vhdl work "plane.vhd"
+vhdl work "enemy.vhd"
+vhdl work "codepage.vhd"
+vhdl work "bullet.vhd"
+vhdl work "picture.vhd"

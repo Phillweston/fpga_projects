@@ -1,0 +1,60 @@
+library IEEE; 
+use IEEE.std_logic_1164.all; 
+use IEEE.std_logic_unsigned.all; 
+------------------------------实体定义--------------------------------- 
+entity Div is  --除法器实体   
+port ( 
+A:in STD_LOGIC_VECTOR(3 downto 0); --被除数   
+B:in STD_LOGIC_VECTOR(3 downto 0); --除数   
+C:out STD_LOGIC_VECTOR(3 downto 0) --商 
+);
+end Div;  
+--------------------------------实体的实现------------------------------------- 
+architecture Div_arch of Div is   --下列信号记录计算过程中的余数的中间结果：  
+signal remainS0 : STD_LOGIC_VECTOR (5 downto 0); 
+signal remainS1 : STD_LOGIC_VECTOR (5 downto 0); 
+signal remainS2 : STD_LOGIC_VECTOR (5 downto 0); 
+signal remainS3 : STD_LOGIC_VECTOR (5 downto 0);   --运算过程中用于减余数的数： 
+ 
+signal diverS0 : STD_LOGIC_VECTOR (5 downto 0);  
+signal diverS1 : STD_LOGIC_VECTOR (5 downto 0);  
+signal diverS2 : STD_LOGIC_VECTOR (5 downto 0); - 
+signal diverS3 : STD_LOGIC_VECTOR (5 downto 0);     
+ 
+signal Q_TEMP : STD_LOGIC_VECTOR (3 downto 0); --保存商 
+signal Z0 : STD_LOGIC_VECTOR (2 downto 0);      --用于扩展0 
+signal Z1 : STD_LOGIC_VECTOR (2 downto 0);      --用于扩展0 
+signal ZERO : STD_LOGIC;                     --置被0除标志位 
+begin  --扩展被除数与除数： 
+Z0 <=(others => '0');  
+Z1 <=(others => '0');  
+diverS0 <=Z0 & B(2 downto 0);  
+remainS3  <=Z1& A(2 downto 0);   
+diver1<=diver0(4 downto 0) & '0';  --由diver0左移1位---〉0 0 B2 B1 B0 0  
+diver2<=diver1(4 downto 0) & '0';  --由diver0左移1位---〉0 B2 B1 B0 0 0  
+diver3<=diver2(4 downto 0) & '0';  --由diver0左移1位---〉B2 B1 B0 0 0 0
+----------具体运算过程---------  --比较并上商： 
+Q_TEMP(2) <= '1' when (remainS3 >= diverS2) else '0';  
+Q_TEMP(1) <= '1' when (remainS2 >= diverS1) else '0';  
+Q_TEMP(0) <= '1' when (remainS1 >= diverS0) else '0';  --计算余数的中间结果： 
+remainS2 <= remainS3 - diverS2 when Q_TEMP(2) = '1' else remainS3;  
+remainS1 <= remainS2 - diverS1 when Q_TEMP(1) = '1' else remainS2;  
+remainS0 <= remainS1 - diverS0 when Q_TEMP(0) = '1' else remainS1;   
+Q_TEMP(3) <= A(3) xor B(3);                         --确定结果的符号位  
+ZERO <= '1' when B(2 downto 0) = Z1 else '0';       --置被0除标志位  
+DIVz <= '1' when ZERO = '1' else '0';               --当除数为0时设置标志  
+C <= (others => '0') when ZERO = '1' else Q_TEMP;   --将结果赋予C 
+end Div_arch;
+
+
+
+
+
+
+
+
+
+
+
+
+

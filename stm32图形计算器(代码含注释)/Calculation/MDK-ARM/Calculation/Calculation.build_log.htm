@@ -1,0 +1,103 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: zxm zxm, zxm, LIC=LSNMM-XMFJW-H8RFS-LCJGW-EVBY1-G71P8
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.24.1
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DARMCM1.DLL V1.18.0.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.1.0
+Dialog DLL:      TARMCM1.DLL V1.13.0.0
+ 
+<h2>Project:</h2>
+C:\Users\DIY\Desktop\Calculation\Calculation\MDK-ARM\Calculation.uvprojx
+Project File Date:  10/16/2018
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Calculation'
+compiling usart.c...
+compiling stm32f0xx_it.c...
+compiling stm32f0xx_hal_msp.c...
+compiling gpio.c...
+compiling Calculation.c...
+..\Calculation\Calculation.c(262): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *restrict"
+      sprintf(math_dis,"result = %g",data.data[0]);
+..\Calculation\Calculation.c(273): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *restrict"
+  		sprintf(math_dis,"No Result");
+..\Calculation\Calculation.c(280): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *restrict"
+  	 sprintf(math_dis,"x1 = %g x2 = %g",x1,x2);
+..\Calculation\Calculation.c(282): warning:  #940-D: missing return statement at end of non-void function "Cal_OneTwo" 
+  }
+..\Calculation\Calculation.c: 4 warnings, 0 errors
+compiling main.c...
+../Src/main.c(165): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+  			  Cal_Fun(math_str);
+../Src/main.c(166): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const unsigned char *"
+  			  LCD_ShowString(0,60,math_dis);
+../Src/main.c(177): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "const unsigned char *"
+  				 LCD_ShowString(0,80,math_dis);
+../Src/main.c: 3 warnings, 0 errors
+compiling draw.c...
+compiling oled.c...
+compiling keypad.c...
+..\KeyBoard\keypad.c(57): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  			sprintf(math_dis,"result = %g",0);
+..\KeyBoard\keypad.c(113): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  			sprintf(math_dis,"result = %g",0);
+..\KeyBoard\keypad.c(183): warning:  #181-D: argument is incompatible with corresponding format string conversion
+  			sprintf(math_dis,"result = %g",0);
+..\KeyBoard\keypad.c: 3 warnings, 0 errors
+assembling startup_stm32f030x6.s...
+compiling system_stm32f0xx.c...
+compiling stm32f0xx_hal_flash_ex.c...
+compiling stm32f0xx_hal_flash.c...
+compiling stm32f0xx_hal_dma.c...
+compiling stm32f0xx_hal_uart_ex.c...
+compiling stm32f0xx_hal_tim.c...
+compiling stm32f0xx_hal_tim_ex.c...
+compiling stm32f0xx_hal_i2c_ex.c...
+compiling stm32f0xx_hal_gpio.c...
+compiling stm32f0xx_hal_i2c.c...
+compiling stm32f0xx_hal.c...
+compiling stm32f0xx_hal_pwr.c...
+compiling stm32f0xx_hal_pwr_ex.c...
+compiling stm32f0xx_hal_rcc.c...
+compiling stm32f0xx_hal_rcc_ex.c...
+compiling stm32f0xx_hal_cortex.c...
+compiling stm32f0xx_hal_uart.c...
+linking...
+runtime error R6002
+- floating point support not loaded
+"Calculation\Calculation.axf" - 0 Error(s), 10 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM.CMSIS.5.4.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.1.2
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Calculation
+  D:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.1.2
+Build Time Elapsed:  00:00:17
+</pre>
+</body>
+</html>

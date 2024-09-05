@@ -1,0 +1,181 @@
+--panduan.vhd
+--该模块用于判断收到是什么数据，以及给出不同寄存器的读信号输出
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity panduan is
+port(reset:in std_logic;--全局复位信号
+     data_in:std_logic_vector(31 downto 0);--数据输入
+     clk:in std_logic;--驱动扫描时钟
+     canpanduan:in std_logic;
+     boxing_en:out std_logic;---波形使能
+     boxing_data:out std_logic_vector(1 downto 0);--波形
+	 dianya_en:out std_logic;--电压读使能输出,'1'有效 
+	 dianya_data:out std_logic_vector(9 downto 0);--电压值输出
+	 fre_en:out std_logic;--频率读使能输出
+	 fre_data:out std_logic_vector(15 downto 0);--频率值输出
+	 xiawei_en:out std_logic;--相位使能输出
+	 xiawei_data:out std_logic_vector(9 downto 0);--相位值输出
+	 dangwei_en:out std_logic;--档位使能输出
+	 dangwei_data:out std_logic_vector(15 downto 0));--档位值输出
+end panduan;
+
+architecture one of panduan is
+signal temp:std_logic_vector(31 downto 0);--数据暂存使用，保存上一次的数据
+type state is(s0,s1,s2,s3,s4,s5,s6,jia,s7,s8,s9,s10);--状态机状态
+signal s:state:=s0;
+signal count8:integer range 0 to 3:=0;
+signal zhancun1:std_logic_vector(15 downto 0);
+signal zhancun2:std_logic_vector(15 downto 0);
+
+signal boxing_temp:std_logic_vector(1 downto 0);
+signal dianya_temp:std_logic_vector(9 downto 0);
+signal xiangwei_temp:std_logic_vector(9 downto 0);
+begin
+p2:process(canpanduan,reset)
+   begin
+     if(reset='1') then 
+       count8<=0;
+     elsif(canpanduan'event and canpanduan='1') then
+       count8<=count8+1;
+     end if;
+end process;
+
+p1:process(reset,clk,data_in,s)
+   variable count10:integer range 0 to 3:=1;
+   begin
+    if(reset='1') then
+	    temp<=(others=>'0');--默认是‘1’
+	    count10:=1;
+		s<=s0;
+		dianya_en<='0';
+		dianya_data<=(others=>'0');
+		fre_en<='0';
+		fre_data<=(others=>'0');
+		xiawei_en<='0';
+		xiawei_data<=(others=>'0');
+		dangwei_en<='0';
+		dangwei_data<=(others=>'0');
+		boxing_en<='0';
+--		boxing_data<=(others=>'0');
+	elsif(clk'event and clk='1') then
+	    case s is 
+		        when s0=>
+					 if(count10=count8) then--只要有数据变化就进入进程中判断数据 
+					  s<=s1; 
+					 else
+					  s<=s0;
+					  dianya_en<='0';
+					  fre_en<='0';
+					  xiawei_en<='0';
+					  dangwei_en<='0'; 
+					  boxing_en<='0';---
+				     end if;
+					  
+				when s1=>
+				     --if(count10=count8) then 
+				      temp<=data_in;--把当前值赋给temp临时信号
+				      count10:=count10+1;
+					  s<=jia;
+					 --else
+					 --s<=s0;
+					 --end if;
+			    when jia=>
+			         zhancun1<=temp(31 downto 16);
+			         zhancun2<=temp(15 downto 0);
+			         s<=s2;
+					 
+							 
+				when s2=>
+				     if(zhancun1="1010101010101010") then
+		                dianya_temp<=zhancun2(9 downto 0);
+		                s<=s3;
+		             elsif(zhancun1="1011101110111011") then
+		                fre_data<=zhancun2;
+		                s<=s4;
+		             elsif(zhancun1="1101110111011101") then
+		                xiangwei_temp<=zhancun2(9 downto 0);
+		                s<=s5;
+		             elsif(zhancun1="1110111011101110") then 
+		                dangwei_data<=zhancun2;
+		                s<=s6; 
+		             elsif(zhancun1="1100110011001100") then
+                        boxing_temp<=zhancun2(1 downto 0);
+                        s<=s7;
+		             else
+		                s<=s0;
+		             end if;
+				     --case temp(31 downto 16) is
+					   -- when "1010101010101010"=>dianya_data<=temp(15 downto 0);s<=s3;
+						--when "1011101110111011"=>fre_data<=temp(15 downto 0);s<=s4;
+						--when "1100110011001100"=>xiawei_data<=temp(15 downto 0);s<=s5;
+						---when "1101110111011101"=>dangwei_data<=temp(15 downto 0);s<=s6;
+						--when others=>s<=s0;--若都不是返回到s0状态
+					 --end case;
+					 
+				when s3=>
+			 	     dianya_data<=dianya_temp;
+					 s<=s9;
+					 
+				when s4=>
+				     fre_en<='1';
+					 s<=s0;
+					 
+			    when s5=>
+			         xiawei_data<=xiangwei_temp;
+					 s<=s10;
+					 
+			    when s6=>
+				     dangwei_en<='1';
+					 s<=s0;
+					 
+			    when s7=>
+			         boxing_data<=boxing_temp;
+			         s<=s8;
+			         
+			    when s8=>
+			         boxing_en<='1';
+			         s<=s0;
+			         
+			    when s9=>
+			         dianya_en<='1';
+			         s<=s0;
+			         
+			    when s10=>
+			         xiawei_en<='1';
+			         s<=s0;
+			         
+			    when others=>
+			         s<=s0;
+		end case;
+	end if;
+   end process;
+end one;   
+					 
+				     
+						
+	
+	
+		
+		
+		
+		
+		
+        
+
+
+
+    
+    
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 

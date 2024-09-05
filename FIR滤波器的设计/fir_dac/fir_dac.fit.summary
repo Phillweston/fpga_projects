@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri May 09 10:54:58 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : fir_dac
+Top-level Entity Name : fir_dac
+Family : Cyclone II
+Device : EP2C5T144C8
+Timing Models : Final
+Total logic elements : 1,678 / 4,608 ( 36 % )
+    Total combinational functions : 1,616 / 4,608 ( 35 % )
+    Dedicated logic registers : 338 / 4,608 ( 7 % )
+Total registers : 338
+Total pins : 6 / 89 ( 7 % )
+Total virtual pins : 0
+Total memory bits : 17,408 / 119,808 ( 15 % )
+Embedded Multiplier 9-bit elements : 0 / 26 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

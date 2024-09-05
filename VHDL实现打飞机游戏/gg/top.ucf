@@ -1,0 +1,12 @@
+NET "reset" LOC="P11";
+net "start" loc="L3";
+NET "key_l" LOC = "K3" ;
+NET "key_r" LOC = "B4";
+net"clk_0" loc="B8";
+net "hs" loc="J14";
+net"vs" loc="K13";
+net"pic_rgb<0>"loc="C14";
+net"pic_rgb<1>"loc="F14";
+net"pic_rgb<2>"loc="H13";
+net"fire"loc="G12";
+NET "reset" CLOCK_DEDICATED_ROUTE = FALSE;

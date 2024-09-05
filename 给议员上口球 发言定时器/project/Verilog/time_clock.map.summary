@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Mar 31 16:51:51 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : time_clock
+Top-level Entity Name : time_clock
+Family : Cyclone II
+Total logic elements : 320
+    Total combinational functions : 320
+    Dedicated logic registers : 165
+Total registers : 165
+Total pins : 22
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

@@ -1,0 +1,18 @@
+-- ******************************************************************************
+-- 按键模块，进行按键消抖和按键编码
+-- *******************************************************************************
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_arith.all;
+entity led is
+port(
+    clk:in std_logic;                               --50M时钟输入
+    reset_n:in std_logic;                           --复位信号输入
+    last_minute:in std_logic;                       --最后一分钟信号输出
+    time_over:in std_logic;                         --计时时间到信号输出
+   
+    pwm_out:out std_logic                           --蜂鸣器驱动脉冲
+);
+end led;
+architecture led_behave of led is 

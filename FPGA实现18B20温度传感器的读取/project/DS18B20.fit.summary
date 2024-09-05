@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue May 13 20:33:59 2014
+Quartus II Version : 9.0 Build 132 02/25/2009 SJ Full Version
+Revision Name : DS18B20
+Top-level Entity Name : ds18B20
+Family : Cyclone II
+Device : EP2C5T144C8
+Timing Models : Final
+Total logic elements : 262 / 4,608 ( 6 % )
+    Total combinational functions : 261 / 4,608 ( 6 % )
+    Dedicated logic registers : 108 / 4,608 ( 2 % )
+Total registers : 108
+Total pins : 15 / 89 ( 17 % )
+Total virtual pins : 0
+Total memory bits : 0 / 119,808 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 26 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

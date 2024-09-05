@@ -1,0 +1,173 @@
+-------------------------------------------------------
+-----------------基于FPGA的简单误码测试仪--------------
+-------------------------------------------------------
+---------------------包含模块---------------
+
+--锁相环----M序列生成模块----数据接口模块----------
+--模拟信道模块(没有实信道，所以收发模块预留，中间加了一个误码插入模块)-----
+--本地M序列生成模块----同步模块----误码统计模块----显示模块--
+-------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity c_er_det is
+port( clk_in    : in  std_logic;
+	  reset	    : in  std_logic;
+	  m_out	    : out std_logic;					--输出M序列
+	  syn_clk   : out std_logic;				    --输出同步时钟
+	  scan	    : out std_logic_vector(2 downto 0); --数码管使能
+	  seg	    : out std_logic_vector(7 downto 0); --数码管数据
+	  m_cnt		: out integer	range 1 to 255;		--255计数标志
+	  err_cnt_out   : out integer	range 1 to 255; --255计数标志
+	 );
+end entity;
+
+architecture one of c_er_det is
+
+----------------------锁相环----------------------------------
+component pull1
+PORT
+	(
+		inclk0	: IN  STD_LOGIC := '0';     --系统输入时钟
+		c0		: OUT STD_LOGIC ;			--系统时钟
+		c1		: OUT STD_LOGIC ;			--同步时钟输出
+		c2		: OUT STD_LOGIC 			--signaltap 采样时钟
+	 );
+end component;
+
+--------------------M序列生成模块------------------------------------
+component m_seq
+port (  clk	    : in  std_logic;
+	    rst	    : in  std_logic;
+	    m_se    : out std_logic;			--M序列生成输出
+	    cnt_m   : out integer range 1 to 255--255计数标志
+	);
+end component;
+
+--------------------数据接口模块----------------------------------
+component interface 
+port ( clk	    : in  std_logic;
+--	   rst	    : in  std_logic;
+	   m_i      : in  std_logic;			--模拟信道M序列输入
+	   cnt_m    : in  integer range 1 to 255;
+	   m_o	    : out std_logic				--模拟信道M序列输出
+	  );
+end component;
+
+--------------------本地M序列生成模块-----------------------------------
+component local_m_seq 
+port ( clk	 	:  in  std_logic;
+	   rst	    :  in  std_logic;
+	   en	    :  in  std_logic;			--本地M序列触发使能
+	   m_loc 	:  out std_logic			--本地M序列
+	  );
+end component;
+
+--------------------同步模块------------------------------------
+component syn 
+port ( clk		: in  std_logic;
+	   rst  	: in  std_logic;
+	   m_1  	: in  std_logic;			--接收M序列
+	   m_loc	: in  std_logic;			--本地M序列
+	   en		: out std_logic;			--本地M序列触发使能
+	   start	: out std_logic				--误码统计开始标志
+	  );
+end component;
+
+-------------------误码统计模块------------------------------------
+component err_sta 
+port( clk	    : in  std_logic;
+	  rst	    : in  std_logic;
+	  m_1	    : in  std_logic;			--接收M序列
+	  m_loc     : in  std_logic;			--本地M序列
+	  start	    : in  std_logic;			--误码统计开始标志
+	  err_cnt   : out integer range 0 to 255--误码计数
+	 );
+end component;
+
+-------------------显示模块-------------------------------------
+component dis_seg
+port ( clk	    : in  std_logic;
+	   rst		: in  std_logic;
+	   err_cnt  : in  integer range 0 to 255 ;
+	   scan	    : out std_logic_vector(2 downto 0);--数码管使能
+	   seg	    : out std_logic_vector(7 downto 0) --数码管数据
+	);
+end component;
+--------------------------------------------------------
+signal clk		: std_logic;					--系统时钟
+signal clk300	: std_logic;					--signaltap 采样时钟
+signal rst		: std_logic;
+signal rst_tmp1	: std_logic;
+signal rst_tmp2	: std_logic;
+signal m_se		: std_logic;
+signal cnt_m	: integer range 1 to 255 :=1;
+signal m_1		: std_logic;					--接收M序列
+signal m_loc	: std_logic;					--本地M序列
+signal en		: std_logic;
+signal start    : std_logic;					--误码统计开始标志
+signal err_cnt  : integer range 0 to 255 :=0;	--误码计数
+
+--------------------------------------------------------
+begin
+
+pull            : pull1			port map (
+        clk_in,
+        clk,
+        syn_clk,
+        clk300
+        );
+m_sequencer     : m_seq			port map (
+        clk,
+        rst,
+        m_se,
+        cnt_m);
+cha_interface   : interface 	port map (
+        clk,
+        m_se,
+        cnt_m,
+        m_1);
+local_m      	: local_m_seq	port map (
+        clk,
+        rst,
+        en,
+        m_loc);
+syn_m			: syn			port map (
+        clk,
+        rst,
+        m_1,
+        m_loc,
+        en,
+        start);
+error_statistic	: err_sta		port map (
+        clk,
+        rst,
+        m_1,
+        m_loc,
+        start,
+        err_cnt);
+disp_seg		: dis_seg		port map (
+        clk,
+        rst,
+        err_cnt,
+        scan,
+        seg);
+
+---------------------复位信号同步整形-----------------------------------
+process(clk,reset,rst_tmp1,rst_tmp2)
+begin
+	if rising_edge(clk)then
+		rst_tmp1<=reset;
+		rst_tmp2<=rst_tmp1;
+	end if;
+	rst<=rst_tmp1 or (not rst_tmp2);
+end process;
+------------------------------------------------------------
+m_out <= m_se  ;
+m_cnt <= cnt_m ;
+err_cnt_out <= err_cnt;
+----------------------------------------------------------
+end one;

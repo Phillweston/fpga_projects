@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--Created by Liquid XML 2008 (www.liquid-technologies.com) for ALTERA CORPORATION-->
+<ProgramExecution xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+	<AddressBits>32</AddressBits>
+	<DateInvoked>2015/04/12 14:15:54</DateInvoked>
+	<ElapsedTime>2572</ElapsedTime>
+	<IsInternal>false</IsInternal>
+	<Name>quartus</Name>
+	<PeakMemoryUsed>0</PeakMemoryUsed>
+	<License>
+		<Edition>Full Version</Edition>
+		<LicenseHostID>00ffe3cf6daf</LicenseHostID>
+	</License>
+	<SchemaVersion>schema_2009-05-26</SchemaVersion>
+	<ProjectRevision>
+		<ProjectName/>
+		<Revision/>
+	</ProjectRevision>
+	<ApplicationError>
+		<ErrorMessage>Current editor: RPW, PPL, STED</ErrorMessage>
+		<Line>0</Line>
+		<SourceFile>unknown</SourceFile>
+		<StackTrace>
+	0x0000072a:
+	0x06029672: MEGA_WIZMAN + 0x9672
+	0x77d1f7f5: USER32 + 0xf7f5 (EnableMenuItem + 0x6e)
+	0x77d301f7: USER32 + 0x201f7 (ScrollWindowEx + 0xb0)
+	0x7c92e472: ntdll + 0xe472 (KiUserCallbackDispatcher + 0x12)
+	0x7867a737: mfc90 + 0x9a737
+	0x00691968: ccl_thr + 0x1968 (thr_thread_var_destroy + 0x28)
+	0x78647201: mfc90 + 0x67201
+	0x0044f42e: quartus + 0x4f42e (Pjm_Uninit + 0x401ee)
+	0x7c816fe6: kernel32 + 0x16fe6 (RegisterWaitForInputIdle + 0x48)
+	0xffffffffffffffff:
+		</StackTrace>
+		<Subsystem>unknown</Subsystem>
+	</ApplicationError>
+	<QuartusInstallation>
+		<InstallationID>1099038682543.142660550005784</InstallationID>
+		<Version>
+			<Build>235</Build>
+			<BuildSite>SJ</BuildSite>
+			<BuildSuffix/>
+			<Edition>Web Edition</Edition>
+			<ServicePack>2</ServicePack>
+			<VersionNumber>9</VersionNumber>
+		</Version>
+	</QuartusInstallation>
+	<Compilation>
+		<CompileID>0</CompileID>
+		<DeviceFamily/>
+		<IncrementalCompilation/>
+		<SOPCBuilderProjectID/>
+		<TopLevelEntityName/>
+	</Compilation>
+	<QuartusUser>
+		<AlteraUserName/>
+		<FAEContactName/>
+		<UserID>0.142054117503852</UserID>
+		<UserName>Administrator</UserName>
+		<TalkbackStatus>
+			<DateSet/>
+			<TalkbackOn>true</TalkbackOn>
+		</TalkbackStatus>
+	</QuartusUser>
+	<Machine>
+		<CPUCountLogical>2</CPUCountLogical>
+		<CPUCountPhysical>1</CPUCountPhysical>
+		<CPUSpeed>2000</CPUSpeed>
+		<Hostname>PCPE</Hostname>
+		<OS>Windows XP</OS>
+		<OSAddressBits>32</OSAddressBits>
+		<OSVersion>5.1</OSVersion>
+		<Platform>windows</Platform>
+		<ScreenResolution>unknown</ScreenResolution>
+		<TotalPhysicalRAM>2039</TotalPhysicalRAM>
+		<TotalVirtualRAM>1881</TotalVirtualRAM>
+		<NIC>
+			<Address>00ffe3cf6daf</Address>
+		</NIC>
+		<NIC>
+			<Address>0036763c5021</Address>
+		</NIC>
+		<NIC>
+			<Address>001d7d76133f</Address>
+		</NIC>
+	</Machine>
+</ProgramExecution>
+

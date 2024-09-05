@@ -1,0 +1,706 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--D1_red1 is state_machine:inst2|red1 at LC_X27_Y22_N0
+--operation mode is normal
+
+D1_red1_lut_out = D1_next_state.s2 # D1_next_state.s1;
+D1_red1 = DFFEAS(D1_red1_lut_out, GLOBAL(B1_z_temp), !GLOBAL(D1L62), , , , , , );
+
+
+--D1_green1 is state_machine:inst2|green1 at LC_X27_Y22_N6
+--operation mode is normal
+
+D1_green1_lut_out = D1_next_state.s1;
+D1_green1 = DFFEAS(D1_green1_lut_out, GLOBAL(B1_z_temp), !GLOBAL(D1L62), , , , , , );
+
+
+--D1_yellow1 is state_machine:inst2|yellow1 at LC_X27_Y22_N7
+--operation mode is normal
+--sload is tied to vcc, which is functionally the same as treating the sdata port as the data input.
+
+D1_yellow1_lut_out = GND;
+D1_yellow1 = DFFEAS(D1_yellow1_lut_out, GLOBAL(B1_z_temp), !GLOBAL(D1L62), , , D1_next_state.s2, , , VCC);
+
+
+--D1_red2 is state_machine:inst2|red2 at LC_X27_Y22_N5
+--operation mode is normal
+
+D1_red2_lut_out = D1_next_state.s3 # D1_next_state.s4;
+D1_red2 = DFFEAS(D1_red2_lut_out, GLOBAL(B1_z_temp), !GLOBAL(D1L62), , , , , , );
+
+
+--D1_green2 is state_machine:inst2|green2 at LC_X27_Y22_N4
+--operation mode is normal
+--sload is tied to vcc, which is functionally the same as treating the sdata port as the data input.
+
+D1_green2_lut_out = GND;
+D1_green2 = DFFEAS(D1_green2_lut_out, GLOBAL(B1_z_temp), !GLOBAL(D1L62), , , D1_next_state.s3, , , VCC);
+
+
+--D1_yellow2 is state_machine:inst2|yellow2 at LC_X27_Y22_N8
+--operation mode is normal
+--sload is tied to vcc, which is functionally the same as treating the sdata port as the data input.
+
+D1_yellow2_lut_out = GND;
+D1_yellow2 = DFFEAS(D1_yellow2_lut_out, GLOBAL(B1_z_temp), !GLOBAL(D1L62), , , D1_next_state.s4, , , VCC);
+
+
+--D1_next_state.s1 is state_machine:inst2|next_state.s1 at LC_X27_Y21_N0
+--operation mode is normal
+
+D1_next_state.s1_lut_out = D1_next_state.s4 & (!A1L8) # !D1_next_state.s4 & !D1L43;
+D1_next_state.s1 = DFFEAS(D1_next_state.s1_lut_out, GLOBAL(B1_z_temp), !GLOBAL(RESET), , , D1_next_state.s1, , , D1L53);
+
+
+--D1_next_state.s2 is state_machine:inst2|next_state.s2 at LC_X27_Y21_N9
+--operation mode is normal
+
+D1_next_state.s2_lut_out = D1_next_state.s2 & !A1L13 # !D1_next_state.s2 & (D1L54);
+D1_next_state.s2 = DFFEAS(D1_next_state.s2_lut_out, GLOBAL(B1_z_temp), !GLOBAL(RESET), , , D1_next_state.s2, , , D1L53);
+
+
+--B1_z_temp is counter1000:inst|z_temp at LC_X7_Y19_N4
+--operation mode is normal
+
+B1_z_temp_lut_out = B1_z_temp $ (!RESET & B1L31);
+B1_z_temp = DFFEAS(B1_z_temp_lut_out, GLOBAL(CLK), VCC, , , , , , );
+
+
+--C1_z1 is emergency_signal:inst1|z1 at LC_X1_Y20_N2
+--operation mode is normal
+
+C1_z1_lut_out = !C1_z1;
+C1_z1 = DFFEAS(C1_z1_lut_out, CLK1, VCC, , , , , , );
+
+
+--D1L62 is state_machine:inst2|red1~1 at LC_X1_Y20_N6
+--operation mode is normal
+
+D1L62 = RESET # C1_z1;
+
+
+--D1_next_state.s3 is state_machine:inst2|next_state.s3 at LC_X27_Y21_N7
+--operation mode is normal
+
+D1_next_state.s3_lut_out = D1_next_state.s3 & (!A1L12) # !D1_next_state.s3 & D1L55;
+D1_next_state.s3 = DFFEAS(D1_next_state.s3_lut_out, GLOBAL(B1_z_temp), !GLOBAL(RESET), , , D1_next_state.s3, , , D1L53);
+
+
+--D1_next_state.s4 is state_machine:inst2|next_state.s4 at LC_X27_Y21_N3
+--operation mode is normal
+
+D1_next_state.s4_lut_out = D1_next_state.s4 & (A1L8) # !D1_next_state.s4 & D1L56;
+D1_next_state.s4 = DFFEAS(D1_next_state.s4_lut_out, GLOBAL(B1_z_temp), !GLOBAL(RESET), , , D1_next_state.s4, , , D1L53);
+
+
+--D1L41 is state_machine:inst2|next_state~1678 at LC_X27_Y22_N3
+--operation mode is normal
+
+D1L41 = D1_next_state.s2 # D1_next_state.s3;
+
+
+--D1L1 is state_machine:inst2|add~176 at LC_X29_Y21_N5
+--operation mode is arithmetic
+
+D1L1_carry_eqn = (!D1L5 & GND) # (D1L5 & VCC);
+D1L1 = D1_countnum[4] $ (!D1L1_carry_eqn);
+
+--D1L2 is state_machine:inst2|add~178 at LC_X29_Y21_N5
+--operation mode is arithmetic
+
+D1L2_cout_0 = D1_countnum[4] & (!D1L5);
+D1L2 = CARRY(D1L2_cout_0);
+
+--D1L3 is state_machine:inst2|add~178COUT1_209 at LC_X29_Y21_N5
+--operation mode is arithmetic
+
+D1L3_cout_1 = D1_countnum[4] & (!D1L5);
+D1L3 = CARRY(D1L3_cout_1);
+
+
+--D1_countnum[0] is state_machine:inst2|countnum[0] at LC_X30_Y21_N4
+--operation mode is normal
+
+D1_countnum[0]_lut_out = !D1L30;
+D1_countnum[0] = DFFEAS(D1_countnum[0]_lut_out, GLOBAL(B1_z_temp), !GLOBAL(RESET), , !C1_z1, , , , );
+
+
+--D1L33 is state_machine:inst2|LessThan~688 at LC_X29_Y21_N7
+--operation mode is normal
+--sload is tied to vcc, which is functionally the same as treating the sdata port as the data input.
+
+D1_countnum[1]_qfbk = D1_countnum[1];
+D1L33 = !D1_countnum[0] & !D1_countnum[1]_qfbk # !D1_countnum[4] # !D1_countnum[5];
+
+--D1_countnum[1] is state_machine:inst2|countnum[1] at LC_X29_Y21_N7
+--operation mode is normal
+--sload is tied to vcc, which is functionally the same as treating the sdata port as the data input.
+
+D1_countnum[1] = DFFEAS(D1L33, GLOBAL(B1_z_temp), !GLOBAL(RESET), , !C1_z1, D1L28, , , VCC);
+
+
+--D1L25 is state_machine:inst2|countnum~392 at LC_X29_Y21_N8
+--operation mode is normal
+
+D1L25 = D1L1 & (D1L33 # !D1_countnum[2] # !D1_countnum[3]);
+
+--D1_countnum[4] is state_machine:inst2|countnum[4] at LC_X29_Y21_N8
+--operation mode is normal
+
+D1_countnum[4] = DFFEAS(D1L25, GLOBAL(B1_z_temp), !GLOBAL(RESET), , !C1_z1, , , , );
+
+
+--D1L4 is state_machine:inst2|add~181 at LC_X29_Y21_N4
+--operation mode is arithmetic
+
+D1L4 = D1_countnum[3] $ D1L9;
+
+--D1L5 is state_machine:inst2|add~183 at LC_X29_Y21_N4
+--operation mode is arithmetic
+
+D1L5 = D1L6;
+
+
+--D1L26 is state_machine:inst2|countnum~393 at LC_X28_Y21_N8
+--operation mode is normal
+
+D1_countnum[3]_qfbk = D1_countnum[3];
+D1L26 = D1L4 & (D1L33 # !D1_countnum[2] # !D1_countnum[3]_qfbk);
+
+--D1_countnum[3] is state_machine:inst2|countnum[3] at LC_X28_Y21_N8
+--operation mode is normal
+
+D1_countnum[3] = DFFEAS(D1L26, GLOBAL(B1_z_temp), !GLOBAL(RESET), , !C1_z1, , , , );
+
+
+--D1L8 is state_machine:inst2|add~186 at LC_X29_Y21_N3
+--operation mode is arithmetic
+
+D1L8 = D1_countnum[2] $ !D1L12;
+
+--D1L9 is state_machine:inst2|add~188 at LC_X29_Y21_N3
+--operation mode is arithmetic
+
+D1L9_cout_0 = D1_countnum[2] & !D1L12;
+D1L9 = CARRY(D1L9_cout_0);
+
+--D1L10 is state_machine:inst2|add~188COUT1 at LC_X29_Y21_N3
+--operation mode is arithmetic
+
+D1L10_cout_1 = D1_countnum[2] & !D1L13;
+D1L10 = CARRY(D1L10_cout_1);
+
+
+--D1L27 is state_machine:inst2|countnum~394 at LC_X28_Y21_N9
+--operation mode is normal
+
+D1_countnum[2]_qfbk = D1_countnum[2];
+D1L27 = D1L8 & (D1L33 # !D1_countnum[3] # !D1_countnum[2]_qfbk);
+
+--D1_countnum[2] is state_machine:inst2|countnum[2] at LC_X28_Y21_N9
+--operation mode is normal
+
+D1_countnum[2] = DFFEAS(D1L27, GLOBAL(B1_z_temp), !GLOBAL(RESET), , !C1_z1, , , , );
+
+
+--D1L11 is state_machine:inst2|add~191 at LC_X29_Y21_N2
+--operation mode is arithmetic
+
+D1L11 = D1_countnum[1] $ (D1L16);
+
+--D1L12 is state_machine:inst2|add~193 at LC_X29_Y21_N2
+--operation mode is arithmetic
+
+D1L12_cout_0 = !D1L16 # !D1_countnum[1];
+D1L12 = CARRY(D1L12_cout_0);
+
+--D1L13 is state_machine:inst2|add~193COUT1_208 at LC_X29_Y21_N2
+--operation mode is arithmetic
+
+D1L13_cout_1 = !D1L17 # !D1_countnum[1];
+D1L13 = CARRY(D1L13_cout_1);
+
+
+--D1L28 is state_machine:inst2|countnum~395 at LC_X28_Y21_N2
+--operation mode is normal
+
+D1L28 = D1L11 & (D1L33 # !D1_countnum[2] # !D1_countnum[3]);
+
+
+--A1L10 is rtl~141 at LC_X29_Y21_N0
+--operation mode is normal
+
+A1L10 = D1L27 & D1L26 & D1L25 & D1L28;
+
+
+--D1L14 is state_machine:inst2|add~196 at LC_X29_Y21_N6
+--operation mode is normal
+
+D1L14_carry_eqn = (!D1L5 & D1L2) # (D1L5 & D1L3);
+D1L14 = D1L14_carry_eqn $ D1_countnum[5];
+
+
+--D1L29 is state_machine:inst2|countnum~396 at LC_X28_Y21_N7
+--operation mode is normal
+
+D1L29 = D1L14 & (D1L33 # !D1_countnum[2] # !D1_countnum[3]);
+
+--D1_countnum[5] is state_machine:inst2|countnum[5] at LC_X28_Y21_N7
+--operation mode is normal
+
+D1_countnum[5] = DFFEAS(D1L29, GLOBAL(B1_z_temp), !GLOBAL(RESET), , !C1_z1, , , , );
+
+
+--D1L15 is state_machine:inst2|add~201 at LC_X29_Y21_N1
+--operation mode is arithmetic
+
+D1L15 = !D1_countnum[0];
+
+--D1L16 is state_machine:inst2|add~203 at LC_X29_Y21_N1
+--operation mode is arithmetic
+
+D1L16_cout_0 = D1_countnum[0];
+D1L16 = CARRY(D1L16_cout_0);
+
+--D1L17 is state_machine:inst2|add~203COUT1_207 at LC_X29_Y21_N1
+--operation mode is arithmetic
+
+D1L17_cout_1 = D1_countnum[0];
+D1L17 = CARRY(D1L17_cout_1);
+
+
+--D1L30 is state_machine:inst2|countnum~397 at LC_X30_Y21_N2
+--operation mode is normal
+
+D1L30 = !D1L15 & (D1L33 # !D1_countnum[2] # !D1_countnum[3]);
+
+
+--A1L9 is rtl~1 at LC_X29_Y21_N9
+--operation mode is normal
+
+A1L9 = A1L10 & !D1L29 & !D1L30;
+
+
+--D1L42 is state_machine:inst2|next_state~1679 at LC_X28_Y21_N3
+--operation mode is normal
+
+D1L42 = !D1L25 & !D1L27 & !D1L26 & !D1L28;
+
+
+--A1L8 is rtl~0 at LC_X28_Y21_N1
+--operation mode is normal
+
+A1L8 = D1L29 # D1L30 # !D1L42;
+
+
+--D1L43 is state_machine:inst2|next_state~1680 at LC_X27_Y22_N2
+--operation mode is normal
+
+D1L43 = D1L41 # D1_next_state.s1 & (A1L9) # !D1_next_state.s1 & A1L8;
+
+
+--D1_next_state.s0 is state_machine:inst2|next_state.s0 at LC_X27_Y21_N6
+--operation mode is normal
+
+D1_next_state.s0_lut_out = D1L53 & (D1_next_state.s0) # !D1L53 & (D1L36 # !A1L8);
+D1_next_state.s0 = DFFEAS(D1_next_state.s0_lut_out, GLOBAL(B1_z_temp), !GLOBAL(RESET), , , , , , );
+
+
+--D1L44 is state_machine:inst2|next_state~1681 at LC_X28_Y21_N0
+--operation mode is normal
+
+D1L44 = !D1_next_state.s0 & (D1L29 # !D1L30 # !D1L42);
+
+
+--D1L45 is state_machine:inst2|next_state~1682 at LC_X28_Y22_N4
+--operation mode is normal
+
+D1L45 = D1L27 & (D1L15 # D1L28);
+
+
+--D1L46 is state_machine:inst2|next_state~1683 at LC_X28_Y22_N2
+--operation mode is normal
+
+D1L46 = D1L45 # !D1L4 # !D1L29 # !D1L1;
+
+
+--D1L47 is state_machine:inst2|next_state~1684 at LC_X27_Y21_N1
+--operation mode is normal
+
+D1L47 = A1L8 & (D1L44 # D1_next_state.s4 & D1L46);
+
+
+--D1L48 is state_machine:inst2|next_state~1685 at LC_X28_Y21_N4
+--operation mode is normal
+
+D1L48 = D1L15 & (A1L10 # D1L30 & D1L42) # !D1L15 & D1L30 & (D1L42);
+
+
+--D1L49 is state_machine:inst2|next_state~1686 at LC_X27_Y21_N8
+--operation mode is normal
+
+D1L49 = D1_next_state.s1 & !A1L9 & (D1L48 # D1L29);
+
+
+--D1L57 is state_machine:inst2|process0~319 at LC_X30_Y21_N1
+--operation mode is normal
+
+D1L57 = !D1L8 & !D1L4;
+
+
+--D1L34 is state_machine:inst2|LessThan~689 at LC_X30_Y21_N5
+--operation mode is normal
+
+D1L34 = D1L33 # !D1_countnum[2] # !D1_countnum[3];
+
+
+--D1L58 is state_machine:inst2|process0~320 at LC_X30_Y21_N6
+--operation mode is normal
+
+D1L58 = !D1L1 & D1L57 # !D1L34 # !D1L14;
+
+
+--A1L11 is rtl~142 at LC_X30_Y21_N8
+--operation mode is normal
+
+A1L11 = !D1L15 & !D1L11 & D1L34 & D1L14;
+
+
+--A1L12 is rtl~143 at LC_X28_Y21_N5
+--operation mode is normal
+
+A1L12 = D1L25 & !D1L27 & D1L26 & A1L11;
+
+
+--D1L50 is state_machine:inst2|next_state~1687 at LC_X28_Y21_N6
+--operation mode is normal
+
+D1L50 = A1L12 $ (D1L58 # D1L25 & D1L26);
+
+
+--D1L51 is state_machine:inst2|next_state~1688 at LC_X27_Y21_N2
+--operation mode is normal
+
+D1L51 = C1_z1 # D1L49 # D1L50 & D1_next_state.s3;
+
+
+--D1L59 is state_machine:inst2|process0~321 at LC_X28_Y22_N5
+--operation mode is normal
+
+D1L59 = D1L34 & (D1L8 # D1L4 # D1L1);
+
+
+--D1L60 is state_machine:inst2|process0~322 at LC_X30_Y21_N9
+--operation mode is normal
+
+D1L60 = !D1L29 & (!A1L10 # !D1L15);
+
+
+--A1L13 is rtl~144 at LC_X30_Y21_N7
+--operation mode is normal
+
+A1L13 = D1L27 & !D1L25 & !D1L26 & A1L11;
+
+
+--D1L52 is state_machine:inst2|next_state~1689 at LC_X27_Y21_N4
+--operation mode is normal
+
+D1L52 = A1L13 $ (D1L60 # D1L59 & D1L29);
+
+
+--D1L53 is state_machine:inst2|next_state~1690 at LC_X27_Y21_N5
+--operation mode is normal
+
+D1L53 = D1L51 # D1L47 # D1_next_state.s2 & D1L52;
+
+
+--D1L54 is state_machine:inst2|next_state~1691 at LC_X30_Y21_N3
+--operation mode is normal
+
+D1L54 = A1L10 & D1_next_state.s1 & !D1L29 & !D1L30;
+
+
+--B1_count[2] is counter1000:inst|count[2] at LC_X8_Y19_N2
+--operation mode is arithmetic
+
+B1_count[2]_lut_out = B1_count[2] $ (!B1L6);
+B1_count[2] = DFFEAS(B1_count[2]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L9 is counter1000:inst|count[2]~147 at LC_X8_Y19_N2
+--operation mode is arithmetic
+
+B1L9_cout_0 = B1_count[2] & (!B1L6);
+B1L9 = CARRY(B1L9_cout_0);
+
+--B1L10 is counter1000:inst|count[2]~147COUT1_189 at LC_X8_Y19_N2
+--operation mode is arithmetic
+
+B1L10_cout_1 = B1_count[2] & (!B1L7);
+B1L10 = CARRY(B1L10_cout_1);
+
+
+--B1_count[3] is counter1000:inst|count[3] at LC_X8_Y19_N3
+--operation mode is arithmetic
+
+B1_count[3]_lut_out = B1_count[3] $ (B1L9);
+B1_count[3] = DFFEAS(B1_count[3]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L12 is counter1000:inst|count[3]~151 at LC_X8_Y19_N3
+--operation mode is arithmetic
+
+B1L12_cout_0 = !B1L9 # !B1_count[3];
+B1L12 = CARRY(B1L12_cout_0);
+
+--B1L13 is counter1000:inst|count[3]~151COUT1_190 at LC_X8_Y19_N3
+--operation mode is arithmetic
+
+B1L13_cout_1 = !B1L10 # !B1_count[3];
+B1L13 = CARRY(B1L13_cout_1);
+
+
+--B1_count[4] is counter1000:inst|count[4] at LC_X8_Y19_N4
+--operation mode is arithmetic
+
+B1_count[4]_lut_out = B1_count[4] $ (!B1L12);
+B1_count[4] = DFFEAS(B1_count[4]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L15 is counter1000:inst|count[4]~155 at LC_X8_Y19_N4
+--operation mode is arithmetic
+
+B1L15 = CARRY(B1_count[4] & (!B1L13));
+
+
+--B1_count[5] is counter1000:inst|count[5] at LC_X8_Y19_N5
+--operation mode is arithmetic
+
+B1_count[5]_carry_eqn = B1L15;
+B1_count[5]_lut_out = B1_count[5] $ B1_count[5]_carry_eqn;
+B1_count[5] = DFFEAS(B1_count[5]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L17 is counter1000:inst|count[5]~159 at LC_X8_Y19_N5
+--operation mode is arithmetic
+
+B1L17_cout_0 = !B1L15 # !B1_count[5];
+B1L17 = CARRY(B1L17_cout_0);
+
+--B1L18 is counter1000:inst|count[5]~159COUT1_191 at LC_X8_Y19_N5
+--operation mode is arithmetic
+
+B1L18_cout_1 = !B1L15 # !B1_count[5];
+B1L18 = CARRY(B1L18_cout_1);
+
+
+--B1L29 is counter1000:inst|LessThan~145 at LC_X7_Y19_N2
+--operation mode is normal
+
+B1L29 = !B1_count[3] & !B1_count[2] # !B1_count[5] # !B1_count[4];
+
+
+--B1_count[7] is counter1000:inst|count[7] at LC_X8_Y19_N7
+--operation mode is arithmetic
+
+B1_count[7]_carry_eqn = (!B1L15 & B1L20) # (B1L15 & B1L21);
+B1_count[7]_lut_out = B1_count[7] $ (B1_count[7]_carry_eqn);
+B1_count[7] = DFFEAS(B1_count[7]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L23 is counter1000:inst|count[7]~163 at LC_X8_Y19_N7
+--operation mode is arithmetic
+
+B1L23_cout_0 = !B1L20 # !B1_count[7];
+B1L23 = CARRY(B1L23_cout_0);
+
+--B1L24 is counter1000:inst|count[7]~163COUT1_193 at LC_X8_Y19_N7
+--operation mode is arithmetic
+
+B1L24_cout_1 = !B1L21 # !B1_count[7];
+B1L24 = CARRY(B1L24_cout_1);
+
+
+--B1_count[8] is counter1000:inst|count[8] at LC_X8_Y19_N8
+--operation mode is arithmetic
+
+B1_count[8]_carry_eqn = (!B1L15 & B1L23) # (B1L15 & B1L24);
+B1_count[8]_lut_out = B1_count[8] $ (!B1_count[8]_carry_eqn);
+B1_count[8] = DFFEAS(B1_count[8]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L26 is counter1000:inst|count[8]~167 at LC_X8_Y19_N8
+--operation mode is arithmetic
+
+B1L26_cout_0 = B1_count[8] & (!B1L23);
+B1L26 = CARRY(B1L26_cout_0);
+
+--B1L27 is counter1000:inst|count[8]~167COUT1_194 at LC_X8_Y19_N8
+--operation mode is arithmetic
+
+B1L27_cout_1 = B1_count[8] & (!B1L24);
+B1L27 = CARRY(B1L27_cout_1);
+
+
+--B1L30 is counter1000:inst|LessThan~146 at LC_X7_Y19_N5
+--operation mode is normal
+
+B1L30 = !B1_count[8] # !B1_count[7];
+
+
+--B1_count[6] is counter1000:inst|count[6] at LC_X8_Y19_N6
+--operation mode is arithmetic
+
+B1_count[6]_carry_eqn = (!B1L15 & B1L17) # (B1L15 & B1L18);
+B1_count[6]_lut_out = B1_count[6] $ !B1_count[6]_carry_eqn;
+B1_count[6] = DFFEAS(B1_count[6]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L20 is counter1000:inst|count[6]~171 at LC_X8_Y19_N6
+--operation mode is arithmetic
+
+B1L20_cout_0 = B1_count[6] & !B1L17;
+B1L20 = CARRY(B1L20_cout_0);
+
+--B1L21 is counter1000:inst|count[6]~171COUT1_192 at LC_X8_Y19_N6
+--operation mode is arithmetic
+
+B1L21_cout_1 = B1_count[6] & !B1L18;
+B1L21 = CARRY(B1L21_cout_1);
+
+
+--B1_count[9] is counter1000:inst|count[9] at LC_X8_Y19_N9
+--operation mode is normal
+
+B1_count[9]_carry_eqn = (!B1L15 & B1L26) # (B1L15 & B1L27);
+B1_count[9]_lut_out = B1_count[9]_carry_eqn $ B1_count[9];
+B1_count[9] = DFFEAS(B1_count[9]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+
+--B1L31 is counter1000:inst|LessThan~147 at LC_X7_Y19_N6
+--operation mode is normal
+
+B1L31 = B1_count[9] # !B1L29 & !B1L30 & B1_count[6];
+
+
+--D1L55 is state_machine:inst2|next_state~1692 at LC_X30_Y21_N0
+--operation mode is normal
+
+D1L55 = D1_next_state.s2 & (A1L13);
+
+
+--D1L56 is state_machine:inst2|next_state~1693 at LC_X27_Y22_N1
+--operation mode is normal
+
+D1L56 = D1_next_state.s3 & A1L12;
+
+
+--D1L36 is state_machine:inst2|next_state.s0~93 at LC_X27_Y22_N9
+--operation mode is normal
+
+D1L36 = D1_next_state.s4 # D1_next_state.s3 # D1_next_state.s2 # D1_next_state.s1;
+
+
+--B1_count[1] is counter1000:inst|count[1] at LC_X8_Y19_N1
+--operation mode is arithmetic
+
+B1_count[1]_lut_out = B1_count[1] $ B1L3;
+B1_count[1] = DFFEAS(B1_count[1]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , ~GND, , , B1L31);
+
+--B1L6 is counter1000:inst|count[1]~179 at LC_X8_Y19_N1
+--operation mode is arithmetic
+
+B1L6_cout_0 = !B1L3 # !B1_count[1];
+B1L6 = CARRY(B1L6_cout_0);
+
+--B1L7 is counter1000:inst|count[1]~179COUT1_188 at LC_X8_Y19_N1
+--operation mode is arithmetic
+
+B1L7_cout_1 = !B1L4 # !B1_count[1];
+B1L7 = CARRY(B1L7_cout_1);
+
+
+--B1_count[0] is counter1000:inst|count[0] at LC_X8_Y19_N0
+--operation mode is arithmetic
+
+B1_count[0]_lut_out = !B1_count[0];
+B1_count[0] = DFFEAS(B1_count[0]_lut_out, GLOBAL(CLK), !GLOBAL(RESET), , , VCC, , , B1L31);
+
+--B1L3 is counter1000:inst|count[0]~183 at LC_X8_Y19_N0
+--operation mode is arithmetic
+
+B1L3_cout_0 = B1_count[0];
+B1L3 = CARRY(B1L3_cout_0);
+
+--B1L4 is counter1000:inst|count[0]~183COUT1_187 at LC_X8_Y19_N0
+--operation mode is arithmetic
+
+B1L4_cout_1 = B1_count[0];
+B1L4 = CARRY(B1L4_cout_1);
+
+
+--~GND is ~GND at LC_X9_Y18_N2
+--operation mode is normal
+
+~GND = GND;
+
+
+--RESET is RESET at PIN_L3
+--operation mode is input
+
+RESET = INPUT();
+
+
+--CLK is CLK at PIN_L2
+--operation mode is input
+
+CLK = INPUT();
+
+
+--CLK1 is CLK1 at PIN_K20
+--operation mode is input
+
+CLK1 = INPUT();
+
+
+--red1 is red1 at PIN_K10
+--operation mode is output
+
+red1 = OUTPUT(!D1_red1);
+
+
+--green1 is green1 at PIN_D12
+--operation mode is output
+
+green1 = OUTPUT(D1_green1);
+
+
+--yellow1 is yellow1 at PIN_G9
+--operation mode is output
+
+yellow1 = OUTPUT(D1_yellow1);
+
+
+--red2 is red2 at PIN_B12
+--operation mode is output
+
+red2 = OUTPUT(!D1_red2);
+
+
+--green2 is green2 at PIN_G1
+--operation mode is output
+
+green2 = OUTPUT(D1_green2);
+
+
+--yellow2 is yellow2 at PIN_B13
+--operation mode is output
+
+yellow2 = OUTPUT(D1_yellow2);
+
+
+

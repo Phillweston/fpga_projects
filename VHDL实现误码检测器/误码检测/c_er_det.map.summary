@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jan 06 21:32:25 2015
+Quartus II Version : 9.0 Build 235 06/17/2009 SP 2 SJ Web Edition
+Revision Name : c_er_det
+Top-level Entity Name : c_er_det
+Family : Cyclone II
+Total logic elements : 226
+    Total combinational functions : 203
+    Dedicated logic registers : 139
+Total registers : 139
+Total pins : 31
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

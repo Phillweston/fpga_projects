@@ -1,0 +1,319 @@
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa7a8-csg324-2I planegame.ngc planegame.ngd  
+map -intstyle ise -p xa7a8-csg324-2I -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o planegame_map.ncd planegame.ngd planegame.pcf 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xa7a8-csg324-2I planegame.ngc planegame.ngd  
+map -intstyle ise -p xa7a8-csg324-2I -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o planegame_map.ncd planegame.ngd planegame.pcf 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+netgen -intstyle ise -ar Structure -tm planegame -w -dir netgen/synthesis -ofmt vhdl -sim planegame.ngc planegame_synthesis.vhd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+netgen -intstyle ise -ar Structure -tm planegame -w -dir netgen/synthesis -ofmt vhdl -sim planegame.ngc planegame_synthesis.vhd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "E:/users/gg/planegame.xst" -ofn "E:/users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+netgen -intstyle ise -ar Structure -tm planegame -w -dir netgen/synthesis -ofmt vhdl -sim planegame.ngc planegame_synthesis.vhd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+netgen -intstyle ise -ar Structure -tm planegame -w -dir netgen/synthesis -ofmt vhdl -sim planegame.ngc planegame_synthesis.vhd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/Users/gg/planegame.xst" -ofn "D:/Users/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/gg/planegame.xst" -ofn "D:/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/gg/planegame.xst" -ofn "D:/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/gg/planegame.xst" -ofn "D:/gg/planegame.syr" 
+xst -intstyle ise -ifn "D:/gg/planegame.xst" -ofn "D:/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/gg/planegame.xst" -ofn "D:/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/gg/planegame.xst" -ofn "D:/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 
+xst -intstyle ise -ifn "D:/gg/planegame.xst" -ofn "D:/gg/planegame.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc3s100e-cp132-5 planegame.ngc planegame.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o planegame_map.ncd planegame.ngd planegame.pcf 
+par -w -intstyle ise -ol high -t 1 planegame_map.ncd planegame.ncd planegame.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml planegame.twx planegame.ncd -o planegame.twr planegame.pcf -ucf top.ucf 
+bitgen -intstyle ise -f planegame.ut planegame.ncd 

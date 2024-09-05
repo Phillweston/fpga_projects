@@ -1,0 +1,56 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 1.669 ns
+From           : key_l
+To             : move:b|plane_x_tmp[8]
+From Clock     : --
+To Clock       : clk_0
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 29.266 ns
+From           : picture:a|addr[1]
+To             : pic_rgb[0]
+From Clock     : clk_0
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 3.050 ns
+From           : fire
+To             : move:b|bullet_y_tmp[1]
+From Clock     : --
+To Clock       : clk_0
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk_0'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 87.03 MHz ( period = 11.490 ns )
+From           : move:b|enemy_x_tmp[5]
+To             : move:b|enemy_x_tmp[2]
+From Clock     : clk_0
+To Clock       : clk_0
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

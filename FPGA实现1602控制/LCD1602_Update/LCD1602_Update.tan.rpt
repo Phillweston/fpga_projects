@@ -1,0 +1,555 @@
+Classic Timing Analyzer report for LCD1602_Update
+Wed Oct 15 14:12:14 2014
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'Clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                    ;
++------------------------------+-------+---------------+----------------------------------+------------------------+------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                   ; To               ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+------------------------+------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 5.825 ns                         ; data_in3[4]            ; data_out[4]      ; --         ; Clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 14.864 ns                        ; LCD_DATA[5]~reg0       ; LCD_DATA[5]      ; Clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 3.296 ns                         ; data_in6[7]            ; data_out[7]      ; --         ; Clk      ; 0            ;
+; Clock Setup: 'Clk'           ; N/A   ; None          ; 132.87 MHz ( period = 7.526 ns ) ; Current_Disp.st_disp10 ; LCD_DATA[4]~reg0 ; Clk        ; Clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                        ;                  ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+------------------------+------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EP2C5T144C8        ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                   ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                   ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 2           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2 processors           ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'Clk'                                                                                                                                                                                                                                                  ;
++-----------------------------------------+-----------------------------------------------------+----------------------------+----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                       ; To                         ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------------------+----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 132.87 MHz ( period = 7.526 ns )                    ; Current_Disp.st_disp10     ; LCD_DATA[4]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 7.276 ns                ;
+; N/A                                     ; 144.43 MHz ( period = 6.924 ns )                    ; \Proc_Display:cnt_rw[1]    ; data_out[4]                ; Clk        ; Clk      ; None                        ; None                      ; 6.660 ns                ;
+; N/A                                     ; 145.03 MHz ( period = 6.895 ns )                    ; Current_Disp.st_disp17     ; LCD_DATA[5]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.641 ns                ;
+; N/A                                     ; 145.41 MHz ( period = 6.877 ns )                    ; Current_Disp.st_disp16     ; LCD_DATA[4]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.627 ns                ;
+; N/A                                     ; 146.71 MHz ( period = 6.816 ns )                    ; \Proc_Display:cnt_rw[0]    ; LCD_DATA[5]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.577 ns                ;
+; N/A                                     ; 148.88 MHz ( period = 6.717 ns )                    ; Current_Disp.st_disp12     ; LCD_DATA[4]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.467 ns                ;
+; N/A                                     ; 150.15 MHz ( period = 6.660 ns )                    ; \Proc_Display:cnt_rw[2]    ; data_out[4]                ; Clk        ; Clk      ; None                        ; None                      ; 6.396 ns                ;
+; N/A                                     ; 150.26 MHz ( period = 6.655 ns )                    ; Current_Disp.st_disp10     ; LCD_DATA[5]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.405 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 150.53 MHz ( period = 6.643 ns )                    ; \Proc_Display:cnt_disp[5]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.379 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.81 MHz ( period = 6.587 ns )                    ; \Proc_Display:cnt_disp[10] ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 151.93 MHz ( period = 6.582 ns )                    ; Current_Disp.st_disp10     ; LCD_EN~reg0                ; Clk        ; Clk      ; None                        ; None                      ; 6.327 ns                ;
+; N/A                                     ; 152.39 MHz ( period = 6.562 ns )                    ; \Proc_Display:cnt_rw[1]    ; LCD_DATA[5]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.323 ns                ;
+; N/A                                     ; 152.44 MHz ( period = 6.560 ns )                    ; Current_Disp.st_disp8      ; LCD_DATA[4]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.310 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.12 MHz ( period = 6.531 ns )                    ; \Proc_Display:cnt_disp[1]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.267 ns                ;
+; N/A                                     ; 153.73 MHz ( period = 6.505 ns )                    ; LCD_DATA[5]~reg0           ; LCD_DATA[5]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.241 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.75 MHz ( period = 6.504 ns )                    ; \Proc_Display:cnt_disp[13] ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.240 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 153.87 MHz ( period = 6.499 ns )                    ; \Proc_Display:cnt_disp[3]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.235 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 154.80 MHz ( period = 6.460 ns )                    ; \Proc_Display:cnt_disp[8]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.196 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.42 MHz ( period = 6.434 ns )                    ; \Proc_Display:cnt_disp[2]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.170 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 155.91 MHz ( period = 6.414 ns )                    ; \Proc_Display:cnt_disp[6]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.150 ns                ;
+; N/A                                     ; 156.67 MHz ( period = 6.383 ns )                    ; Current_Disp.st_disp21     ; LCD_DATA[4]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.119 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 156.81 MHz ( period = 6.377 ns )                    ; \Proc_Display:cnt_disp[4]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.113 ns                ;
+; N/A                                     ; 157.08 MHz ( period = 6.366 ns )                    ; \Proc_Display:cnt_rw[0]    ; data_out[4]                ; Clk        ; Clk      ; None                        ; None                      ; 6.102 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.11 MHz ( period = 6.365 ns )                    ; \Proc_Display:cnt_disp[12] ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.101 ns                ;
+; N/A                                     ; 157.36 MHz ( period = 6.355 ns )                    ; Current_Disp.st_disp3      ; LCD_EN~reg0                ; Clk        ; Clk      ; None                        ; None                      ; 6.091 ns                ;
+; N/A                                     ; 157.68 MHz ( period = 6.342 ns )                    ; \Proc_Display:cnt_rw[2]    ; LCD_DATA[5]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 6.103 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 157.90 MHz ( period = 6.333 ns )                    ; \Proc_Display:cnt_disp[9]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 6.069 ns                ;
+; N/A                                     ; 158.40 MHz ( period = 6.313 ns )                    ; Current_Disp.st_disp5      ; LCD_EN~reg0                ; Clk        ; Clk      ; None                        ; None                      ; 6.049 ns                ;
+; N/A                                     ; 160.36 MHz ( period = 6.236 ns )                    ; \Proc_Display:cnt_disp[9]  ; LCD_DATA[6]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 5.963 ns                ;
+; N/A                                     ; 160.54 MHz ( period = 6.229 ns )                    ; \Proc_Display:cnt_disp[9]  ; LCD_DATA[7]~reg0           ; Clk        ; Clk      ; None                        ; None                      ; 5.956 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.16 MHz ( period = 6.205 ns )                    ; \Proc_Display:cnt_disp[0]  ; \Proc_Display:cnt_disp[11] ; Clk        ; Clk      ; None                        ; None                      ; 5.941 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[3]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[2]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[1]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[13] ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[10] ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[6]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[7]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[5]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[0]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[4]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[9]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[8]  ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; N/A                                     ; 161.32 MHz ( period = 6.199 ns )                    ; \Proc_Display:cnt_disp[7]  ; \Proc_Display:cnt_disp[12] ; Clk        ; Clk      ; None                        ; None                      ; 5.935 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                            ;                            ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------------+----------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------+
+; tsu                                                                             ;
++-------+--------------+------------+--------------------+-------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From               ; To          ; To Clock ;
++-------+--------------+------------+--------------------+-------------+----------+
+; N/A   ; None         ; 5.825 ns   ; data_in3[4]        ; data_out[4] ; Clk      ;
+; N/A   ; None         ; 5.706 ns   ; data_in1[4]        ; data_out[4] ; Clk      ;
+; N/A   ; None         ; 4.870 ns   ; data_in3[5]        ; data_out[5] ; Clk      ;
+; N/A   ; None         ; 4.772 ns   ; data_in1[6]        ; data_out[6] ; Clk      ;
+; N/A   ; None         ; 4.708 ns   ; data_in5[6]        ; data_out[6] ; Clk      ;
+; N/A   ; None         ; 4.699 ns   ; data_in3[6]        ; data_out[6] ; Clk      ;
+; N/A   ; None         ; 4.351 ns   ; data_in1[2]        ; data_out[2] ; Clk      ;
+; N/A   ; None         ; 4.243 ns   ; password_result[4] ; data_out[4] ; Clk      ;
+; N/A   ; None         ; 4.201 ns   ; data_in1[5]        ; data_out[5] ; Clk      ;
+; N/A   ; None         ; 4.002 ns   ; data_in5[5]        ; data_out[5] ; Clk      ;
+; N/A   ; None         ; 3.909 ns   ; data_in4[5]        ; data_out[5] ; Clk      ;
+; N/A   ; None         ; 3.907 ns   ; data_in6[5]        ; data_out[5] ; Clk      ;
+; N/A   ; None         ; 3.864 ns   ; data_in5[4]        ; data_out[4] ; Clk      ;
+; N/A   ; None         ; 3.807 ns   ; password_result[6] ; data_out[6] ; Clk      ;
+; N/A   ; None         ; 3.690 ns   ; data_in3[2]        ; data_out[2] ; Clk      ;
+; N/A   ; None         ; 3.646 ns   ; data_in2[5]        ; data_out[5] ; Clk      ;
+; N/A   ; None         ; 3.642 ns   ; data_in1[1]        ; data_out[1] ; Clk      ;
+; N/A   ; None         ; 3.603 ns   ; password_result[5] ; data_out[5] ; Clk      ;
+; N/A   ; None         ; 3.596 ns   ; data_in6[4]        ; data_out[4] ; Clk      ;
+; N/A   ; None         ; 3.530 ns   ; password_result[2] ; data_out[2] ; Clk      ;
+; N/A   ; None         ; 3.434 ns   ; password_result[7] ; data_out[7] ; Clk      ;
+; N/A   ; None         ; 3.411 ns   ; data_in3[0]        ; data_out[0] ; Clk      ;
+; N/A   ; None         ; 3.399 ns   ; data_in3[3]        ; data_out[3] ; Clk      ;
+; N/A   ; None         ; 3.345 ns   ; data_in2[4]        ; data_out[4] ; Clk      ;
+; N/A   ; None         ; 3.331 ns   ; data_in1[3]        ; data_out[3] ; Clk      ;
+; N/A   ; None         ; 3.079 ns   ; data_in5[0]        ; data_out[0] ; Clk      ;
+; N/A   ; None         ; 2.979 ns   ; data_in3[1]        ; data_out[1] ; Clk      ;
+; N/A   ; None         ; 2.871 ns   ; data_in5[1]        ; data_out[1] ; Clk      ;
+; N/A   ; None         ; 2.818 ns   ; data_in6[2]        ; data_out[2] ; Clk      ;
+; N/A   ; None         ; 2.392 ns   ; data_in2[7]        ; data_out[7] ; Clk      ;
+; N/A   ; None         ; 2.388 ns   ; data_in2[6]        ; data_out[6] ; Clk      ;
+; N/A   ; None         ; 2.347 ns   ; data_in1[0]        ; data_out[0] ; Clk      ;
+; N/A   ; None         ; 2.257 ns   ; password_result[1] ; data_out[1] ; Clk      ;
+; N/A   ; None         ; 2.124 ns   ; data_in5[2]        ; data_out[2] ; Clk      ;
+; N/A   ; None         ; 2.103 ns   ; data_in2[1]        ; data_out[1] ; Clk      ;
+; N/A   ; None         ; 2.088 ns   ; data_in5[3]        ; data_out[3] ; Clk      ;
+; N/A   ; None         ; 2.064 ns   ; data_in6[0]        ; data_out[0] ; Clk      ;
+; N/A   ; None         ; 1.997 ns   ; data_in2[2]        ; data_out[2] ; Clk      ;
+; N/A   ; None         ; 1.969 ns   ; data_in4[0]        ; data_out[0] ; Clk      ;
+; N/A   ; None         ; 1.944 ns   ; password_result[0] ; data_out[0] ; Clk      ;
+; N/A   ; None         ; 1.830 ns   ; data_in2[3]        ; data_out[3] ; Clk      ;
+; N/A   ; None         ; 1.780 ns   ; data_in6[3]        ; data_out[3] ; Clk      ;
+; N/A   ; None         ; 1.709 ns   ; data_in4[3]        ; data_out[3] ; Clk      ;
+; N/A   ; None         ; 1.707 ns   ; data_in2[0]        ; data_out[0] ; Clk      ;
+; N/A   ; None         ; 1.633 ns   ; password_result[3] ; data_out[3] ; Clk      ;
+; N/A   ; None         ; 1.447 ns   ; data_in6[6]        ; data_out[6] ; Clk      ;
+; N/A   ; None         ; 1.352 ns   ; data_in4[7]        ; data_out[7] ; Clk      ;
+; N/A   ; None         ; 1.311 ns   ; data_in4[2]        ; data_out[2] ; Clk      ;
+; N/A   ; None         ; 0.975 ns   ; data_in6[1]        ; data_out[1] ; Clk      ;
+; N/A   ; None         ; 0.795 ns   ; data_in4[4]        ; data_out[4] ; Clk      ;
+; N/A   ; None         ; 0.640 ns   ; data_in4[6]        ; data_out[6] ; Clk      ;
+; N/A   ; None         ; 0.427 ns   ; data_in4[1]        ; data_out[1] ; Clk      ;
+; N/A   ; None         ; 0.058 ns   ; data_in1[7]        ; data_out[7] ; Clk      ;
+; N/A   ; None         ; 0.017 ns   ; data_in5[7]        ; data_out[7] ; Clk      ;
+; N/A   ; None         ; -0.685 ns  ; data_in3[7]        ; data_out[7] ; Clk      ;
+; N/A   ; None         ; -3.030 ns  ; data_in6[7]        ; data_out[7] ; Clk      ;
++-------+--------------+------------+--------------------+-------------+----------+
+
+
++---------------------------------------------------------------------------------+
+; tco                                                                             ;
++-------+--------------+------------+------------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From             ; To          ; From Clock ;
++-------+--------------+------------+------------------+-------------+------------+
+; N/A   ; None         ; 14.864 ns  ; LCD_DATA[5]~reg0 ; LCD_DATA[5] ; Clk        ;
+; N/A   ; None         ; 14.529 ns  ; LCD_DATA[4]~reg0 ; LCD_DATA[4] ; Clk        ;
+; N/A   ; None         ; 14.147 ns  ; LCD_DATA[6]~reg0 ; LCD_DATA[6] ; Clk        ;
+; N/A   ; None         ; 13.639 ns  ; LCD_EN~reg0      ; LCD_EN      ; Clk        ;
+; N/A   ; None         ; 12.820 ns  ; LCD_DATA[7]~reg0 ; LCD_DATA[7] ; Clk        ;
+; N/A   ; None         ; 12.700 ns  ; LCD_RS~reg0      ; LCD_RS      ; Clk        ;
++-------+--------------+------------+------------------+-------------+------------+
+
+
++---------------------------------------------------------------------------------------+
+; th                                                                                    ;
++---------------+-------------+-----------+--------------------+-------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From               ; To          ; To Clock ;
++---------------+-------------+-----------+--------------------+-------------+----------+
+; N/A           ; None        ; 3.296 ns  ; data_in6[7]        ; data_out[7] ; Clk      ;
+; N/A           ; None        ; 0.951 ns  ; data_in3[7]        ; data_out[7] ; Clk      ;
+; N/A           ; None        ; 0.249 ns  ; data_in5[7]        ; data_out[7] ; Clk      ;
+; N/A           ; None        ; 0.208 ns  ; data_in1[7]        ; data_out[7] ; Clk      ;
+; N/A           ; None        ; -0.161 ns ; data_in4[1]        ; data_out[1] ; Clk      ;
+; N/A           ; None        ; -0.374 ns ; data_in4[6]        ; data_out[6] ; Clk      ;
+; N/A           ; None        ; -0.529 ns ; data_in4[4]        ; data_out[4] ; Clk      ;
+; N/A           ; None        ; -0.709 ns ; data_in6[1]        ; data_out[1] ; Clk      ;
+; N/A           ; None        ; -1.045 ns ; data_in4[2]        ; data_out[2] ; Clk      ;
+; N/A           ; None        ; -1.086 ns ; data_in4[7]        ; data_out[7] ; Clk      ;
+; N/A           ; None        ; -1.181 ns ; data_in6[6]        ; data_out[6] ; Clk      ;
+; N/A           ; None        ; -1.367 ns ; password_result[3] ; data_out[3] ; Clk      ;
+; N/A           ; None        ; -1.441 ns ; data_in2[0]        ; data_out[0] ; Clk      ;
+; N/A           ; None        ; -1.443 ns ; data_in4[3]        ; data_out[3] ; Clk      ;
+; N/A           ; None        ; -1.514 ns ; data_in6[3]        ; data_out[3] ; Clk      ;
+; N/A           ; None        ; -1.564 ns ; data_in2[3]        ; data_out[3] ; Clk      ;
+; N/A           ; None        ; -1.678 ns ; password_result[0] ; data_out[0] ; Clk      ;
+; N/A           ; None        ; -1.703 ns ; data_in4[0]        ; data_out[0] ; Clk      ;
+; N/A           ; None        ; -1.731 ns ; data_in2[2]        ; data_out[2] ; Clk      ;
+; N/A           ; None        ; -1.798 ns ; data_in6[0]        ; data_out[0] ; Clk      ;
+; N/A           ; None        ; -1.822 ns ; data_in5[3]        ; data_out[3] ; Clk      ;
+; N/A           ; None        ; -1.837 ns ; data_in2[1]        ; data_out[1] ; Clk      ;
+; N/A           ; None        ; -1.858 ns ; data_in5[2]        ; data_out[2] ; Clk      ;
+; N/A           ; None        ; -1.991 ns ; password_result[1] ; data_out[1] ; Clk      ;
+; N/A           ; None        ; -2.081 ns ; data_in1[0]        ; data_out[0] ; Clk      ;
+; N/A           ; None        ; -2.122 ns ; data_in2[6]        ; data_out[6] ; Clk      ;
+; N/A           ; None        ; -2.126 ns ; data_in2[7]        ; data_out[7] ; Clk      ;
+; N/A           ; None        ; -2.552 ns ; data_in6[2]        ; data_out[2] ; Clk      ;
+; N/A           ; None        ; -2.605 ns ; data_in5[1]        ; data_out[1] ; Clk      ;
+; N/A           ; None        ; -2.713 ns ; data_in3[1]        ; data_out[1] ; Clk      ;
+; N/A           ; None        ; -2.813 ns ; data_in5[0]        ; data_out[0] ; Clk      ;
+; N/A           ; None        ; -3.065 ns ; data_in1[3]        ; data_out[3] ; Clk      ;
+; N/A           ; None        ; -3.079 ns ; data_in2[4]        ; data_out[4] ; Clk      ;
+; N/A           ; None        ; -3.133 ns ; data_in3[3]        ; data_out[3] ; Clk      ;
+; N/A           ; None        ; -3.145 ns ; data_in3[0]        ; data_out[0] ; Clk      ;
+; N/A           ; None        ; -3.168 ns ; password_result[7] ; data_out[7] ; Clk      ;
+; N/A           ; None        ; -3.264 ns ; password_result[2] ; data_out[2] ; Clk      ;
+; N/A           ; None        ; -3.330 ns ; data_in6[4]        ; data_out[4] ; Clk      ;
+; N/A           ; None        ; -3.337 ns ; password_result[5] ; data_out[5] ; Clk      ;
+; N/A           ; None        ; -3.376 ns ; data_in1[1]        ; data_out[1] ; Clk      ;
+; N/A           ; None        ; -3.380 ns ; data_in2[5]        ; data_out[5] ; Clk      ;
+; N/A           ; None        ; -3.424 ns ; data_in3[2]        ; data_out[2] ; Clk      ;
+; N/A           ; None        ; -3.541 ns ; password_result[6] ; data_out[6] ; Clk      ;
+; N/A           ; None        ; -3.598 ns ; data_in5[4]        ; data_out[4] ; Clk      ;
+; N/A           ; None        ; -3.641 ns ; data_in6[5]        ; data_out[5] ; Clk      ;
+; N/A           ; None        ; -3.643 ns ; data_in4[5]        ; data_out[5] ; Clk      ;
+; N/A           ; None        ; -3.736 ns ; data_in5[5]        ; data_out[5] ; Clk      ;
+; N/A           ; None        ; -3.935 ns ; data_in1[5]        ; data_out[5] ; Clk      ;
+; N/A           ; None        ; -3.977 ns ; password_result[4] ; data_out[4] ; Clk      ;
+; N/A           ; None        ; -4.085 ns ; data_in1[2]        ; data_out[2] ; Clk      ;
+; N/A           ; None        ; -4.433 ns ; data_in3[6]        ; data_out[6] ; Clk      ;
+; N/A           ; None        ; -4.442 ns ; data_in5[6]        ; data_out[6] ; Clk      ;
+; N/A           ; None        ; -4.506 ns ; data_in1[6]        ; data_out[6] ; Clk      ;
+; N/A           ; None        ; -4.604 ns ; data_in3[5]        ; data_out[5] ; Clk      ;
+; N/A           ; None        ; -5.440 ns ; data_in1[4]        ; data_out[4] ; Clk      ;
+; N/A           ; None        ; -5.559 ns ; data_in3[4]        ; data_out[4] ; Clk      ;
++---------------+-------------+-----------+--------------------+-------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Wed Oct 15 14:12:13 2014
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off LCD1602_Update -c LCD1602_Update --timing_analysis_only
+Info: Parallel compilation is enabled and will use 2 of the 2 processors detected
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "Clk" is an undefined clock
+Warning: Found 1 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "Clk_100us" as buffer
+Info: Clock "Clk" has Internal fmax of 132.87 MHz between source register "Current_Disp.st_disp10" and destination register "LCD_DATA[4]~reg0" (period= 7.526 ns)
+    Info: + Longest register to register delay is 7.276 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X26_Y5_N25; Fanout = 2; REG Node = 'Current_Disp.st_disp10'
+        Info: 2: + IC(1.097 ns) + CELL(0.534 ns) = 1.631 ns; Loc. = LCCOMB_X26_Y5_N18; Fanout = 2; COMB Node = 'Selector33~0'
+        Info: 3: + IC(0.699 ns) + CELL(0.647 ns) = 2.977 ns; Loc. = LCCOMB_X26_Y5_N2; Fanout = 2; COMB Node = 'Selector33~1'
+        Info: 4: + IC(1.803 ns) + CELL(0.647 ns) = 5.427 ns; Loc. = LCCOMB_X26_Y9_N4; Fanout = 1; COMB Node = 'Selector34~4'
+        Info: 5: + IC(1.090 ns) + CELL(0.651 ns) = 7.168 ns; Loc. = LCCOMB_X26_Y10_N8; Fanout = 1; COMB Node = 'Selector34~9'
+        Info: 6: + IC(0.000 ns) + CELL(0.108 ns) = 7.276 ns; Loc. = LCFF_X26_Y10_N9; Fanout = 3; REG Node = 'LCD_DATA[4]~reg0'
+        Info: Total cell delay = 2.587 ns ( 35.56 % )
+        Info: Total interconnect delay = 4.689 ns ( 64.44 % )
+    Info: - Smallest clock skew is 0.014 ns
+        Info: + Shortest clock path from clock "Clk" to destination register is 6.946 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'Clk'
+            Info: 2: + IC(1.466 ns) + CELL(0.970 ns) = 3.536 ns; Loc. = LCFF_X21_Y6_N13; Fanout = 1; REG Node = 'Clk_100us'
+            Info: 3: + IC(1.886 ns) + CELL(0.000 ns) = 5.422 ns; Loc. = CLKCTRL_G4; Fanout = 52; COMB Node = 'Clk_100us~clkctrl'
+            Info: 4: + IC(0.858 ns) + CELL(0.666 ns) = 6.946 ns; Loc. = LCFF_X26_Y10_N9; Fanout = 3; REG Node = 'LCD_DATA[4]~reg0'
+            Info: Total cell delay = 2.736 ns ( 39.39 % )
+            Info: Total interconnect delay = 4.210 ns ( 60.61 % )
+        Info: - Longest clock path from clock "Clk" to source register is 6.932 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'Clk'
+            Info: 2: + IC(1.466 ns) + CELL(0.970 ns) = 3.536 ns; Loc. = LCFF_X21_Y6_N13; Fanout = 1; REG Node = 'Clk_100us'
+            Info: 3: + IC(1.886 ns) + CELL(0.000 ns) = 5.422 ns; Loc. = CLKCTRL_G4; Fanout = 52; COMB Node = 'Clk_100us~clkctrl'
+            Info: 4: + IC(0.844 ns) + CELL(0.666 ns) = 6.932 ns; Loc. = LCFF_X26_Y5_N25; Fanout = 2; REG Node = 'Current_Disp.st_disp10'
+            Info: Total cell delay = 2.736 ns ( 39.47 % )
+            Info: Total interconnect delay = 4.196 ns ( 60.53 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Micro setup delay of destination is -0.040 ns
+Info: tsu for register "data_out[4]" (data pin = "data_in3[4]", clock pin = "Clk") is 5.825 ns
+    Info: + Longest pin to register delay is 12.786 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.944 ns) = 0.944 ns; Loc. = PIN_113; Fanout = 1; PIN Node = 'data_in3[4]'
+        Info: 2: + IC(6.223 ns) + CELL(0.624 ns) = 7.791 ns; Loc. = LCCOMB_X26_Y8_N6; Fanout = 1; COMB Node = 'Mux3~1'
+        Info: 3: + IC(2.161 ns) + CELL(0.206 ns) = 10.158 ns; Loc. = LCCOMB_X15_Y9_N0; Fanout = 1; COMB Node = 'Mux3~2'
+        Info: 4: + IC(2.150 ns) + CELL(0.370 ns) = 12.678 ns; Loc. = LCCOMB_X25_Y7_N18; Fanout = 1; COMB Node = 'Mux3~4'
+        Info: 5: + IC(0.000 ns) + CELL(0.108 ns) = 12.786 ns; Loc. = LCFF_X25_Y7_N19; Fanout = 3; REG Node = 'data_out[4]'
+        Info: Total cell delay = 2.252 ns ( 17.61 % )
+        Info: Total interconnect delay = 10.534 ns ( 82.39 % )
+    Info: + Micro setup delay of destination is -0.040 ns
+    Info: - Shortest clock path from clock "Clk" to destination register is 6.921 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'Clk'
+        Info: 2: + IC(1.466 ns) + CELL(0.970 ns) = 3.536 ns; Loc. = LCFF_X21_Y6_N13; Fanout = 1; REG Node = 'Clk_100us'
+        Info: 3: + IC(1.886 ns) + CELL(0.000 ns) = 5.422 ns; Loc. = CLKCTRL_G4; Fanout = 52; COMB Node = 'Clk_100us~clkctrl'
+        Info: 4: + IC(0.833 ns) + CELL(0.666 ns) = 6.921 ns; Loc. = LCFF_X25_Y7_N19; Fanout = 3; REG Node = 'data_out[4]'
+        Info: Total cell delay = 2.736 ns ( 39.53 % )
+        Info: Total interconnect delay = 4.185 ns ( 60.47 % )
+Info: tco from clock "Clk" to destination pin "LCD_DATA[5]" through register "LCD_DATA[5]~reg0" is 14.864 ns
+    Info: + Longest clock path from clock "Clk" to source register is 6.946 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'Clk'
+        Info: 2: + IC(1.466 ns) + CELL(0.970 ns) = 3.536 ns; Loc. = LCFF_X21_Y6_N13; Fanout = 1; REG Node = 'Clk_100us'
+        Info: 3: + IC(1.886 ns) + CELL(0.000 ns) = 5.422 ns; Loc. = CLKCTRL_G4; Fanout = 52; COMB Node = 'Clk_100us~clkctrl'
+        Info: 4: + IC(0.858 ns) + CELL(0.666 ns) = 6.946 ns; Loc. = LCFF_X27_Y10_N9; Fanout = 4; REG Node = 'LCD_DATA[5]~reg0'
+        Info: Total cell delay = 2.736 ns ( 39.39 % )
+        Info: Total interconnect delay = 4.210 ns ( 60.61 % )
+    Info: + Micro clock to output delay of source is 0.304 ns
+    Info: + Longest register to pin delay is 7.614 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X27_Y10_N9; Fanout = 4; REG Node = 'LCD_DATA[5]~reg0'
+        Info: 2: + IC(4.384 ns) + CELL(3.230 ns) = 7.614 ns; Loc. = PIN_32; Fanout = 0; PIN Node = 'LCD_DATA[5]'
+        Info: Total cell delay = 3.230 ns ( 42.42 % )
+        Info: Total interconnect delay = 4.384 ns ( 57.58 % )
+Info: th for register "data_out[7]" (data pin = "data_in6[7]", clock pin = "Clk") is 3.296 ns
+    Info: + Longest clock path from clock "Clk" to destination register is 6.908 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.100 ns) = 1.100 ns; Loc. = PIN_17; Fanout = 2; CLK Node = 'Clk'
+        Info: 2: + IC(1.466 ns) + CELL(0.970 ns) = 3.536 ns; Loc. = LCFF_X21_Y6_N13; Fanout = 1; REG Node = 'Clk_100us'
+        Info: 3: + IC(1.886 ns) + CELL(0.000 ns) = 5.422 ns; Loc. = CLKCTRL_G4; Fanout = 52; COMB Node = 'Clk_100us~clkctrl'
+        Info: 4: + IC(0.820 ns) + CELL(0.666 ns) = 6.908 ns; Loc. = LCFF_X13_Y7_N19; Fanout = 1; REG Node = 'data_out[7]'
+        Info: Total cell delay = 2.736 ns ( 39.61 % )
+        Info: Total interconnect delay = 4.172 ns ( 60.39 % )
+    Info: + Micro hold delay of destination is 0.306 ns
+    Info: - Shortest pin to register delay is 3.918 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.110 ns) = 1.110 ns; Loc. = PIN_88; Fanout = 1; PIN Node = 'data_in6[7]'
+        Info: 2: + IC(2.050 ns) + CELL(0.650 ns) = 3.810 ns; Loc. = LCCOMB_X13_Y7_N18; Fanout = 1; COMB Node = 'Mux0~3'
+        Info: 3: + IC(0.000 ns) + CELL(0.108 ns) = 3.918 ns; Loc. = LCFF_X13_Y7_N19; Fanout = 1; REG Node = 'data_out[7]'
+        Info: Total cell delay = 1.868 ns ( 47.68 % )
+        Info: Total interconnect delay = 2.050 ns ( 52.32 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 134 megabytes
+    Info: Processing ended: Wed Oct 15 14:12:14 2014
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

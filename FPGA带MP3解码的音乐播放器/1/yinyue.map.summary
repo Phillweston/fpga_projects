@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Nov 22 14:50:01 2017
+Quartus II Version : 11.0 Build 208 07/03/2011 SP 1 SJ Full Version
+Revision Name : yinyue
+Top-level Entity Name : yinyue
+Family : Cyclone IV E
+Total logic elements : 414
+    Total combinational functions : 414
+    Dedicated logic registers : 152
+Total registers : 152
+Total pins : 20
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

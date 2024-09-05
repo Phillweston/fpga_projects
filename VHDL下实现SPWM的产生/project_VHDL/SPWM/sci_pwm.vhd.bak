@@ -1,0 +1,51 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use IEEE.std_logic_arith.all;
+entity sci_pwm is
+port(
+     f_control_in:in std_logic_vector(15 downto 0);--频率控制参数输入
+     m_control_in:in std_logic_vector(9 downto 0);--幅值控制参数输入
+     waveform_change_in:in std_logic_vector(1 downto 0);--波形切换输入
+     
+     f_control_out:out std_logic_vector(15 downto 0);--频率控制参数输入(在设置前需要将其转换为整形数据)
+     m_control_out:out std_logic_vector(9 downto 0);--幅值控制参数输入
+     waveform_change_out:out std_logic_vector(1 downto 0);--波形切换输入
+     
+     f_flag:in std_logic;--频率标志位，频率更新时，出现上升沿
+     m_flag:in std_logic;--幅值标志位，幅值更新时，出现上升沿
+     waveform_flag:in std_logic;--波形标志位，波形更新时，出现上升沿
+     beef:out std_logic
+);
+end sci_pwm;
+architecture behave of sci_pwm is
+begin
+ process(f_flag)
+   begin
+     if(f_flag'event and f_flag='1')then
+        if(f_control_in<"1000011000110110")then
+          f_control_out<=f_control_in;
+        else null;
+        end if;
+     else null;
+     end if;
+ end process;
+  process(m_flag)
+   begin   
+     if(m_flag'event and m_flag='1')then
+       if(m_control_in<"1010111100")then--进行限制
+          m_control_out<=m_control_in;
+       else
+          beef<='0';---数据溢出，报警
+       end if;
+     else null;
+     end if;
+   end process;
+  process(waveform_flag)
+   begin   
+     if(waveform_flag'event and waveform_flag='1')then
+        waveform_change_out<= waveform_change_in;
+     else null;
+     end if;
+ end process;
+end behave;

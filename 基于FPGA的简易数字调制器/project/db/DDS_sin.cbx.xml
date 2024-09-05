@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="DDS_sin">
+		<CBX_INST_ENTRY INSTANCE_NAME="|DDS_top|DDS:u4|sin_rom:u10|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_9i91.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DDS_top|DDS:u4|sin_rom:u15|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_9i91.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|DDS_top|DDS:u4|sin_rom:u5|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_9i91.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

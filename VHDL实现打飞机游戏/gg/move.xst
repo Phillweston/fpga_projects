@@ -1,0 +1,5 @@
+set -tmpdir "D:/Users/gg/xst/projnav.tmp"
+set -xsthdpdir "D:/Users/gg/xst"
+elaborate
+-ifn move.prj
+-ifmt mixed
